@@ -8,7 +8,7 @@ target 'Thesis' do
   # Pods for Thesis
     pod 'SwiftyJSON'
     pod 'Alamofire', '~> 4.5'
-
+    pod 'KeychainSwift', '~> 10.0'
 
   target 'ThesisTests' do
     inherit! :search_paths

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zJq-Ti-zUH">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Thesis" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -19,6 +23,92 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-561" y="15"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="Ljk-uh-UW4">
+            <objects>
+                <viewController id="Uxf-1W-lPL" customClass="LoginViewController" customModule="Thesis" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1v3-H0-oeg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="pl9-sQ-Knv">
+                                <rect key="frame" x="70" y="243" width="215" height="130"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Username" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="oKl-8w-Rzj">
+                                        <rect key="frame" x="0.0" y="0.0" width="215" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="P1q-lH-hHf"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" textContentType="username"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="QMe-Id-MzT">
+                                        <rect key="frame" x="0.0" y="80" width="215" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="WFc-9n-N4a"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKy-oC-aue">
+                                <rect key="frame" x="150" y="423" width="75" height="30"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginBtnPress:" destination="Uxf-1W-lPL" eventType="touchUpInside" id="KVi-0U-tMZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pl9-sQ-Knv" firstAttribute="leading" secondItem="ir1-55-yWk" secondAttribute="leading" constant="70" id="EiB-X1-mk2"/>
+                            <constraint firstItem="BKy-oC-aue" firstAttribute="leading" secondItem="ir1-55-yWk" secondAttribute="leading" constant="150" id="LtB-vd-a2s"/>
+                            <constraint firstItem="BKy-oC-aue" firstAttribute="top" secondItem="pl9-sQ-Knv" secondAttribute="bottom" constant="50" id="LvM-lh-FKe"/>
+                            <constraint firstItem="pl9-sQ-Knv" firstAttribute="top" secondItem="ir1-55-yWk" secondAttribute="top" constant="179" id="TQj-bU-2C9"/>
+                            <constraint firstItem="ir1-55-yWk" firstAttribute="trailing" secondItem="pl9-sQ-Knv" secondAttribute="trailing" constant="90" id="VSm-ko-Uhw"/>
+                            <constraint firstItem="ir1-55-yWk" firstAttribute="trailing" secondItem="BKy-oC-aue" secondAttribute="trailing" constant="150" id="fTH-0F-tOF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ir1-55-yWk"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="USr-AY-FIJ"/>
+                    <connections>
+                        <outlet property="passwordField" destination="QMe-Id-MzT" id="4QF-9l-voP"/>
+                        <outlet property="usernameField" destination="oKl-8w-Rzj" id="uAQ-93-nNu"/>
+                        <outlet property="viewModel" destination="c3b-ZU-vzE" id="4sp-LY-zgE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RVf-uH-wng" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="c3b-ZU-vzE" customClass="LoginViewModel" customModule="Thesis" customModuleProvider="target">
+                    <connections>
+                        <outlet property="apiClient" destination="RJf-Jz-6nt" id="iLJ-Gf-1Sn"/>
+                    </connections>
+                </customObject>
+                <customObject id="RJf-Jz-6nt" customClass="ApiClientUsers" customModule="Thesis" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="930.39999999999998" y="14.842578710644679"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7e3-Rt-7cd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zJq-Ti-zUH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ca2-to-wEt">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Uxf-1W-lPL" kind="relationship" relationship="rootViewController" id="n1m-rg-GTi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NDJ-EO-emI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="180" y="15"/>
         </scene>
     </scenes>
 </document>

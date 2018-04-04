@@ -14,6 +14,12 @@
 		4BB292E92074C3A800C394CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BB292E82074C3A800C394CC /* Assets.xcassets */; };
 		4BB292EC2074C3A800C394CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BB292EA2074C3A800C394CC /* LaunchScreen.storyboard */; };
 		4BB292F72074C3A800C394CC /* ThesisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB292F62074C3A800C394CC /* ThesisTests.swift */; };
+		4BB293062074C69F00C394CC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB293052074C69F00C394CC /* User.swift */; };
+		4BB293082074C9E800C394CC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB293072074C9E800C394CC /* LoginViewController.swift */; };
+		4BB2930A2074CA5000C394CC /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB293092074CA5000C394CC /* LoginViewModel.swift */; };
+		4BB2930C2074CA7A00C394CC /* ApiClientUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2930B2074CA7A00C394CC /* ApiClientUsers.swift */; };
+		4BB2930F2074CB0D00C394CC /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2930E2074CB0D00C394CC /* Urls.swift */; };
+		4BB293112074CC1400C394CC /* ExtensionMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB293102074CC1400C394CC /* ExtensionMethods.swift */; };
 		B5557FC68E997C483CF4D04C /* Pods_Thesis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09EDC5BFC67582030AE3C144 /* Pods_Thesis.framework */; };
 		C09F181445F02CE422EB2249 /* Pods_ThesisTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6B79831F2E212EB41C8A18E /* Pods_ThesisTests.framework */; };
 /* End PBXBuildFile section */
@@ -42,6 +48,12 @@
 		4BB292F22074C3A800C394CC /* ThesisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThesisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BB292F62074C3A800C394CC /* ThesisTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThesisTests.swift; sourceTree = "<group>"; };
 		4BB292F82074C3A800C394CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BB293052074C69F00C394CC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4BB293072074C9E800C394CC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		4BB293092074CA5000C394CC /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		4BB2930B2074CA7A00C394CC /* ApiClientUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClientUsers.swift; sourceTree = "<group>"; };
+		4BB2930E2074CB0D00C394CC /* Urls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
+		4BB293102074CC1400C394CC /* ExtensionMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionMethods.swift; sourceTree = "<group>"; };
 		96EFC55EBAE76A82C9AED4F4 /* Pods-ThesisTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThesisTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ThesisTests/Pods-ThesisTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B6B79831F2E212EB41C8A18E /* Pods_ThesisTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ThesisTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD7F349DD541FA85773953D1 /* Pods-Thesis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thesis.release.xcconfig"; path = "Pods/Target Support Files/Pods-Thesis/Pods-Thesis.release.xcconfig"; sourceTree = "<group>"; };
@@ -91,6 +103,10 @@
 		4BB292DD2074C3A800C394CC /* Thesis */ = {
 			isa = PBXGroup;
 			children = (
+				4BB293042074C63F00C394CC /* Models */,
+				4BB293032074C63300C394CC /* ViewControllers */,
+				4BB293022074C62B00C394CC /* ViewModels */,
+				4BB293012074C61A00C394CC /* Utils */,
 				4BB292DE2074C3A800C394CC /* AppDelegate.swift */,
 				4BB292E02074C3A800C394CC /* ViewController.swift */,
 				4BB292E22074C3A800C394CC /* Main.storyboard */,
@@ -109,6 +125,48 @@
 				4BB292F82074C3A800C394CC /* Info.plist */,
 			);
 			path = ThesisTests;
+			sourceTree = "<group>";
+		};
+		4BB293012074C61A00C394CC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4BB2930D2074CAFD00C394CC /* Constants */,
+				4BB2930B2074CA7A00C394CC /* ApiClientUsers.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		4BB293022074C62B00C394CC /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4BB293092074CA5000C394CC /* LoginViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		4BB293032074C63300C394CC /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4BB293072074C9E800C394CC /* LoginViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4BB293042074C63F00C394CC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4BB293052074C69F00C394CC /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4BB2930D2074CAFD00C394CC /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				4BB2930E2074CB0D00C394CC /* Urls.swift */,
+				4BB293102074CC1400C394CC /* ExtensionMethods.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		933DEA7C5C1F8A73F0D5228E /* Frameworks */ = {
@@ -325,11 +383,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Thesis/Pods-Thesis-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,8 +404,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BB293062074C69F00C394CC /* User.swift in Sources */,
 				4BB292E12074C3A800C394CC /* ViewController.swift in Sources */,
+				4BB2930C2074CA7A00C394CC /* ApiClientUsers.swift in Sources */,
+				4BB2930F2074CB0D00C394CC /* Urls.swift in Sources */,
+				4BB293112074CC1400C394CC /* ExtensionMethods.swift in Sources */,
+				4BB2930A2074CA5000C394CC /* LoginViewModel.swift in Sources */,
 				4BB292DF2074C3A800C394CC /* AppDelegate.swift in Sources */,
+				4BB293082074C9E800C394CC /* LoginViewController.swift in Sources */,
 				4BB292E72074C3A800C394CC /* Thesis.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
