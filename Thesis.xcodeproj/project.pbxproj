@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B7A74512074DFCE003BAE07 /* MyLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A74502074DFCE003BAE07 /* MyLibraryViewController.swift */; };
+		4B7A74532074E291003BAE07 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A74522074E291003BAE07 /* Book.swift */; };
+		4B7A74552074E2B8003BAE07 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A74542074E2B8003BAE07 /* Author.swift */; };
+		4B7A74572074E595003BAE07 /* ApiClientBooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A74562074E595003BAE07 /* ApiClientBooks.swift */; };
+		4B7A745A2074E7B4003BAE07 /* MyLibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A74592074E7B4003BAE07 /* MyLibraryViewModel.swift */; };
+		4B7A745D2074E9FB003BAE07 /* MyLibraryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A745C2074E9FB003BAE07 /* MyLibraryViewCell.swift */; };
 		4BB292DF2074C3A800C394CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB292DE2074C3A800C394CC /* AppDelegate.swift */; };
 		4BB292E12074C3A800C394CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB292E02074C3A800C394CC /* ViewController.swift */; };
 		4BB292E42074C3A800C394CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BB292E22074C3A800C394CC /* Main.storyboard */; };
@@ -20,6 +26,7 @@
 		4BB2930C2074CA7A00C394CC /* ApiClientUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2930B2074CA7A00C394CC /* ApiClientUsers.swift */; };
 		4BB2930F2074CB0D00C394CC /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2930E2074CB0D00C394CC /* Urls.swift */; };
 		4BB293112074CC1400C394CC /* ExtensionMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB293102074CC1400C394CC /* ExtensionMethods.swift */; };
+		4BB293142074D9D600C394CC /* DisplayAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB293132074D9D600C394CC /* DisplayAlert.swift */; };
 		B5557FC68E997C483CF4D04C /* Pods_Thesis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09EDC5BFC67582030AE3C144 /* Pods_Thesis.framework */; };
 		C09F181445F02CE422EB2249 /* Pods_ThesisTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6B79831F2E212EB41C8A18E /* Pods_ThesisTests.framework */; };
 /* End PBXBuildFile section */
@@ -37,6 +44,12 @@
 /* Begin PBXFileReference section */
 		09EDC5BFC67582030AE3C144 /* Pods_Thesis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thesis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1669DD6DA6518B49529F2656 /* Pods-ThesisTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThesisTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ThesisTests/Pods-ThesisTests.release.xcconfig"; sourceTree = "<group>"; };
+		4B7A74502074DFCE003BAE07 /* MyLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLibraryViewController.swift; sourceTree = "<group>"; };
+		4B7A74522074E291003BAE07 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		4B7A74542074E2B8003BAE07 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
+		4B7A74562074E595003BAE07 /* ApiClientBooks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClientBooks.swift; sourceTree = "<group>"; };
+		4B7A74592074E7B4003BAE07 /* MyLibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLibraryViewModel.swift; sourceTree = "<group>"; };
+		4B7A745C2074E9FB003BAE07 /* MyLibraryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLibraryViewCell.swift; sourceTree = "<group>"; };
 		4BB292DB2074C3A800C394CC /* Thesis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thesis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BB292DE2074C3A800C394CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BB292E02074C3A800C394CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +67,7 @@
 		4BB2930B2074CA7A00C394CC /* ApiClientUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClientUsers.swift; sourceTree = "<group>"; };
 		4BB2930E2074CB0D00C394CC /* Urls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
 		4BB293102074CC1400C394CC /* ExtensionMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionMethods.swift; sourceTree = "<group>"; };
+		4BB293132074D9D600C394CC /* DisplayAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayAlert.swift; sourceTree = "<group>"; };
 		96EFC55EBAE76A82C9AED4F4 /* Pods-ThesisTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThesisTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ThesisTests/Pods-ThesisTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B6B79831F2E212EB41C8A18E /* Pods_ThesisTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ThesisTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD7F349DD541FA85773953D1 /* Pods-Thesis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thesis.release.xcconfig"; path = "Pods/Target Support Files/Pods-Thesis/Pods-Thesis.release.xcconfig"; sourceTree = "<group>"; };
@@ -80,6 +94,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B7A745B2074E9ED003BAE07 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				4B7A745C2074E9FB003BAE07 /* MyLibraryViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
 		4BB292D22074C3A700C394CC = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +125,7 @@
 		4BB292DD2074C3A800C394CC /* Thesis */ = {
 			isa = PBXGroup;
 			children = (
+				4B7A745B2074E9ED003BAE07 /* TableViewCells */,
 				4BB293042074C63F00C394CC /* Models */,
 				4BB293032074C63300C394CC /* ViewControllers */,
 				4BB293022074C62B00C394CC /* ViewModels */,
@@ -130,8 +153,10 @@
 		4BB293012074C61A00C394CC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				4BB293122074D9BC00C394CC /* Helper methods */,
 				4BB2930D2074CAFD00C394CC /* Constants */,
 				4BB2930B2074CA7A00C394CC /* ApiClientUsers.swift */,
+				4B7A74562074E595003BAE07 /* ApiClientBooks.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -140,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				4BB293092074CA5000C394CC /* LoginViewModel.swift */,
+				4B7A74592074E7B4003BAE07 /* MyLibraryViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -148,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				4BB293072074C9E800C394CC /* LoginViewController.swift */,
+				4B7A74502074DFCE003BAE07 /* MyLibraryViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -156,6 +183,8 @@
 			isa = PBXGroup;
 			children = (
 				4BB293052074C69F00C394CC /* User.swift */,
+				4B7A74522074E291003BAE07 /* Book.swift */,
+				4B7A74542074E2B8003BAE07 /* Author.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -167,6 +196,14 @@
 				4BB293102074CC1400C394CC /* ExtensionMethods.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		4BB293122074D9BC00C394CC /* Helper methods */ = {
+			isa = PBXGroup;
+			children = (
+				4BB293132074D9D600C394CC /* DisplayAlert.swift */,
+			);
+			path = "Helper methods";
 			sourceTree = "<group>";
 		};
 		933DEA7C5C1F8A73F0D5228E /* Frameworks */ = {
@@ -404,6 +441,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B7A74572074E595003BAE07 /* ApiClientBooks.swift in Sources */,
 				4BB293062074C69F00C394CC /* User.swift in Sources */,
 				4BB292E12074C3A800C394CC /* ViewController.swift in Sources */,
 				4BB2930C2074CA7A00C394CC /* ApiClientUsers.swift in Sources */,
@@ -411,6 +449,12 @@
 				4BB293112074CC1400C394CC /* ExtensionMethods.swift in Sources */,
 				4BB2930A2074CA5000C394CC /* LoginViewModel.swift in Sources */,
 				4BB292DF2074C3A800C394CC /* AppDelegate.swift in Sources */,
+				4B7A745D2074E9FB003BAE07 /* MyLibraryViewCell.swift in Sources */,
+				4BB293142074D9D600C394CC /* DisplayAlert.swift in Sources */,
+				4B7A745A2074E7B4003BAE07 /* MyLibraryViewModel.swift in Sources */,
+				4B7A74532074E291003BAE07 /* Book.swift in Sources */,
+				4B7A74552074E2B8003BAE07 /* Author.swift in Sources */,
+				4B7A74512074DFCE003BAE07 /* MyLibraryViewController.swift in Sources */,
 				4BB293082074C9E800C394CC /* LoginViewController.swift in Sources */,
 				4BB292E72074C3A800C394CC /* Thesis.xcdatamodeld in Sources */,
 			);

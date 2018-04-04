@@ -12,4 +12,7 @@ enum Urls{
     
     //MARK: Users
     static let LoginUrl = "http://home-server.go.ro/Thesis/oauth/token"
+    
+    //MARK: Books
+    static let GetLibrary = BaseUrl + "books/"
 }

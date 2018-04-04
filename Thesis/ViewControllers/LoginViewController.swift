@@ -52,10 +52,11 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         {
             viewModel.Login(username: username, password: password, completion: { (success) in
                 if success{
-                    print("Logged in")
+                    let next = self.storyboard?.instantiateViewController(withIdentifier: "tabctrl")
+                    self.navigationController?.pushViewController(next!, animated: true);
                 }
                 else{
-                    print("Not logged in")
+                    AlertMessageHelper.displayMessage(message: self.viewModel.errorMessage!, title: "Login", controller: self)
                 }
             })
         }
