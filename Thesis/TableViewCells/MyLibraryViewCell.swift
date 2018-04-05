@@ -12,6 +12,9 @@ class MyLibraryViewCell: UITableViewCell {
     
     @IBOutlet weak var TitleLabel: UILabel!
     @IBOutlet weak var AuthorLabel: UILabel!
+    @IBOutlet weak var CoverView: UIImageView!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

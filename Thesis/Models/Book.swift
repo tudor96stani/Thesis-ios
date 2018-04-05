@@ -14,6 +14,7 @@ class Book{
     var Year:Int
     var Publisher:String
     var Authors:[Author]?
+    var Cover:NSData?
     
     init(id:UUID,title:String,year:Int,pub:String){
         Id=id
@@ -31,6 +32,13 @@ class Book{
         Authors=[Author]()
         for(_,object) in json["authors"]{
             Authors?.append(Author(json:object))
+        }
+        let base64String = json["cover"].stringValue
+        if base64String != ""
+        {
+            //let imageString = base64String as NSString
+            self.Cover = NSData(base64Encoded: base64String, options: NSData.Base64DecodingOptions(rawValue: 0))
+            
         }
     }
 }

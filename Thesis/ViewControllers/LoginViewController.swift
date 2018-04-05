@@ -25,6 +25,9 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         
         usernameField.setBottomBorder()
         passwordField.setBottomBorder()
+        
+        let backButton = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: navigationController, action: nil)
+        navigationItem.leftBarButtonItem = backButton
     }
 
     override func didReceiveMemoryWarning() {

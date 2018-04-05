@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 class MyLibraryViewModel:NSObject{
     var books:[Book]?
     @IBOutlet var apiClient: ApiClientBooks!
@@ -37,6 +38,13 @@ class MyLibraryViewModel:NSObject{
             authors.append(author.FirstName + " " + author.LastName + " ")
         }
         return authors
+    }
+    
+    func BookCoverToDisplay(for indexPath:IndexPath) -> UIImage {
+        if let cover = self.books?[indexPath.row].Cover{
+            return UIImage(data:cover as Data)!
+        }
+        return UIImage(named: "default_cover")!
     }
     
 //    func FindBookDetailsViewModel(for indexPath: IndexPath) -> BookDetailsViewModel?
