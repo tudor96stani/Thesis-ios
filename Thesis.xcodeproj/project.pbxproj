@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B6C7DD22076828900AFBC56 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6C7DD12076828900AFBC56 /* SettingsTableViewController.swift */; };
 		4B7A74512074DFCE003BAE07 /* MyLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A74502074DFCE003BAE07 /* MyLibraryViewController.swift */; };
 		4B7A74532074E291003BAE07 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A74522074E291003BAE07 /* Book.swift */; };
 		4B7A74552074E2B8003BAE07 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A74542074E2B8003BAE07 /* Author.swift */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		09EDC5BFC67582030AE3C144 /* Pods_Thesis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thesis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1669DD6DA6518B49529F2656 /* Pods-ThesisTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThesisTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ThesisTests/Pods-ThesisTests.release.xcconfig"; sourceTree = "<group>"; };
+		4B6C7DD12076828900AFBC56 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		4B7A74502074DFCE003BAE07 /* MyLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLibraryViewController.swift; sourceTree = "<group>"; };
 		4B7A74522074E291003BAE07 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		4B7A74542074E2B8003BAE07 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			children = (
 				4BB293072074C9E800C394CC /* LoginViewController.swift */,
 				4B7A74502074DFCE003BAE07 /* MyLibraryViewController.swift */,
+				4B6C7DD12076828900AFBC56 /* SettingsTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				4BB2930C2074CA7A00C394CC /* ApiClientUsers.swift in Sources */,
 				4BB2930F2074CB0D00C394CC /* Urls.swift in Sources */,
 				4BB293112074CC1400C394CC /* ExtensionMethods.swift in Sources */,
+				4B6C7DD22076828900AFBC56 /* SettingsTableViewController.swift in Sources */,
 				4BB2930A2074CA5000C394CC /* LoginViewModel.swift in Sources */,
 				4BB292DF2074C3A800C394CC /* AppDelegate.swift in Sources */,
 				4B7A745D2074E9FB003BAE07 /* MyLibraryViewCell.swift in Sources */,

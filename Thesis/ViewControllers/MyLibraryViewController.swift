@@ -22,8 +22,12 @@ class MyLibraryViewController: UIViewController,UITableViewDelegate, UITableView
         // Do any additional setup after loading the view.
         self.ReloadData()
         
-        let newBackButton = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyLibraryViewController.back(sender:)))
-        self.navigationItem.leftBarButtonItem = newBackButton
+//        let newBackButton = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyLibraryViewController.back(sender:)))
+//        self.navigationItem.leftBarButtonItem = newBackButton
+        
+        self.tableView.contentInset = UIEdgeInsetsMake(-50, 0, 0, 0)
+        self.tableView.tableFooterView = UIView()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,9 +49,6 @@ class MyLibraryViewController: UIViewController,UITableViewDelegate, UITableView
         let image = resizeImage(image: viewModel.BookCoverToDisplay(for: indexPath), newWidth: cell.CoverView!.bounds.size.width)
         
         cell.CoverView?.image = image
-        
-       
-        
         return cell
     }
     

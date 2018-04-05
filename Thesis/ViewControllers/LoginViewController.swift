@@ -55,8 +55,13 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         {
             viewModel.Login(username: username, password: password, completion: { (success) in
                 if success{
-                    let next = self.storyboard?.instantiateViewController(withIdentifier: "tabctrl")
-                    self.navigationController?.pushViewController(next!, animated: true);
+//                    let next = self.storyboard?.instantiateViewController(withIdentifier: "tabctrl")
+//                    self.navigationController?.pushViewController(next!, animated: true);
+                    let appdelegate = UIApplication.shared.delegate as! AppDelegate
+                    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    let ViewController = mainStoryboard.instantiateViewController(withIdentifier: "tabctrl") as! UITabBarController
+                    let nav = UINavigationController(rootViewController: ViewController)
+                    appdelegate.window!.rootViewController = nav
                 }
                 else{
                     AlertMessageHelper.displayMessage(message: self.viewModel.errorMessage!, title: "Login", controller: self)
