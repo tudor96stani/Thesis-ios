@@ -28,6 +28,7 @@
 		4BB2930F2074CB0D00C394CC /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2930E2074CB0D00C394CC /* Urls.swift */; };
 		4BB293112074CC1400C394CC /* ExtensionMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB293102074CC1400C394CC /* ExtensionMethods.swift */; };
 		4BB293142074D9D600C394CC /* DisplayAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB293132074D9D600C394CC /* DisplayAlert.swift */; };
+		4BCD7AC02077841400A2C5EC /* ActivityIndicatorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCD7ABF2077841400A2C5EC /* ActivityIndicatorHelper.swift */; };
 		B5557FC68E997C483CF4D04C /* Pods_Thesis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09EDC5BFC67582030AE3C144 /* Pods_Thesis.framework */; };
 		C09F181445F02CE422EB2249 /* Pods_ThesisTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6B79831F2E212EB41C8A18E /* Pods_ThesisTests.framework */; };
 /* End PBXBuildFile section */
@@ -70,6 +71,7 @@
 		4BB2930E2074CB0D00C394CC /* Urls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
 		4BB293102074CC1400C394CC /* ExtensionMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionMethods.swift; sourceTree = "<group>"; };
 		4BB293132074D9D600C394CC /* DisplayAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayAlert.swift; sourceTree = "<group>"; };
+		4BCD7ABF2077841400A2C5EC /* ActivityIndicatorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorHelper.swift; sourceTree = "<group>"; };
 		96EFC55EBAE76A82C9AED4F4 /* Pods-ThesisTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThesisTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ThesisTests/Pods-ThesisTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B6B79831F2E212EB41C8A18E /* Pods_ThesisTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ThesisTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD7F349DD541FA85773953D1 /* Pods-Thesis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thesis.release.xcconfig"; path = "Pods/Target Support Files/Pods-Thesis/Pods-Thesis.release.xcconfig"; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				4BB293132074D9D600C394CC /* DisplayAlert.swift */,
+				4BCD7ABF2077841400A2C5EC /* ActivityIndicatorHelper.swift */,
 			);
 			path = "Helper methods";
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				4BB2930A2074CA5000C394CC /* LoginViewModel.swift in Sources */,
 				4BB292DF2074C3A800C394CC /* AppDelegate.swift in Sources */,
 				4B7A745D2074E9FB003BAE07 /* MyLibraryViewCell.swift in Sources */,
+				4BCD7AC02077841400A2C5EC /* ActivityIndicatorHelper.swift in Sources */,
 				4BB293142074D9D600C394CC /* DisplayAlert.swift in Sources */,
 				4B7A745A2074E7B4003BAE07 /* MyLibraryViewModel.swift in Sources */,
 				4B7A74532074E291003BAE07 /* Book.swift in Sources */,

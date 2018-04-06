@@ -13,7 +13,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet var viewModel:LoginViewModel!
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -51,23 +51,29 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     //MARK: Actions
     
     @IBAction func loginBtnPress(_ sender: Any) {
-        if let username = usernameField.text, let password = passwordField.text
-        {
-            viewModel.Login(username: username, password: password, completion: { (success) in
-                if success{
-//                    let next = self.storyboard?.instantiateViewController(withIdentifier: "tabctrl")
-//                    self.navigationController?.pushViewController(next!, animated: true);
-                    let appdelegate = UIApplication.shared.delegate as! AppDelegate
-                    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                    let ViewController = mainStoryboard.instantiateViewController(withIdentifier: "tabctrl") as! UITabBarController
-                    let nav = UINavigationController(rootViewController: ViewController)
-                    appdelegate.window!.rootViewController = nav
-                }
-                else{
-                    AlertMessageHelper.displayMessage(message: self.viewModel.errorMessage!, title: "Login", controller: self)
-                }
-            })
+        ActivityIndicatorHelper.start(activityIndicator: self.activityIndicator, controller: self)
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        guard let username = usernameField.text, !username.isEmpty, let password = passwordField.text, !password.isEmpty
+        else {
+            AlertMessageHelper.displayMessage(message: "Please enter username and password", title: "Login", controller: self)
+            return
         }
+        viewModel.Login(username: username, password: password, completion: { (success) in
+            UIApplication.shared.endIgnoringInteractionEvents()
+            ActivityIndicatorHelper.stop(activityIndicator: self.activityIndicator)
+            if success{
+                let appdelegate = UIApplication.shared.delegate as! AppDelegate
+                let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let ViewController = mainStoryboard.instantiateViewController(withIdentifier: "tabctrl") as! UITabBarController
+                let nav = UINavigationController(rootViewController: ViewController)
+                appdelegate.window!.rootViewController = nav
+            }
+            else{
+                AlertMessageHelper.displayMessage(message: self.viewModel.errorMessage!, title: "Login", controller: self)
+            }
+        })
+       
+        
     }
     
     /*

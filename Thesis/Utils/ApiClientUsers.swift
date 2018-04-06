@@ -16,6 +16,30 @@ class ApiClientUsers:NSObject{
     let keychain = KeychainSwift()
     let defaultValues = UserDefaults.standard
     
+    func RefreshTokenIfNecessary(token: String,outercompletion: @escaping () -> Void){
+        
+        let headers : HTTPHeaders = [
+            "Authorization" : "Bearer \(token)"
+        ]
+        Alamofire.request(Urls.RefreshURL,headers:headers).response { (response) in
+            switch response.response?.statusCode{
+            case 200?:
+                //token still valid
+                outercompletion()
+                
+            default:
+                //token no longer valid
+                let username = self.keychain.get(KeychainSwift.Keys.Username)!
+                let password = self.keychain.get(KeychainSwift.Keys.Password)!
+                self.Login(username: username, password: password, completion: { (user, message, success) in
+                    if success{
+                        outercompletion()
+                    }
+                })
+            }
+        }
+    }
+    
     
     func Login(username:String,password:String,completion: @escaping (User?,String?,Bool)->Void){
         let params : Parameters = [

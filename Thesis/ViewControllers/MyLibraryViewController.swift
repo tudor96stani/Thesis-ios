@@ -22,12 +22,14 @@ class MyLibraryViewController: UIViewController,UITableViewDelegate, UITableView
         // Do any additional setup after loading the view.
         self.ReloadData()
         
-//        let newBackButton = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyLibraryViewController.back(sender:)))
-//        self.navigationItem.leftBarButtonItem = newBackButton
         
         self.tableView.contentInset = UIEdgeInsetsMake(-50, 0, 0, 0)
         self.tableView.tableFooterView = UIView()
         
+        //Handle pull down to refresh
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: .valueChanged)
+        tableView.refreshControl = refreshControl
     }
 
     override func didReceiveMemoryWarning() {
@@ -74,7 +76,10 @@ class MyLibraryViewController: UIViewController,UITableViewDelegate, UITableView
     }
     
     
-    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        self.ReloadData()
+        refreshControl.endRefreshing()
+    }
 
     
      
