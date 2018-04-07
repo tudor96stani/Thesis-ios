@@ -27,7 +27,6 @@ class ApiClientBooks:NSObject{
             .responseJSON { (response) in
                 switch response.result{
                 case .success(let value):
-                    print("OK")
                     let json = JSON(value)
                     var books = [Book]()
                     for(_,subJson):(String,JSON) in json
@@ -39,6 +38,10 @@ class ApiClientBooks:NSObject{
                     completion(nil)
                 }
         }
+    }
+    
+    func Search(by query:String,completion:@escaping ([Book]?)->Void){
+        
     }
 }
 

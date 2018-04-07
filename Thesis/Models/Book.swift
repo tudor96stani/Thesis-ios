@@ -26,7 +26,7 @@ class Book{
     
     init(json:JSON){
         Id=UUID(uuidString:json["id"].string ?? "00000000-0000-0000-0000-000000000000")!
-        Title = json["title"].string ?? ""
+        Title = json["title"].stringValue
         Year = json["year"].intValue
         Publisher = json["publisher"].stringValue
         Authors=[Author]()

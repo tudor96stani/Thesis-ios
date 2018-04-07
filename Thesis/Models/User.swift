@@ -19,7 +19,16 @@ public class User {
     
     init(json: JSON)
     {
-        Id = json["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"].stringValue
-        Username = json["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"].stringValue
+        if let id = json["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"].string,id != ""{
+                self.Id = id
+        }else{
+            self.Id = json["id"].stringValue
+        }
+        if let username = json["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"].string, username != ""{
+            Username = username
+        }else{
+            Username = json["name"].stringValue
+        }
+        
     }
 }

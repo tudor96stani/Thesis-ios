@@ -30,6 +30,20 @@ class MyLibraryViewController: UIViewController,UITableViewDelegate, UITableView
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: .valueChanged)
         tableView.refreshControl = refreshControl
+        
+        self.tabBarController?.title="My books"
+        //let button1 = UIBarButtonItem(title:"+" , style: .plain, target: self, action: #selector(MyLibraryViewController.goTo(_:)))
+        let btn2 = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(MyLibraryViewController.goTo(_:)))
+        self.tabBarController?.navigationItem.rightBarButtonItem=btn2 
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.tabBarController?.title="My books"
+        //let button1 = UIBarButtonItem(title:"+" , style: .plain, target: self, action: #selector(MyLibraryViewController.goTo(_:)))
+        let btn2 = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(MyLibraryViewController.goTo(_:)))
+        self.tabBarController?.navigationItem.rightBarButtonItem=btn2 
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,7 +63,7 @@ class MyLibraryViewController: UIViewController,UITableViewDelegate, UITableView
         cell.TitleLabel?.text = viewModel.BookTitleToDisplay(for: indexPath)
         cell.AuthorLabel?.text = viewModel.BookAuthorToDisplay(for: indexPath)
         let image = resizeImage(image: viewModel.BookCoverToDisplay(for: indexPath), newWidth: cell.CoverView!.bounds.size.width)
-        
+    
         cell.CoverView?.image = image
         return cell
     }
@@ -100,6 +114,13 @@ class MyLibraryViewController: UIViewController,UITableViewDelegate, UITableView
             let nav = UINavigationController(rootViewController: ViewController)
             appdelegate.window!.rootViewController = nav
         }
+    }
+    
+    @objc func goTo(_ sender:UIBarButtonItem){
+        let appdelegate = UIApplication.shared.delegate as! AppDelegate
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let ViewController = mainStoryboard.instantiateViewController(withIdentifier: "searchBookCtrl") as! SearchForBookViewController
+        self.navigationController?.pushViewController(ViewController, animated: true)
     }
      
     /*

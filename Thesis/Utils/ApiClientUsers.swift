@@ -40,6 +40,7 @@ class ApiClientUsers:NSObject{
         }
     }
     
+
     
     func Login(username:String,password:String,completion: @escaping (User?,String?,Bool)->Void){
         let params : Parameters = [
@@ -80,6 +81,34 @@ class ApiClientUsers:NSObject{
                     completion(nil,message,false)
                 }
             }
+    }
+    
+    func GetFriends(completion:@escaping ([User]?)->Void){
+        let token = self.keychain.get(KeychainSwift.Keys.Token)!
+        let headers : HTTPHeaders = [
+            "Authorization" : "Bearer \(token)"
+        ]
+        let url = Urls.GetFriends + self.defaultValues.string(forKey: UserDefaults.Keys.UserId)!
+        
+        Alamofire.request(url,headers:headers)
+            .validate()
+            .responseJSON { (response) in
+                switch response.result{
+                case .success(let value):
+                    let json = JSON(value)
+                    var users = [User]()
+                    for(_,subJson) in json{
+                        users.append(User(json:subJson))
+                    }
+                    completion(users)
+                case .failure( _):
+                    completion(nil)
+                }
+        }
         
     }
+    
+    
+    
+    
 }

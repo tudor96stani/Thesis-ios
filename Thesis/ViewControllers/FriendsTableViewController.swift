@@ -1,17 +1,16 @@
 //
-//  SettingsTableViewController.swift
+//  FriendsTableViewController.swift
 //  Thesis
 //
-//  Created by Tudor Stanila on 05/04/2018.
+//  Created by Tudor Stanila on 07/04/2018.
 //  Copyright © 2018 Tudor Stanila. All rights reserved.
 //
 
 import UIKit
-import KeychainSwift
-class SettingsTableViewController: UITableViewController {
 
-    let keychain = KeychainSwift()
-    let defaultValues = UserDefaults.standard
+class FriendsTableViewController: UITableViewController {
+
+    @IBOutlet var viewModel: FriendsTableViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,19 +20,15 @@ class SettingsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.tableView.contentInset = UIEdgeInsetsMake(-40, 0, 0, 0)
         self.tableView.tableFooterView = UIView()
-        self.tableView.contentInset = UIEdgeInsetsMake(-50, 0, 0, 0)
-        
-       
-
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        self.tabBarController?.title="Settings"
-        self.tabBarController?.navigationItem.rightBarButtonItem = nil;
-        self.tabBarController?.navigationItem.leftBarButtonItem = nil;
+        self.ReloadData()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.tabBarController?.navigationItem.leftBarButtonItem=UIBarButtonItem(customView: BackButtonHelper.GetBackButton(controller: self, selector: #selector(backAction(_:))))
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -43,57 +38,33 @@ class SettingsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if section == 0{
-            return 2
-        }
-        else{
-            return 1
-        }
-    }
-    
-    
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if indexPath.section==1 && indexPath.row==0{
-            self.keychain.delete(KeychainSwift.Keys.Token)
-            self.keychain.delete(KeychainSwift.Keys.Username)
-            self.keychain.delete(KeychainSwift.Keys.Password)
-            self.defaultValues.removeObject(forKey: UserDefaults.Keys.UserId)
-            
-            if (self.navigationController?.popViewController(animated: true)) != nil{
-                
-            }
-            else{
-                let appdelegate = UIApplication.shared.delegate as! AppDelegate
-                let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let ViewController = mainStoryboard.instantiateViewController(withIdentifier: "loginCtrl") as! LoginViewController
-                let nav = UINavigationController(rootViewController: ViewController)
-                appdelegate.window!.rootViewController = nav
-            }
-        }
-        
-        if indexPath.section == 0 && indexPath.row == 0{
-            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let ViewController = mainStoryboard.instantiateViewController(withIdentifier: "friendsTbl") as! FriendsTableViewController
-            self.navigationController?.pushViewController(ViewController, animated: true)
-        }
+        return viewModel.GetCount()
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendTableViewCell
 
         // Configure the cell...
+        cell.nameLabel.text = viewModel.GetFriendName(for: indexPath)
 
         return cell
     }
-    */
+    
+    func ReloadData(){
+        viewModel.GetFriends() {
+            self.tableView.reloadData()
+        }
+    }
+    
+    @IBAction func backAction(_ sender:UIBarButtonItem){
+        self.navigationController?.popViewController(animated: true)
+    }
 
     /*
     // Override to support conditional editing of the table view.
