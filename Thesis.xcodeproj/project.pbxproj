@@ -13,6 +13,9 @@
 		4B6E286C2078E0840074D1B9 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6E286B2078E0840074D1B9 /* FriendTableViewCell.swift */; };
 		4B6E286E2078E2C40074D1B9 /* FriendsTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6E286D2078E2C40074D1B9 /* FriendsTableViewModel.swift */; };
 		4B6E28702078FE830074D1B9 /* BackButtonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6E286F2078FE830074D1B9 /* BackButtonHelper.swift */; };
+		4B6E2872207905370074D1B9 /* SearchForBookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6E2871207905370074D1B9 /* SearchForBookViewModel.swift */; };
+		4B6E2876207908630074D1B9 /* SearchForBookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6E2875207908630074D1B9 /* SearchForBookCollectionViewCell.swift */; };
+		4B6E28782079095E0074D1B9 /* ImageResize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6E28772079095E0074D1B9 /* ImageResize.swift */; };
 		4B7A74512074DFCE003BAE07 /* MyLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A74502074DFCE003BAE07 /* MyLibraryViewController.swift */; };
 		4B7A74532074E291003BAE07 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A74522074E291003BAE07 /* Book.swift */; };
 		4B7A74552074E2B8003BAE07 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A74542074E2B8003BAE07 /* Author.swift */; };
@@ -57,6 +60,9 @@
 		4B6E286B2078E0840074D1B9 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
 		4B6E286D2078E2C40074D1B9 /* FriendsTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewModel.swift; sourceTree = "<group>"; };
 		4B6E286F2078FE830074D1B9 /* BackButtonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonHelper.swift; sourceTree = "<group>"; };
+		4B6E2871207905370074D1B9 /* SearchForBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchForBookViewModel.swift; sourceTree = "<group>"; };
+		4B6E2875207908630074D1B9 /* SearchForBookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchForBookCollectionViewCell.swift; sourceTree = "<group>"; };
+		4B6E28772079095E0074D1B9 /* ImageResize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResize.swift; sourceTree = "<group>"; };
 		4B7A74502074DFCE003BAE07 /* MyLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLibraryViewController.swift; sourceTree = "<group>"; };
 		4B7A74522074E291003BAE07 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		4B7A74542074E2B8003BAE07 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
@@ -108,6 +114,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B6E28742079084B0074D1B9 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				4B6E2875207908630074D1B9 /* SearchForBookCollectionViewCell.swift */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
 		4B7A745B2074E9ED003BAE07 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +154,7 @@
 		4BB292DD2074C3A800C394CC /* Thesis */ = {
 			isa = PBXGroup;
 			children = (
+				4B6E28742079084B0074D1B9 /* CollectionViewCells */,
 				4B7A745B2074E9ED003BAE07 /* TableViewCells */,
 				4BB293042074C63F00C394CC /* Models */,
 				4BB293032074C63300C394CC /* ViewControllers */,
@@ -182,6 +197,7 @@
 				4BB293092074CA5000C394CC /* LoginViewModel.swift */,
 				4B7A74592074E7B4003BAE07 /* MyLibraryViewModel.swift */,
 				4B6E286D2078E2C40074D1B9 /* FriendsTableViewModel.swift */,
+				4B6E2871207905370074D1B9 /* SearchForBookViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -223,6 +239,7 @@
 				4BB293132074D9D600C394CC /* DisplayAlert.swift */,
 				4BCD7ABF2077841400A2C5EC /* ActivityIndicatorHelper.swift */,
 				4B6E286F2078FE830074D1B9 /* BackButtonHelper.swift */,
+				4B6E28772079095E0074D1B9 /* ImageResize.swift */,
 			);
 			path = "Helper methods";
 			sourceTree = "<group>";
@@ -462,6 +479,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B6E2876207908630074D1B9 /* SearchForBookCollectionViewCell.swift in Sources */,
 				4B7A74572074E595003BAE07 /* ApiClientBooks.swift in Sources */,
 				4BB293062074C69F00C394CC /* User.swift in Sources */,
 				4BB292E12074C3A800C394CC /* ViewController.swift in Sources */,
@@ -473,6 +491,7 @@
 				4B6C7DD22076828900AFBC56 /* SettingsTableViewController.swift in Sources */,
 				4BB2930A2074CA5000C394CC /* LoginViewModel.swift in Sources */,
 				4BB292DF2074C3A800C394CC /* AppDelegate.swift in Sources */,
+				4B6E2872207905370074D1B9 /* SearchForBookViewModel.swift in Sources */,
 				4B7A745D2074E9FB003BAE07 /* MyLibraryViewCell.swift in Sources */,
 				4BCD7AC02077841400A2C5EC /* ActivityIndicatorHelper.swift in Sources */,
 				4BB293142074D9D600C394CC /* DisplayAlert.swift in Sources */,
@@ -481,6 +500,7 @@
 				4B6E286A2078E0310074D1B9 /* FriendsTableViewController.swift in Sources */,
 				4B7A74532074E291003BAE07 /* Book.swift in Sources */,
 				4B6E286E2078E2C40074D1B9 /* FriendsTableViewModel.swift in Sources */,
+				4B6E28782079095E0074D1B9 /* ImageResize.swift in Sources */,
 				4B7A74552074E2B8003BAE07 /* Author.swift in Sources */,
 				4B7A74512074DFCE003BAE07 /* MyLibraryViewController.swift in Sources */,
 				4BB293082074C9E800C394CC /* LoginViewController.swift in Sources */,

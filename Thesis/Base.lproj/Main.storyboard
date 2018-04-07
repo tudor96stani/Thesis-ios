@@ -204,12 +204,100 @@
                     <view key="view" contentMode="scaleToFill" id="yh0-3i-6Nc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iqT-HH-tUA">
+                                <rect key="frame" x="0.0" y="154" width="375" height="513"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3iI-ao-RTS">
+                                    <size key="itemSize" width="180" height="263"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="searchResultCell" id="QAl-9t-E72" customClass="SearchForBookCollectionViewCell" customModule="Thesis" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="263"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="180" height="263"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2M7-W0-I19">
+                                                    <rect key="frame" x="5" y="191" width="169" height="68"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="abt-oj-oAc">
+                                                    <rect key="frame" x="37" y="8" width="106" height="180"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="180" id="b8J-0N-FG8"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="2M7-W0-I19" secondAttribute="trailing" constant="6" id="75i-s9-BTz"/>
+                                            <constraint firstAttribute="trailing" secondItem="abt-oj-oAc" secondAttribute="trailing" constant="37" id="7cf-7j-gny"/>
+                                            <constraint firstAttribute="bottom" secondItem="2M7-W0-I19" secondAttribute="bottom" constant="4" id="Vmp-Fe-JUw"/>
+                                            <constraint firstItem="abt-oj-oAc" firstAttribute="leading" secondItem="QAl-9t-E72" secondAttribute="leading" constant="37" id="ibK-08-PNm"/>
+                                            <constraint firstItem="2M7-W0-I19" firstAttribute="top" secondItem="abt-oj-oAc" secondAttribute="bottom" constant="3" id="iwh-rx-XO7"/>
+                                            <constraint firstItem="2M7-W0-I19" firstAttribute="leading" secondItem="QAl-9t-E72" secondAttribute="leading" constant="5" id="oWe-aJ-2zN"/>
+                                            <constraint firstItem="abt-oj-oAc" firstAttribute="top" secondItem="QAl-9t-E72" secondAttribute="top" constant="8" id="ywn-9b-fSh"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="coverImageView" destination="abt-oj-oAc" id="n5H-Rj-dKo"/>
+                                            <outlet property="titleAuthorLabel" destination="2M7-W0-I19" id="ZxR-aP-GIn"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="blf-pG-m6u" id="FLG-ba-oJH"/>
+                                    <outlet property="delegate" destination="blf-pG-m6u" id="LZz-Vf-81d"/>
+                                </connections>
+                            </collectionView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KO3-pg-MxZ">
+                                <rect key="frame" x="16" y="94" width="202" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="blf-pG-m6u" id="dvH-0A-rFj"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vR8-gO-q9Y">
+                                <rect key="frame" x="257" y="94" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Search"/>
+                                <connections>
+                                    <action selector="searchBtnPress:" destination="blf-pG-m6u" eventType="touchUpInside" id="JYF-Lz-pRF"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xze-4X-ivs">
+                                <rect key="frame" x="-1" y="141" width="376" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="wsH-u4-uvp"/>
                     </view>
                     <navigationItem key="navigationItem" id="P64-ag-YAe"/>
+                    <connections>
+                        <outlet property="collectionView" destination="iqT-HH-tUA" id="8T0-9q-YzM"/>
+                        <outlet property="searchField" destination="KO3-pg-MxZ" id="4KA-so-fcd"/>
+                        <outlet property="viewModel" destination="SYL-AZ-eeZ" id="r0P-bi-SYk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1A1-Hn-ceA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="DhB-93-A9K" customClass="ApiClientBooks" customModule="Thesis" customModuleProvider="target"/>
+                <customObject id="SYL-AZ-eeZ" customClass="SearchForBookViewModel" customModule="Thesis" customModuleProvider="target">
+                    <connections>
+                        <outlet property="apiClient" destination="DhB-93-A9K" id="9K8-os-vX8"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="5660" y="-320.68965517241384"/>
         </scene>

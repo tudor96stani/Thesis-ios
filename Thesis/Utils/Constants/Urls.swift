@@ -17,5 +17,5 @@ enum Urls{
     
     //MARK: Books
     static let GetLibrary = BaseUrl + "books/"
-    static let Search = BaseUrl + "books/search?"
+    static let Search = BaseUrl + "books/search?query="
 }

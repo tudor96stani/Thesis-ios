@@ -62,26 +62,26 @@ class MyLibraryViewController: UIViewController,UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "myLibraryCell", for: indexPath) as! MyLibraryViewCell
         cell.TitleLabel?.text = viewModel.BookTitleToDisplay(for: indexPath)
         cell.AuthorLabel?.text = viewModel.BookAuthorToDisplay(for: indexPath)
-        let image = resizeImage(image: viewModel.BookCoverToDisplay(for: indexPath), newWidth: cell.CoverView!.bounds.size.width)
+        let image = ImageResizeHelper.resizeImage(image: viewModel.BookCoverToDisplay(for: indexPath), newWidth: cell.CoverView!.bounds.size.width)
     
         cell.CoverView?.image = image
         return cell
     }
     
     
-    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage? {
-        
-        let scale = newWidth / image.size.width
-        let newHeight = image.size.height * scale
-        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
-        image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
-        
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return newImage
-    }
-   
+//    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage? {
+//
+//        let scale = newWidth / image.size.width
+//        let newHeight = image.size.height * scale
+//        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+//        image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
+//
+//        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//
+//        return newImage
+//    }
+//
     
     func ReloadData(){
         viewModel.GetBooks(UserId: UUID(uuidString:UserDefaults.standard.string(forKey:UserDefaults.Keys.UserId)!)!) {

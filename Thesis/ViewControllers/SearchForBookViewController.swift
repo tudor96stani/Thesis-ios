@@ -8,12 +8,23 @@
 
 import UIKit
 
-class SearchForBookViewController: UIViewController {
-
+class SearchForBookViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UITextFieldDelegate {
+    
+    @IBOutlet var viewModel : SearchForBookViewModel!
+    @IBOutlet weak var searchField: UITextField!
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.collectionView.dataSource=self
+        self.collectionView.delegate = self
+        self.searchField.delegate = self
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.navigationItem.leftBarButtonItem=nil
+        self.tabBarController?.navigationItem.rightBarButtonItem=nil
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,6 +42,28 @@ class SearchForBookViewController: UIViewController {
         self.tabBarController?.navigationItem.leftBarButtonItem=UIBarButtonItem(customView: BackButtonHelper.GetBackButton(controller: self, selector: #selector(backAction(_:))))
     }
     
+    
+    //MARK: CollectionView Overrides
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.GetCount()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "searchResultCell", for: indexPath) as! SearchForBookCollectionViewCell
+        cell.titleAuthorLabel.text = viewModel.GetTitleAndAuthor(for: indexPath)
+        let image = ImageResizeHelper.resizeImage(image: viewModel.BookCoverToDisplay(for: indexPath), newWidth: cell.coverImageView!.bounds.size.width)
+        
+        cell.coverImageView?.image = image
+        
+        return cell
+    }
+    
+    
+    //MARK: Button press actions
     @objc func backAction(_ sender: UIButton){
         self.navigationController?.popViewController(animated: true)
     }
@@ -39,12 +72,25 @@ class SearchForBookViewController: UIViewController {
         
     }
 
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        self.tabBarController?.navigationItem.leftBarButtonItem=nil
-        self.tabBarController?.navigationItem.rightBarButtonItem=nil
+    @IBAction func searchBtnPress(_ sender: Any) {
+        if let query = searchField.text, query != ""{
+            self.viewModel.Search(query: query) {
+                self.collectionView.reloadData()
+            }
+        }else{
+            AlertMessageHelper.displayMessage(message: "Please enter a keyword", title: "Search", controller: self)
+        }
     }
     
+    func textFieldShouldReturn(_ textField:UITextField) -> Bool{
+        self.viewModel.Search(query: textField.text!) {
+            self.collectionView?.reloadData()
+        }
+        textField.resignFirstResponder()
+        return true;
+    }
+    
+
     /*
     // MARK: - Navigation
 
