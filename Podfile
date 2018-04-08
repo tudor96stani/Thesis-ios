@@ -9,7 +9,7 @@ target 'Thesis' do
     pod 'SwiftyJSON'
     pod 'Alamofire', '~> 4.5'
     pod 'KeychainSwift', '~> 10.0'
-  
+    pod 'UIScrollView-InfiniteScroll', '~> 1.0.0'
 
 target 'ThesisTests' do
     inherit! :search_paths

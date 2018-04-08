@@ -36,9 +36,39 @@ class Book{
         let base64String = json["cover"].stringValue
         if base64String != ""
         {
-            //let imageString = base64String as NSString
             self.Cover = NSData(base64Encoded: base64String, options: NSData.Base64DecodingOptions(rawValue: 0))
             
+        }
+    }
+    
+    init(googleJson:JSON){
+        Id = UUID(uuidString: "00000000-0000-0000-0000-000000000000")!
+        Title = googleJson["volumeInfo"]["title"].stringValue
+        let calendar = NSCalendar.init(calendarIdentifier: NSCalendar.Identifier.gregorian)
+        let stringValueOfDate = googleJson["volumeInfo"]["publishedDate"].stringValue
+        if let date = stringValueOfDate.toDate(dateFormat: "yyyy-MM-dd"),let year = calendar?.component(NSCalendar.Unit.year, from: date){
+            Year = year
+        }else{
+            if let date=stringValueOfDate.toDate(dateFormat: "yyyy"),let year = calendar?.component(NSCalendar.Unit.year, from: date){
+                Year = year
+            }
+            else{
+                Year = 0
+            }
+        }
+        
+        Publisher = googleJson["volumeInfo"]["publisher"].stringValue
+        if let url = googleJson["volumeInfo"]["imageLinks"]["thumbnail"].url{
+            Cover = NSData(contentsOf:url)
+        }
+        else{
+            Cover=nil;
+        }
+        self.Authors = [Author]()
+        if let authors = googleJson["volumeInfo"]["authors"].array{
+            for author in authors{
+                self.Authors?.append(Author(fullname: author.stringValue))
+            }
         }
     }
 }

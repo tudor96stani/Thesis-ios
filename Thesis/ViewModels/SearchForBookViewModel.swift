@@ -24,6 +24,10 @@ class SearchForBookViewModel:NSObject{
         return self.results?.count ?? 0
     }
     
+    func GetBookId(for indexPath:IndexPath) -> UUID?{
+        return self.results?[indexPath.row].Id ?? nil
+    }
+    
     func GetTitleAndAuthor(for indexPath:IndexPath) -> String{
         if let book = self.results?[indexPath.row]{
             return book.Title + ", " + self.GetAuthorsNames(for:indexPath)
@@ -45,5 +49,11 @@ class SearchForBookViewModel:NSObject{
             return UIImage(data:cover as Data)!
         }
         return UIImage(named: "default_cover")!
+    }
+    
+    func GetBook(by id:UUID) -> Book{
+        return (self.results?.first(where: { (book) -> Bool in
+            book.Id==id
+        }))!
     }
 }

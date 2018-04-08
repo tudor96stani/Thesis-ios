@@ -27,4 +27,12 @@ class Author{
         LastName=json["lastName"].stringValue
         FullName=json["fullName"].stringValue
     }
+    
+    init(fullname:String){
+        Id = UUID(uuidString: "00000000-0000-0000-0000-000000000000")!
+        FullName=fullname
+        let separateNames = fullname.components(separatedBy: " ")
+        FirstName=separateNames[0]
+        LastName = separateNames.count == 2 ? separateNames[1] : ""
+    }
 }

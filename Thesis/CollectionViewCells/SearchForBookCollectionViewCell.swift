@@ -13,4 +13,6 @@ class SearchForBookCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titleAuthorLabel: UILabel!
     
     @IBOutlet weak var coverImageView: UIImageView!
+
+    var bookId: UUID! = nil
 }

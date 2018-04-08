@@ -23,7 +23,7 @@ class MyLibraryViewController: UIViewController,UITableViewDelegate, UITableView
         self.ReloadData()
         
         
-        self.tableView.contentInset = UIEdgeInsetsMake(-50, 0, 0, 0)
+        self.tableView.contentInset = UIEdgeInsetsMake(-40, 0, 0, 0)
         self.tableView.tableFooterView = UIView()
         
         //Handle pull down to refresh
@@ -63,25 +63,10 @@ class MyLibraryViewController: UIViewController,UITableViewDelegate, UITableView
         cell.TitleLabel?.text = viewModel.BookTitleToDisplay(for: indexPath)
         cell.AuthorLabel?.text = viewModel.BookAuthorToDisplay(for: indexPath)
         let image = ImageResizeHelper.resizeImage(image: viewModel.BookCoverToDisplay(for: indexPath), newWidth: cell.CoverView!.bounds.size.width)
-    
         cell.CoverView?.image = image
         return cell
     }
     
-    
-//    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage? {
-//
-//        let scale = newWidth / image.size.width
-//        let newHeight = image.size.height * scale
-//        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
-//        image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
-//
-//        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext()
-//
-//        return newImage
-//    }
-//
     
     func ReloadData(){
         viewModel.GetBooks(UserId: UUID(uuidString:UserDefaults.standard.string(forKey:UserDefaults.Keys.UserId)!)!) {
@@ -117,7 +102,6 @@ class MyLibraryViewController: UIViewController,UITableViewDelegate, UITableView
     }
     
     @objc func goTo(_ sender:UIBarButtonItem){
-        let appdelegate = UIApplication.shared.delegate as! AppDelegate
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let ViewController = mainStoryboard.instantiateViewController(withIdentifier: "searchBookCtrl") as! SearchForBookViewController
         self.navigationController?.pushViewController(ViewController, animated: true)

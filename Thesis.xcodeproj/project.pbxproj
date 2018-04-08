@@ -16,6 +16,12 @@
 		4B6E2872207905370074D1B9 /* SearchForBookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6E2871207905370074D1B9 /* SearchForBookViewModel.swift */; };
 		4B6E2876207908630074D1B9 /* SearchForBookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6E2875207908630074D1B9 /* SearchForBookCollectionViewCell.swift */; };
 		4B6E28782079095E0074D1B9 /* ImageResize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6E28772079095E0074D1B9 /* ImageResize.swift */; };
+		4B6E287A2079102D0074D1B9 /* AddBookInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6E28792079102D0074D1B9 /* AddBookInfoViewController.swift */; };
+		4B6E287C207911B70074D1B9 /* AddBookInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6E287B207911B70074D1B9 /* AddBookInfoViewModel.swift */; };
+		4B6E287E207A14A60074D1B9 /* GoogleResultsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6E287D207A14A60074D1B9 /* GoogleResultsCollectionViewController.swift */; };
+		4B6E2880207A159E0074D1B9 /* GoogleResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6E287F207A159E0074D1B9 /* GoogleResultCollectionViewCell.swift */; };
+		4B6E2882207A16190074D1B9 /* GoogleResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6E2881207A16190074D1B9 /* GoogleResultViewModel.swift */; };
+		4B6E2885207A5E070074D1B9 /* CustomInfiniteIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6E2884207A5E070074D1B9 /* CustomInfiniteIndicator.swift */; };
 		4B7A74512074DFCE003BAE07 /* MyLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A74502074DFCE003BAE07 /* MyLibraryViewController.swift */; };
 		4B7A74532074E291003BAE07 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A74522074E291003BAE07 /* Book.swift */; };
 		4B7A74552074E2B8003BAE07 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A74542074E2B8003BAE07 /* Author.swift */; };
@@ -63,6 +69,13 @@
 		4B6E2871207905370074D1B9 /* SearchForBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchForBookViewModel.swift; sourceTree = "<group>"; };
 		4B6E2875207908630074D1B9 /* SearchForBookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchForBookCollectionViewCell.swift; sourceTree = "<group>"; };
 		4B6E28772079095E0074D1B9 /* ImageResize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResize.swift; sourceTree = "<group>"; };
+		4B6E28792079102D0074D1B9 /* AddBookInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookInfoViewController.swift; sourceTree = "<group>"; };
+		4B6E287B207911B70074D1B9 /* AddBookInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookInfoViewModel.swift; sourceTree = "<group>"; };
+		4B6E287D207A14A60074D1B9 /* GoogleResultsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleResultsCollectionViewController.swift; sourceTree = "<group>"; };
+		4B6E287F207A159E0074D1B9 /* GoogleResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleResultCollectionViewCell.swift; sourceTree = "<group>"; };
+		4B6E2881207A16190074D1B9 /* GoogleResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleResultViewModel.swift; sourceTree = "<group>"; };
+		4B6E2883207A5D390074D1B9 /* Thesis-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Thesis-Bridging-Header.h"; sourceTree = "<group>"; };
+		4B6E2884207A5E070074D1B9 /* CustomInfiniteIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInfiniteIndicator.swift; sourceTree = "<group>"; };
 		4B7A74502074DFCE003BAE07 /* MyLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLibraryViewController.swift; sourceTree = "<group>"; };
 		4B7A74522074E291003BAE07 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		4B7A74542074E2B8003BAE07 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
@@ -118,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				4B6E2875207908630074D1B9 /* SearchForBookCollectionViewCell.swift */,
+				4B6E287F207A159E0074D1B9 /* GoogleResultCollectionViewCell.swift */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -134,6 +148,7 @@
 		4BB292D22074C3A700C394CC = {
 			isa = PBXGroup;
 			children = (
+				4B6E2883207A5D390074D1B9 /* Thesis-Bridging-Header.h */,
 				4BB292DD2074C3A800C394CC /* Thesis */,
 				4BB292F52074C3A800C394CC /* ThesisTests */,
 				4BB292DC2074C3A800C394CC /* Products */,
@@ -198,6 +213,8 @@
 				4B7A74592074E7B4003BAE07 /* MyLibraryViewModel.swift */,
 				4B6E286D2078E2C40074D1B9 /* FriendsTableViewModel.swift */,
 				4B6E2871207905370074D1B9 /* SearchForBookViewModel.swift */,
+				4B6E287B207911B70074D1B9 /* AddBookInfoViewModel.swift */,
+				4B6E2881207A16190074D1B9 /* GoogleResultViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -210,6 +227,8 @@
 				4B6C7DD12076828900AFBC56 /* SettingsTableViewController.swift */,
 				4B6E28672078DA4A0074D1B9 /* SearchForBookViewController.swift */,
 				4B6E28692078E0310074D1B9 /* FriendsTableViewController.swift */,
+				4B6E28792079102D0074D1B9 /* AddBookInfoViewController.swift */,
+				4B6E287D207A14A60074D1B9 /* GoogleResultsCollectionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -240,6 +259,7 @@
 				4BCD7ABF2077841400A2C5EC /* ActivityIndicatorHelper.swift */,
 				4B6E286F2078FE830074D1B9 /* BackButtonHelper.swift */,
 				4B6E28772079095E0074D1B9 /* ImageResize.swift */,
+				4B6E2884207A5E070074D1B9 /* CustomInfiniteIndicator.swift */,
 			);
 			path = "Helper methods";
 			sourceTree = "<group>";
@@ -460,12 +480,14 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/UIScrollView-InfiniteScroll/UIScrollView_InfiniteScroll.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIScrollView_InfiniteScroll.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -479,10 +501,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B6E2880207A159E0074D1B9 /* GoogleResultCollectionViewCell.swift in Sources */,
 				4B6E2876207908630074D1B9 /* SearchForBookCollectionViewCell.swift in Sources */,
 				4B7A74572074E595003BAE07 /* ApiClientBooks.swift in Sources */,
 				4BB293062074C69F00C394CC /* User.swift in Sources */,
+				4B6E287E207A14A60074D1B9 /* GoogleResultsCollectionViewController.swift in Sources */,
 				4BB292E12074C3A800C394CC /* ViewController.swift in Sources */,
+				4B6E2885207A5E070074D1B9 /* CustomInfiniteIndicator.swift in Sources */,
 				4B6E28702078FE830074D1B9 /* BackButtonHelper.swift in Sources */,
 				4BB2930C2074CA7A00C394CC /* ApiClientUsers.swift in Sources */,
 				4BB2930F2074CB0D00C394CC /* Urls.swift in Sources */,
@@ -490,7 +515,9 @@
 				4B6E286C2078E0840074D1B9 /* FriendTableViewCell.swift in Sources */,
 				4B6C7DD22076828900AFBC56 /* SettingsTableViewController.swift in Sources */,
 				4BB2930A2074CA5000C394CC /* LoginViewModel.swift in Sources */,
+				4B6E287A2079102D0074D1B9 /* AddBookInfoViewController.swift in Sources */,
 				4BB292DF2074C3A800C394CC /* AppDelegate.swift in Sources */,
+				4B6E287C207911B70074D1B9 /* AddBookInfoViewModel.swift in Sources */,
 				4B6E2872207905370074D1B9 /* SearchForBookViewModel.swift in Sources */,
 				4B7A745D2074E9FB003BAE07 /* MyLibraryViewCell.swift in Sources */,
 				4BCD7AC02077841400A2C5EC /* ActivityIndicatorHelper.swift in Sources */,
@@ -503,6 +530,7 @@
 				4B6E28782079095E0074D1B9 /* ImageResize.swift in Sources */,
 				4B7A74552074E2B8003BAE07 /* Author.swift in Sources */,
 				4B7A74512074DFCE003BAE07 /* MyLibraryViewController.swift in Sources */,
+				4B6E2882207A16190074D1B9 /* GoogleResultViewModel.swift in Sources */,
 				4BB293082074C9E800C394CC /* LoginViewController.swift in Sources */,
 				4BB292E72074C3A800C394CC /* Thesis.xcdatamodeld in Sources */,
 			);
@@ -664,6 +692,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tudor.mobile.Thesis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Thesis-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -680,6 +709,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tudor.mobile.Thesis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Thesis-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -13,6 +13,7 @@ class SearchForBookViewController: UIViewController,UICollectionViewDelegate,UIC
     @IBOutlet var viewModel : SearchForBookViewModel!
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var collectionView: UICollectionView!
+    fileprivate var query : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,10 +57,23 @@ class SearchForBookViewController: UIViewController,UICollectionViewDelegate,UIC
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "searchResultCell", for: indexPath) as! SearchForBookCollectionViewCell
         cell.titleAuthorLabel.text = viewModel.GetTitleAndAuthor(for: indexPath)
         let image = ImageResizeHelper.resizeImage(image: viewModel.BookCoverToDisplay(for: indexPath), newWidth: cell.coverImageView!.bounds.size.width)
-        
+        guard let id = viewModel.GetBookId(for: indexPath)
+            else{
+                fatalError()
+        }
+        cell.bookId = id
         cell.coverImageView?.image = image
-        
+        cell.coverImageView?.addShadow()
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! SearchForBookCollectionViewCell
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let ViewController = mainStoryboard.instantiateViewController(withIdentifier: "addBookInfo") as! AddBookInfoViewController
+        ViewController.viewModel = AddBookInfoViewModel(book:self.viewModel.GetBook(by: cell.bookId))
+        self.navigationController?.pushViewController(ViewController, animated: true)
+        
     }
     
     
@@ -69,7 +83,21 @@ class SearchForBookViewController: UIViewController,UICollectionViewDelegate,UIC
     }
     
     @objc func notFoundBtnPress(_ sender: UIBarButtonItem){
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let ViewController = mainStoryboard.instantiateViewController(withIdentifier: "googleResultCtrl") as! GoogleResultsCollectionViewController
+        if let q = self.query,!q.isEmpty {
+            ViewController.viewModel.query = q
+        }else{
+            if let search = self.searchField.text,!search.isEmpty{
+                ViewController.viewModel.query = search
+            }
+            else{
+                AlertMessageHelper.displayMessage(message: "Please enter a keyword", title: "Search", controller: self)
+                return
+            }
+        }
         
+        self.navigationController?.pushViewController(ViewController, animated: true)
     }
 
     @IBAction func searchBtnPress(_ sender: Any) {
@@ -77,6 +105,7 @@ class SearchForBookViewController: UIViewController,UICollectionViewDelegate,UIC
             self.viewModel.Search(query: query) {
                 self.collectionView.reloadData()
             }
+            self.query = query
         }else{
             AlertMessageHelper.displayMessage(message: "Please enter a keyword", title: "Search", controller: self)
         }
@@ -86,6 +115,7 @@ class SearchForBookViewController: UIViewController,UICollectionViewDelegate,UIC
         self.viewModel.Search(query: textField.text!) {
             self.collectionView?.reloadData()
         }
+        self.query = textField.text!
         textField.resignFirstResponder()
         return true;
     }

@@ -22,4 +22,18 @@ class ImageResizeHelper{
         return newImage
     }
     
+    static func imageWithImage (sourceImage:UIImage, scaledToWidth: CGFloat) -> UIImage {
+        let oldWidth = sourceImage.size.width
+        let scaleFactor = scaledToWidth / oldWidth
+        
+        let newHeight = sourceImage.size.height * scaleFactor
+        let newWidth = oldWidth * scaleFactor
+        
+        UIGraphicsBeginImageContext(CGSize(width:newWidth, height:newHeight))
+        sourceImage.draw(in: CGRect(x:0, y:0, width:newWidth, height:newHeight))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage!
+    }
+    
 }

@@ -38,3 +38,23 @@ extension UITextField {
         self.layer.shadowRadius = 0.0
     }
 }
+
+extension String {
+    func toDate(dateFormat: String) -> Date? {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = dateFormat
+        
+        let date: Date? = dateFormatter.date(from: self)
+        return date
+    }
+}
+
+extension UIImageView{
+    func addShadow(){
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOpacity = 1
+        self.layer.shadowOffset = CGSize.zero
+        self.layer.shadowRadius = 10
+    }
+}
