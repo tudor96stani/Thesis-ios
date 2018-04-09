@@ -38,10 +38,14 @@ class SearchForBookViewModel:NSObject{
     private func GetAuthorsNames(for indexPath:IndexPath) -> String{
         var names = ""
         let book = self.results?[indexPath.row]
-        for author in (book?.Authors!)!{
-            names += " " + author.FirstName + " " + author.LastName
+        for author in book!.Authors!{
+            names += author.FullName + ","
         }
-        return names
+        if !names.isEmpty{
+            let indexOfEnd = names.index(names.endIndex, offsetBy: -1)
+            return String(names[..<indexOfEnd])
+        }
+        return ""
     }
     
     func BookCoverToDisplay(for indexPath:IndexPath) -> UIImage {

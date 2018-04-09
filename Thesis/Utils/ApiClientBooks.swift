@@ -111,6 +111,39 @@ class ApiClientBooks:NSObject{
         }
     }
     
+    func AddNewBookToLibrary(title:String,year:Int,publisher:String,authors:[String]?,cover:String,completion:@escaping (Bool,String?)->Void){
+        let token = self.keychain.get(KeychainSwift.Keys.Token)
+        let headers : HTTPHeaders = [
+            "Authorization" : "Bearer \(token!)"
+        ]
+
+            let params : Parameters = [
+                "Title":title,
+                "Year":year,
+                "Publisher":publisher,
+                "CoverUrl":cover,
+                "Authors":authors!
+            ]
+        
+            
+            Alamofire.request(Urls.AddNewBookToLibrary, method: .post, parameters: params,encoding:URLEncoding.httpBody, headers: headers)
+                .validate()
+                .response { (response) in
+                    switch response.response?.statusCode{
+                    case 200?:
+                        completion(true,nil)
+                    default:
+                        guard let data = response.data
+                            else{
+                                return;
+                        }
+                        let json = JSON(data)
+                        completion(false,json.stringValue)
+                    }
+            }
+            
+    }
+    
     func SearchGoogleApi(query:String,pageToDisplay: Int, completion:@escaping ([Book]?) -> Void){
         let startIndex = String((pageToDisplay-1)*10)
         let url = Urls.GoogleApiSearch + query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)! + "&startIndex=" + startIndex + "&maxResults=10"
@@ -132,5 +165,7 @@ class ApiClientBooks:NSObject{
                 }
         }
     }
+    
+    
 }
 

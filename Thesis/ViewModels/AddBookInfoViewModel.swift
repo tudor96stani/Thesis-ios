@@ -19,12 +19,16 @@ class AddBookInfoViewModel:NSObject{
         return book.Title
     }
     
-    func GetAuthors()->String{
+    func GetAuthors() -> String{
         var names = ""
         for author in book.Authors!{
-            names += " " + author.FirstName + " " + author.LastName
+            names += author.FullName + ","
         }
-        return names
+        if !names.isEmpty{
+            let indexOfEnd = names.index(names.endIndex, offsetBy: -1)
+            return String(names[..<indexOfEnd])
+        }
+        return ""
     }
     
     func GetBookCover() -> UIImage{

@@ -12,4 +12,5 @@ class GoogleResultCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var titleAuthorLabel: UILabel!
     @IBOutlet weak var coverView: UIImageView!
+    var bookId:UUID!
 }

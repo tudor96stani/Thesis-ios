@@ -35,7 +35,7 @@ class MyLibraryViewModel:NSObject{
     func BookAuthorToDisplay(for indexPath: IndexPath)->String{
         var authors = "";
         for author in (self.books?[indexPath.row].Authors)!{
-            authors.append(author.FirstName + " " + author.LastName + " ")
+            authors.append(author.FullName + " ")
         }
         return authors
     }

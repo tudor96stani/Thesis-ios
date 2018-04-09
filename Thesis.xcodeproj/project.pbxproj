@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B458D51207A70900082AD61 /* AddNewBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B458D50207A70900082AD61 /* AddNewBookViewController.swift */; };
+		4B458D53207A76200082AD61 /* AddNewBookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B458D52207A76200082AD61 /* AddNewBookViewModel.swift */; };
 		4B6C7DD22076828900AFBC56 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6C7DD12076828900AFBC56 /* SettingsTableViewController.swift */; };
 		4B6E28682078DA4A0074D1B9 /* SearchForBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6E28672078DA4A0074D1B9 /* SearchForBookViewController.swift */; };
 		4B6E286A2078E0310074D1B9 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6E28692078E0310074D1B9 /* FriendsTableViewController.swift */; };
@@ -60,6 +62,8 @@
 /* Begin PBXFileReference section */
 		09EDC5BFC67582030AE3C144 /* Pods_Thesis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thesis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1669DD6DA6518B49529F2656 /* Pods-ThesisTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThesisTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ThesisTests/Pods-ThesisTests.release.xcconfig"; sourceTree = "<group>"; };
+		4B458D50207A70900082AD61 /* AddNewBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewBookViewController.swift; sourceTree = "<group>"; };
+		4B458D52207A76200082AD61 /* AddNewBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewBookViewModel.swift; sourceTree = "<group>"; };
 		4B6C7DD12076828900AFBC56 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		4B6E28672078DA4A0074D1B9 /* SearchForBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchForBookViewController.swift; sourceTree = "<group>"; };
 		4B6E28692078E0310074D1B9 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
@@ -215,6 +219,7 @@
 				4B6E2871207905370074D1B9 /* SearchForBookViewModel.swift */,
 				4B6E287B207911B70074D1B9 /* AddBookInfoViewModel.swift */,
 				4B6E2881207A16190074D1B9 /* GoogleResultViewModel.swift */,
+				4B458D52207A76200082AD61 /* AddNewBookViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -229,6 +234,7 @@
 				4B6E28692078E0310074D1B9 /* FriendsTableViewController.swift */,
 				4B6E28792079102D0074D1B9 /* AddBookInfoViewController.swift */,
 				4B6E287D207A14A60074D1B9 /* GoogleResultsCollectionViewController.swift */,
+				4B458D50207A70900082AD61 /* AddNewBookViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -521,12 +527,14 @@
 				4B6E2872207905370074D1B9 /* SearchForBookViewModel.swift in Sources */,
 				4B7A745D2074E9FB003BAE07 /* MyLibraryViewCell.swift in Sources */,
 				4BCD7AC02077841400A2C5EC /* ActivityIndicatorHelper.swift in Sources */,
+				4B458D53207A76200082AD61 /* AddNewBookViewModel.swift in Sources */,
 				4BB293142074D9D600C394CC /* DisplayAlert.swift in Sources */,
 				4B7A745A2074E7B4003BAE07 /* MyLibraryViewModel.swift in Sources */,
 				4B6E28682078DA4A0074D1B9 /* SearchForBookViewController.swift in Sources */,
 				4B6E286A2078E0310074D1B9 /* FriendsTableViewController.swift in Sources */,
 				4B7A74532074E291003BAE07 /* Book.swift in Sources */,
 				4B6E286E2078E2C40074D1B9 /* FriendsTableViewModel.swift in Sources */,
+				4B458D51207A70900082AD61 /* AddNewBookViewController.swift in Sources */,
 				4B6E28782079095E0074D1B9 /* ImageResize.swift in Sources */,
 				4B7A74552074E2B8003BAE07 /* Author.swift in Sources */,
 				4B7A74512074DFCE003BAE07 /* MyLibraryViewController.swift in Sources */,

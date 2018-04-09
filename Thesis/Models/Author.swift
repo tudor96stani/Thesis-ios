@@ -25,7 +25,7 @@ class Author{
         Id=UUID(uuidString: json["id"].string ?? "00000000-0000-0000-0000-000000000000")!
         FirstName=json["firstName"].stringValue
         LastName=json["lastName"].stringValue
-        FullName=json["fullName"].stringValue
+        FullName=json["fullname"].stringValue
     }
     
     init(fullname:String){

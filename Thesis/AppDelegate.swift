@@ -18,14 +18,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let mainStoryboard = UIStoryboard(name: "Main" , bundle: nil)
+        let homeviewcontroller = mainStoryboard.instantiateViewController(withIdentifier: "loadingScreen") as! ViewController
+        let nav = UINavigationController(rootViewController: homeviewcontroller)
+        nav.setNavigationBarHidden(true, animated: true)
+        self.window!.rootViewController = nav
+        self.window!.makeKeyAndVisible()
+        
         if let token = keychain.get(KeychainSwift.Keys.Token){
             apiClient.RefreshTokenIfNecessary(token:token) {
                 let mainStoryboard = UIStoryboard(name: "Main" , bundle: nil)
                 let homeviewcontroller = mainStoryboard.instantiateViewController(withIdentifier: "tabctrl") as! UITabBarController
+                
                 let nav = UINavigationController(rootViewController: homeviewcontroller)
+                
                 self.window!.rootViewController = nav
                 self.window!.makeKeyAndVisible()
             }
+        }
+        else{
+            let mainStoryboard = UIStoryboard(name: "Main" , bundle: nil)
+            let homeviewcontroller = mainStoryboard.instantiateViewController(withIdentifier: "loginCtrl") as! LoginViewController
+            let nav = UINavigationController(rootViewController: homeviewcontroller)
+            self.window!.rootViewController = nav
+            self.window!.makeKeyAndVisible()
         }
         return true
     }

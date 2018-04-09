@@ -25,13 +25,13 @@ class GoogleResultsCollectionViewController: UICollectionViewController {
 //        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
-        self.tabBarController?.title="Search"
+        self.tabBarController?.title="Search for " + self.viewModel.query
         self.collectionView?.contentInset = UIEdgeInsetsMake(-40, 0, 0, 0)
         
-        collectionView?.infiniteScrollIndicatorView = CustomInfiniteIndicator(frame: CGRect(x: 0, y: 10, width: 24, height: 24))
+        collectionView?.infiniteScrollIndicatorView = CustomInfiniteIndicator(frame: CGRect(x: 0, y: 90, width: 24, height: 24))
         
         // Set custom indicator margin
-        collectionView?.infiniteScrollIndicatorMargin = 40
+        collectionView?.infiniteScrollIndicatorMargin = 80
         
         // Add infinite scroll handler
         collectionView?.addInfiniteScroll { [weak self] (scrollView) -> Void in
@@ -104,40 +104,25 @@ class GoogleResultsCollectionViewController: UICollectionViewController {
         let image = ImageResizeHelper.resizeImage(image: viewModel.BookCoverToDisplay(for: indexPath), newWidth: cell.coverView!.bounds.size.width)
         cell.coverView?.image = image
         cell.coverView?.addShadow()
+        guard let id = viewModel.GetBookId(for: indexPath)
+            else{
+                fatalError()
+        }
+        cell.bookId = id
         return cell
     }
     
     
 
     // MARK: UICollectionViewDelegate
-//    override func scrollViewDidScroll(_ scrollView: UIScrollView){
-//        if !self.viewModel.finished{
-//            let offsetY = scrollView.contentOffset.y
-//            let contentHeight = scrollView.contentSize.height
-//
-//            if offsetY > contentHeight - scrollView.frame.size.height {
-//                self.reloadData()
-//            }
-//        }
-//    }
 
-//    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath){
-//        if indexPath.row == self.viewModel.GetCount()-1{
-//            self.viewModel.Search {
-//                self.reloadData()
-//            }
-//        }
-//    }
-
-    
-//    override func collectionView(collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-//        print(indexPath)
-//        if indexPath.row == self.viewModel.GetCount()-2{
-//            self.viewModel.Search {
-//                self.reloadData()
-//            }
-//        }
-//    }
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let ViewController = mainStoryboard.instantiateViewController(withIdentifier: "addNewBookCtrl") as! AddNewBookViewController
+        ViewController.viewModel = AddNewBookViewModel(book:self.viewModel.GetBook(at: indexPath))
+        self.navigationController?.pushViewController(ViewController, animated: true)
+        
+    }
     
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking

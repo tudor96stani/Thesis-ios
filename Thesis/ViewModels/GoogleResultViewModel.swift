@@ -32,7 +32,7 @@ class GoogleResultViewModel:NSObject{
     }
     
     func GetBookId(for indexPath:IndexPath) -> UUID?{
-        return self.results[indexPath.row].Id
+        return self.results[indexPath[1]].Id
     }
     
     func GetTitleAndAuthor(for indexPath:IndexPath) -> String {
@@ -62,9 +62,7 @@ class GoogleResultViewModel:NSObject{
         return UIImage(named: "default_cover")!
     }
     
-    func GetBook(by id:UUID) -> Book{
-        return (self.results.first(where: { (book) -> Bool in
-            book.Id==id
-        }))!
+    func GetBook(at indexPath:IndexPath) -> Book{
+        return self.results[indexPath[1]]
     }
 }

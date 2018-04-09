@@ -43,7 +43,7 @@ class MyLibraryViewController: UIViewController,UITableViewDelegate, UITableView
         //let button1 = UIBarButtonItem(title:"+" , style: .plain, target: self, action: #selector(MyLibraryViewController.goTo(_:)))
         let btn2 = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(MyLibraryViewController.goTo(_:)))
         self.tabBarController?.navigationItem.rightBarButtonItem=btn2 
-        
+        self.tabBarController?.navigationItem.leftBarButtonItem=nil
     }
 
     override func didReceiveMemoryWarning() {

@@ -15,6 +15,7 @@ class Book{
     var Publisher:String
     var Authors:[Author]?
     var Cover:NSData?
+    var CoverUrl:String!
     
     init(id:UUID,title:String,year:Int,pub:String){
         Id=id
@@ -60,9 +61,11 @@ class Book{
         Publisher = googleJson["volumeInfo"]["publisher"].stringValue
         if let url = googleJson["volumeInfo"]["imageLinks"]["thumbnail"].url{
             Cover = NSData(contentsOf:url)
+            CoverUrl = googleJson["volumeInfo"]["imageLinks"]["thumbnail"].stringValue
         }
         else{
             Cover=nil;
+            CoverUrl = ""
         }
         self.Authors = [Author]()
         if let authors = googleJson["volumeInfo"]["authors"].array{

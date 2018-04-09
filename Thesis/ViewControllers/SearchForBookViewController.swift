@@ -100,17 +100,17 @@ class SearchForBookViewController: UIViewController,UICollectionViewDelegate,UIC
         self.navigationController?.pushViewController(ViewController, animated: true)
     }
 
-    @IBAction func searchBtnPress(_ sender: Any) {
-        if let query = searchField.text, query != ""{
-            self.viewModel.Search(query: query) {
-                self.collectionView.reloadData()
-            }
-            self.query = query
-        }else{
-            AlertMessageHelper.displayMessage(message: "Please enter a keyword", title: "Search", controller: self)
-        }
-    }
-    
+//    @IBAction func searchBtnPress(_ sender: Any) {
+//        if let query = searchField.text, query != ""{
+//            self.viewModel.Search(query: query) {
+//                self.collectionView.reloadData()
+//            }
+//            self.query = query
+//        }else{
+//            AlertMessageHelper.displayMessage(message: "Please enter a keyword", title: "Search", controller: self)
+//        }
+//    }
+//
     func textFieldShouldReturn(_ textField:UITextField) -> Bool{
         self.viewModel.Search(query: textField.text!) {
             self.collectionView?.reloadData()
