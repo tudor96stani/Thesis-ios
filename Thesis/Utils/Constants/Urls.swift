@@ -14,6 +14,7 @@ enum Urls{
     static let LoginUrl = "http://home-server.go.ro/Thesis/oauth/token"
     static let RefreshURL: String = "http://home-server.go.ro/Thesis/verify"
     static let GetFriends = BaseUrl + "user/friends?userId="
+    static let GetNewsFeed = BaseUrl + "user/newsfeed?page="
     
     //MARK: Books
     static let GetLibrary = BaseUrl + "books/"

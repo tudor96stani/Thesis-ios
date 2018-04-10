@@ -58,3 +58,21 @@ extension UIImageView{
         self.layer.shadowRadius = 7
     }
 }
+
+extension NSMutableAttributedString {
+    @discardableResult func bold(_ text: String,size:CGFloat) -> NSMutableAttributedString {
+        let attrs: [NSAttributedStringKey: Any] = [.font: UIFont.boldSystemFont(ofSize: size)]
+        
+        let boldString = NSMutableAttributedString(string:text, attributes: attrs)
+        append(boldString)
+        
+        return self
+    }
+    
+    @discardableResult func normal(_ text: String) -> NSMutableAttributedString {
+        let normal = NSAttributedString(string: text)
+        append(normal)
+        
+        return self
+    }
+}

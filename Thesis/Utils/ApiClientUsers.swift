@@ -108,6 +108,29 @@ class ApiClientUsers:NSObject{
         
     }
     
+    func GetNewsFeed(page:Int,completion:@escaping ([Activity]?)->Void){
+        let token = self.keychain.get(KeychainSwift.Keys.Token)!
+        let headers : HTTPHeaders = [
+            "Authorization" : "Bearer \(token)"
+        ]
+        let url = Urls.GetNewsFeed + String(page)
+        Alamofire.request(url,headers:headers)
+            .validate()
+            .responseJSON { (response) in
+                switch response.result{
+                case .success(let value):
+                    let json = JSON(value)
+                    var activities = [Activity]()
+                    for(_,subJson) in json{
+                        activities.append(Activity(json: subJson))
+                    }
+                    completion(activities)
+                case .failure( _):
+                    completion(nil)
+                }
+        }
+    }
+    
     
     
     

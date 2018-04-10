@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		4B458D51207A70900082AD61 /* AddNewBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B458D50207A70900082AD61 /* AddNewBookViewController.swift */; };
 		4B458D53207A76200082AD61 /* AddNewBookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B458D52207A76200082AD61 /* AddNewBookViewModel.swift */; };
+		4B458D55207CF4660082AD61 /* NewsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B458D54207CF4650082AD61 /* NewsFeedViewController.swift */; };
+		4B458D57207CF5070082AD61 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B458D56207CF5070082AD61 /* Activity.swift */; };
+		4B458D59207CF5540082AD61 /* ActivityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B458D58207CF5540082AD61 /* ActivityType.swift */; };
+		4B458D5B207CF9A80082AD61 /* NewsFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B458D5A207CF9A80082AD61 /* NewsFeedViewModel.swift */; };
+		4B458D5D207CFB170082AD61 /* NewsFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B458D5C207CFB170082AD61 /* NewsFeedTableViewCell.swift */; };
 		4B6C7DD22076828900AFBC56 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6C7DD12076828900AFBC56 /* SettingsTableViewController.swift */; };
 		4B6E28682078DA4A0074D1B9 /* SearchForBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6E28672078DA4A0074D1B9 /* SearchForBookViewController.swift */; };
 		4B6E286A2078E0310074D1B9 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6E28692078E0310074D1B9 /* FriendsTableViewController.swift */; };
@@ -64,6 +69,11 @@
 		1669DD6DA6518B49529F2656 /* Pods-ThesisTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThesisTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ThesisTests/Pods-ThesisTests.release.xcconfig"; sourceTree = "<group>"; };
 		4B458D50207A70900082AD61 /* AddNewBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewBookViewController.swift; sourceTree = "<group>"; };
 		4B458D52207A76200082AD61 /* AddNewBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewBookViewModel.swift; sourceTree = "<group>"; };
+		4B458D54207CF4650082AD61 /* NewsFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedViewController.swift; sourceTree = "<group>"; };
+		4B458D56207CF5070082AD61 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		4B458D58207CF5540082AD61 /* ActivityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityType.swift; sourceTree = "<group>"; };
+		4B458D5A207CF9A80082AD61 /* NewsFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedViewModel.swift; sourceTree = "<group>"; };
+		4B458D5C207CFB170082AD61 /* NewsFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCell.swift; sourceTree = "<group>"; };
 		4B6C7DD12076828900AFBC56 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		4B6E28672078DA4A0074D1B9 /* SearchForBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchForBookViewController.swift; sourceTree = "<group>"; };
 		4B6E28692078E0310074D1B9 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +155,7 @@
 			children = (
 				4B7A745C2074E9FB003BAE07 /* MyLibraryViewCell.swift */,
 				4B6E286B2078E0840074D1B9 /* FriendTableViewCell.swift */,
+				4B458D5C207CFB170082AD61 /* NewsFeedTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -220,6 +231,7 @@
 				4B6E287B207911B70074D1B9 /* AddBookInfoViewModel.swift */,
 				4B6E2881207A16190074D1B9 /* GoogleResultViewModel.swift */,
 				4B458D52207A76200082AD61 /* AddNewBookViewModel.swift */,
+				4B458D5A207CF9A80082AD61 /* NewsFeedViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -235,6 +247,7 @@
 				4B6E28792079102D0074D1B9 /* AddBookInfoViewController.swift */,
 				4B6E287D207A14A60074D1B9 /* GoogleResultsCollectionViewController.swift */,
 				4B458D50207A70900082AD61 /* AddNewBookViewController.swift */,
+				4B458D54207CF4650082AD61 /* NewsFeedViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -245,6 +258,8 @@
 				4BB293052074C69F00C394CC /* User.swift */,
 				4B7A74522074E291003BAE07 /* Book.swift */,
 				4B7A74542074E2B8003BAE07 /* Author.swift */,
+				4B458D56207CF5070082AD61 /* Activity.swift */,
+				4B458D58207CF5540082AD61 /* ActivityType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -513,6 +528,7 @@
 				4BB293062074C69F00C394CC /* User.swift in Sources */,
 				4B6E287E207A14A60074D1B9 /* GoogleResultsCollectionViewController.swift in Sources */,
 				4BB292E12074C3A800C394CC /* ViewController.swift in Sources */,
+				4B458D57207CF5070082AD61 /* Activity.swift in Sources */,
 				4B6E2885207A5E070074D1B9 /* CustomInfiniteIndicator.swift in Sources */,
 				4B6E28702078FE830074D1B9 /* BackButtonHelper.swift in Sources */,
 				4BB2930C2074CA7A00C394CC /* ApiClientUsers.swift in Sources */,
@@ -520,8 +536,11 @@
 				4BB293112074CC1400C394CC /* ExtensionMethods.swift in Sources */,
 				4B6E286C2078E0840074D1B9 /* FriendTableViewCell.swift in Sources */,
 				4B6C7DD22076828900AFBC56 /* SettingsTableViewController.swift in Sources */,
+				4B458D5D207CFB170082AD61 /* NewsFeedTableViewCell.swift in Sources */,
 				4BB2930A2074CA5000C394CC /* LoginViewModel.swift in Sources */,
 				4B6E287A2079102D0074D1B9 /* AddBookInfoViewController.swift in Sources */,
+				4B458D59207CF5540082AD61 /* ActivityType.swift in Sources */,
+				4B458D5B207CF9A80082AD61 /* NewsFeedViewModel.swift in Sources */,
 				4BB292DF2074C3A800C394CC /* AppDelegate.swift in Sources */,
 				4B6E287C207911B70074D1B9 /* AddBookInfoViewModel.swift in Sources */,
 				4B6E2872207905370074D1B9 /* SearchForBookViewModel.swift in Sources */,
@@ -541,6 +560,7 @@
 				4B6E2882207A16190074D1B9 /* GoogleResultViewModel.swift in Sources */,
 				4BB293082074C9E800C394CC /* LoginViewController.swift in Sources */,
 				4BB292E72074C3A800C394CC /* Thesis.xcdatamodeld in Sources */,
+				4B458D55207CF4660082AD61 /* NewsFeedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
