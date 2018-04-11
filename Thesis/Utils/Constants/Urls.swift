@@ -15,7 +15,8 @@ enum Urls{
     static let RefreshURL: String = "http://home-server.go.ro/Thesis/verify"
     static let GetFriends = BaseUrl + "user/friends?userId="
     static let GetNewsFeed = BaseUrl + "user/newsfeed?page="
-    
+    static let GetFriendRequests = BaseUrl + "user/requests"
+    static let AcceptFriendRequest = BaseUrl + "user/requests/accept?userId="
     //MARK: Books
     static let GetLibrary = BaseUrl + "books/"
     static let Search = BaseUrl + "books/search?query="

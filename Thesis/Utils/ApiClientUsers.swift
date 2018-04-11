@@ -131,7 +131,47 @@ class ApiClientUsers:NSObject{
         }
     }
     
+    func GetFriendRequests(completion:@escaping ([User]?)->Void){
+        let token = self.keychain.get(KeychainSwift.Keys.Token)!
+        let headers : HTTPHeaders = [
+            "Authorization" : "Bearer \(token)"
+        ]
+        
+        Alamofire.request(Urls.GetFriendRequests,headers:headers)
+            .validate()
+            .responseJSON { (response) in
+                switch response.result{
+                case .success(let value):
+                    let json = JSON(value)
+                    var users = [User]()
+                    for(_,subJson) in json{
+                        users.append(User(json:subJson))
+                    }
+                    completion(users)
+                case .failure( _):
+                    completion(nil)
+                }
+        }
+    }
     
+    func AcceptRequest(userId:String,completion:@escaping (Bool)->Void){
+        let token = self.keychain.get(KeychainSwift.Keys.Token)!
+        let headers : HTTPHeaders = [
+            "Authorization" : "Bearer \(token)"
+        ]
+        let url = Urls.AcceptFriendRequest + userId
+        Alamofire.request(url,method:.post,headers:headers)
+            .validate()
+            .response { (response) in
+                switch response.response?.statusCode{
+                case 200?:
+                    completion(true)
+                default:
+                    completion(false)
+                }
+            }
+        
+    }
     
     
 }

@@ -34,7 +34,7 @@ class AddBookInfoViewController: UIViewController {
         self.alreadyInLibraryLabel.text = ""
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.navigationItem.leftBarButtonItem=UIBarButtonItem(customView: BackButtonHelper.GetBackButton(controller: self, selector: #selector(backAction(_:))))
         let addBtn = UIButton(type: .custom)
         addBtn.setTitle("Add to library", for: [])

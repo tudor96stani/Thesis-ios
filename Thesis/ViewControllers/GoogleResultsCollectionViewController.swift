@@ -27,11 +27,11 @@ class GoogleResultsCollectionViewController: UICollectionViewController {
         // Do any additional setup after loading the view.
         self.tabBarController?.title="Search for " + self.viewModel.query
         self.collectionView?.contentInset = UIEdgeInsetsMake(-40, 0, 0, 0)
-        
+        //self.collectionView?.contentInsetAdjustmentBehavior = .never
         collectionView?.infiniteScrollIndicatorView = CustomInfiniteIndicator(frame: CGRect(x: 0, y: 90, width: 24, height: 24))
         
         // Set custom indicator margin
-        collectionView?.infiniteScrollIndicatorMargin = 80
+        //collectionView?.infiniteScrollIndicatorMargin = 80
         
         // Add infinite scroll handler
         collectionView?.addInfiniteScroll { [weak self] (scrollView) -> Void in
@@ -51,6 +51,7 @@ class GoogleResultsCollectionViewController: UICollectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.navigationItem.leftBarButtonItem=UIBarButtonItem(customView: BackButtonHelper.GetBackButton(controller: self, selector: #selector(backAction(_:))))
+        
     }
     
     private func reloadData(completion:@escaping () -> Void){

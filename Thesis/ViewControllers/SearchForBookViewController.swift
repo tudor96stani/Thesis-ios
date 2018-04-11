@@ -33,7 +33,7 @@ class SearchForBookViewController: UIViewController,UICollectionViewDelegate,UIC
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.title="Search"
         
         //Setup right nav bar button
@@ -42,6 +42,7 @@ class SearchForBookViewController: UIViewController,UICollectionViewDelegate,UIC
         //Setup left nav bar button (back)
         self.tabBarController?.navigationItem.leftBarButtonItem=UIBarButtonItem(customView: BackButtonHelper.GetBackButton(controller: self, selector: #selector(backAction(_:))))
     }
+    
     
     
     //MARK: CollectionView Overrides

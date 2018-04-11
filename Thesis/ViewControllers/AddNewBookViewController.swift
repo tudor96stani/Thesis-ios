@@ -31,13 +31,17 @@ class AddNewBookViewController: UIViewController,UITextFieldDelegate {
         authorsField.tag = 1
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.navigationItem.leftBarButtonItem=UIBarButtonItem(customView: BackButtonHelper.GetBackButton(controller: self, selector: #selector(backAction(_:))))
         let addBtn = UIButton(type: .custom)
         addBtn.setTitle("Add to library", for: [])
         addBtn.setTitleColor(addBtn.tintColor, for: [])
         addBtn.addTarget(self, action: #selector(addAction(_:)), for: .touchUpInside)
         self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(customView:addBtn)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.navigationItem.rightBarButtonItem = nil
     }
 
     override func didReceiveMemoryWarning() {

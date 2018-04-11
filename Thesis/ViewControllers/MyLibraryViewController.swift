@@ -22,8 +22,8 @@ class MyLibraryViewController: UIViewController,UITableViewDelegate, UITableView
         // Do any additional setup after loading the view.
         self.ReloadData()
         
-        
-        self.tableView.contentInset = UIEdgeInsetsMake(-40, 0, 0, 0)
+        self.tableView.contentInsetAdjustmentBehavior = .never
+        //self.tableView.contentInset = UIEdgeInsetsMake(-40, 0, 0, 0)
         self.tableView.tableFooterView = UIView()
         
         //Handle pull down to refresh
@@ -38,7 +38,7 @@ class MyLibraryViewController: UIViewController,UITableViewDelegate, UITableView
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.title="My books"
         //let button1 = UIBarButtonItem(title:"+" , style: .plain, target: self, action: #selector(MyLibraryViewController.goTo(_:)))
         let btn2 = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(MyLibraryViewController.goTo(_:)))

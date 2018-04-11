@@ -17,18 +17,22 @@ class SettingsTableViewController: UITableViewController {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+         self.clearsSelectionOnViewWillAppear = true
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.tableView.tableFooterView = UIView()
         self.tableView.contentInset = UIEdgeInsetsMake(-50, 0, 0, 0)
-        
-       
-
+    
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if let selectedRow = self.tableView.indexPathForSelectedRow{
+            self.tableView.deselectRow(at: selectedRow, animated: true)
+        }
     }
 
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.title="Settings"
         self.tabBarController?.navigationItem.rightBarButtonItem = nil;
         self.tabBarController?.navigationItem.leftBarButtonItem = nil;
@@ -77,11 +81,18 @@ class SettingsTableViewController: UITableViewController {
                 appdelegate.window!.rootViewController = nav
             }
         }
-        
-        if indexPath.section == 0 && indexPath.row == 0{
-            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let ViewController = mainStoryboard.instantiateViewController(withIdentifier: "friendsTbl") as! FriendsTableViewController
-            self.navigationController?.pushViewController(ViewController, animated: true)
+        //sec 0 row 1
+        if indexPath.section == 0 {
+            if indexPath.row == 0{
+                let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let ViewController = mainStoryboard.instantiateViewController(withIdentifier: "friendsTbl") as! FriendsTableViewController
+                self.navigationController?.pushViewController(ViewController, animated: true)
+            }
+            if indexPath.row == 1{
+                let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let ViewController = mainStoryboard.instantiateViewController(withIdentifier: "friendRequestsCtrl") as! FriendRequestsTableViewController
+                self.navigationController?.pushViewController(ViewController, animated: true)
+            }
         }
     }
 

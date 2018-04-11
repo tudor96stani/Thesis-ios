@@ -16,9 +16,9 @@ class NewsFeedViewController: UIViewController,UITableViewDelegate,UITableViewDa
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.tableView.contentInset = UIEdgeInsetsMake(-40, 0, 0, 0)
+        //self.tableView.contentInset = UIEdgeInsetsMake(-40, 0, 0, 0)
         self.tableView.tableFooterView = UIView()
-        
+        self.tableView.contentInsetAdjustmentBehavior = .never
      
         
         
@@ -29,15 +29,16 @@ class NewsFeedViewController: UIViewController,UITableViewDelegate,UITableViewDa
         tableView.infiniteScrollIndicatorView = CustomInfiniteIndicator(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
         
         // Set custom indicator margin
-        tableView.infiniteScrollIndicatorMargin = 40
+        //tableView.infiniteScrollIndicatorMargin = 40
         
         // Set custom trigger offset
-        tableView.infiniteScrollTriggerOffset = 500
+        //tableView.infiniteScrollTriggerOffset = 500
         
         // Add infinite scroll handler
         tableView.addInfiniteScroll { [weak self] (tableView) -> Void in
             self?.reloadData() {
                 tableView.finishInfiniteScroll()
+                
             }
         }
         
@@ -96,7 +97,10 @@ class NewsFeedViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 self.tableView.beginUpdates()
                 self.tableView.insertRows(at: indexPaths, with: .automatic)
                 self.tableView.endUpdates()
+                
+               
             }
+            
             completionHandler?()
         }
     }

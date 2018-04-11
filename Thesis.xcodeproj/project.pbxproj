@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B13A576207E495A00CAF9C1 /* FriendRequestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B13A575207E495A00CAF9C1 /* FriendRequestsTableViewController.swift */; };
+		4B13A578207E496B00CAF9C1 /* FriendRequestsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B13A577207E496B00CAF9C1 /* FriendRequestsTableViewCell.swift */; };
+		4B13A57A207E4C5300CAF9C1 /* FriendRequestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B13A579207E4C5300CAF9C1 /* FriendRequestsViewModel.swift */; };
 		4B458D51207A70900082AD61 /* AddNewBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B458D50207A70900082AD61 /* AddNewBookViewController.swift */; };
 		4B458D53207A76200082AD61 /* AddNewBookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B458D52207A76200082AD61 /* AddNewBookViewModel.swift */; };
 		4B458D55207CF4660082AD61 /* NewsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B458D54207CF4650082AD61 /* NewsFeedViewController.swift */; };
@@ -67,6 +70,9 @@
 /* Begin PBXFileReference section */
 		09EDC5BFC67582030AE3C144 /* Pods_Thesis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thesis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1669DD6DA6518B49529F2656 /* Pods-ThesisTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThesisTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ThesisTests/Pods-ThesisTests.release.xcconfig"; sourceTree = "<group>"; };
+		4B13A575207E495A00CAF9C1 /* FriendRequestsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestsTableViewController.swift; sourceTree = "<group>"; };
+		4B13A577207E496B00CAF9C1 /* FriendRequestsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestsTableViewCell.swift; sourceTree = "<group>"; };
+		4B13A579207E4C5300CAF9C1 /* FriendRequestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestsViewModel.swift; sourceTree = "<group>"; };
 		4B458D50207A70900082AD61 /* AddNewBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewBookViewController.swift; sourceTree = "<group>"; };
 		4B458D52207A76200082AD61 /* AddNewBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewBookViewModel.swift; sourceTree = "<group>"; };
 		4B458D54207CF4650082AD61 /* NewsFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +162,7 @@
 				4B7A745C2074E9FB003BAE07 /* MyLibraryViewCell.swift */,
 				4B6E286B2078E0840074D1B9 /* FriendTableViewCell.swift */,
 				4B458D5C207CFB170082AD61 /* NewsFeedTableViewCell.swift */,
+				4B13A577207E496B00CAF9C1 /* FriendRequestsTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -232,6 +239,7 @@
 				4B6E2881207A16190074D1B9 /* GoogleResultViewModel.swift */,
 				4B458D52207A76200082AD61 /* AddNewBookViewModel.swift */,
 				4B458D5A207CF9A80082AD61 /* NewsFeedViewModel.swift */,
+				4B13A579207E4C5300CAF9C1 /* FriendRequestsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -248,6 +256,7 @@
 				4B6E287D207A14A60074D1B9 /* GoogleResultsCollectionViewController.swift */,
 				4B458D50207A70900082AD61 /* AddNewBookViewController.swift */,
 				4B458D54207CF4650082AD61 /* NewsFeedViewController.swift */,
+				4B13A575207E495A00CAF9C1 /* FriendRequestsTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -522,6 +531,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B13A57A207E4C5300CAF9C1 /* FriendRequestsViewModel.swift in Sources */,
 				4B6E2880207A159E0074D1B9 /* GoogleResultCollectionViewCell.swift in Sources */,
 				4B6E2876207908630074D1B9 /* SearchForBookCollectionViewCell.swift in Sources */,
 				4B7A74572074E595003BAE07 /* ApiClientBooks.swift in Sources */,
@@ -535,9 +545,11 @@
 				4BB2930F2074CB0D00C394CC /* Urls.swift in Sources */,
 				4BB293112074CC1400C394CC /* ExtensionMethods.swift in Sources */,
 				4B6E286C2078E0840074D1B9 /* FriendTableViewCell.swift in Sources */,
+				4B13A576207E495A00CAF9C1 /* FriendRequestsTableViewController.swift in Sources */,
 				4B6C7DD22076828900AFBC56 /* SettingsTableViewController.swift in Sources */,
 				4B458D5D207CFB170082AD61 /* NewsFeedTableViewCell.swift in Sources */,
 				4BB2930A2074CA5000C394CC /* LoginViewModel.swift in Sources */,
+				4B13A578207E496B00CAF9C1 /* FriendRequestsTableViewCell.swift in Sources */,
 				4B6E287A2079102D0074D1B9 /* AddBookInfoViewController.swift in Sources */,
 				4B458D59207CF5540082AD61 /* ActivityType.swift in Sources */,
 				4B458D5B207CF9A80082AD61 /* NewsFeedViewModel.swift in Sources */,

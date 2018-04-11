@@ -1,17 +1,16 @@
 //
-//  FriendsTableViewController.swift
+//  FriendRequestsTableViewController.swift
 //  Thesis
 //
-//  Created by Tudor Stanila on 07/04/2018.
+//  Created by Tudor Stanila on 11/04/2018.
 //  Copyright © 2018 Tudor Stanila. All rights reserved.
 //
 
 import UIKit
 
-class FriendsTableViewController: UITableViewController {
+class FriendRequestsTableViewController: UITableViewController {
 
-    @IBOutlet var viewModel: FriendsTableViewModel!
-    
+    @IBOutlet var viewModel : FriendRequestsViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,11 +21,15 @@ class FriendsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.tableView.contentInset = UIEdgeInsetsMake(-40, 0, 0, 0)
         self.tableView.tableFooterView = UIView()
-        self.ReloadData()
+        self.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.navigationItem.leftBarButtonItem=UIBarButtonItem(customView: BackButtonHelper.GetBackButton(controller: self, selector: #selector(backAction(_:))))
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.navigationItem.leftBarButtonItem = nil
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,21 +46,39 @@ class FriendsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return viewModel.GetCount()
+        return self.viewModel.GetCount()
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "friendRequestCell", for: indexPath) as! FriendRequestsTableViewCell
 
         // Configure the cell...
-        cell.nameLabel.text = viewModel.GetFriendName(for: indexPath)
-
+        cell.nameLabel.text = self.viewModel.GetFriendName(for: indexPath)
+        
+        cell.acceptBtn.layer.cornerRadius = 10
+        cell.acceptBtn.clipsToBounds = true
+        cell.declineBtn.layer.cornerRadius = 10
+        cell.declineBtn.clipsToBounds = true
+        
+        cell.acceptAction = {
+            self.viewModel.AcceptRequest(for: indexPath, completion: { (success) in
+                if !success {
+                    AlertMessageHelper.displayMessage(message: "Something went wrong", title: "Accept request", controller: self)
+                }
+                else{
+                    AlertMessageHelper.displayMessage(message: "Request successfully accepted!", title: "Accept request", controller: self)
+                    self.viewModel.RemoveFromArray(at: indexPath)
+                    self.tableView.reloadData()
+                }
+            })
+        }
         return cell
     }
+ 
     
-    func ReloadData(){
-        viewModel.GetFriends() {
+    func reloadData(){
+        self.viewModel.GetFriendRequests {
             self.tableView.reloadData()
         }
     }
@@ -65,6 +86,7 @@ class FriendsTableViewController: UITableViewController {
     @IBAction func backAction(_ sender:UIBarButtonItem){
         self.navigationController?.popViewController(animated: true)
     }
+    
 
     /*
     // Override to support conditional editing of the table view.
