@@ -10,6 +10,7 @@ import Foundation
 class AddBookInfoViewModel:NSObject{
     
     var book: Book!
+    var owners:[User]?
     var apiClient = ApiClientBooks()
     init(book:Book){
         self.book=book;
@@ -52,5 +53,22 @@ class AddBookInfoViewModel:NSObject{
                 completion(result)
             }
         }
+    }
+    
+    func GetOwners(completion:@escaping ()->Void){
+        apiClient.GetOwners(of: self.book.Id) { (users) in
+            DispatchQueue.main.async{
+                self.owners = users
+                completion();
+            }
+        }
+    }
+    
+    func GetOwnerName(for indexPath:IndexPath) -> String {
+        return self.owners?[indexPath.row].Username ?? ""
+    }
+    
+    func GetCount() -> Int {
+        return self.owners?.count ?? 0
     }
 }

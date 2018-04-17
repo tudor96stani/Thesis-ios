@@ -1,22 +1,17 @@
 //
-//  NewsFeedTableViewCell.swift
+//  AddBookInfoOwnerTableViewCell.swift
 //  Thesis
 //
-//  Created by Tudor Stanila on 10/04/2018.
+//  Created by Tudor Stanila on 17/04/2018.
 //  Copyright © 2018 Tudor Stanila. All rights reserved.
 //
 
 import UIKit
 
-class NewsFeedTableViewCell: UITableViewCell {
+class AddBookInfoOwnerTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var ownerActionLabel: UILabel!
-    @IBOutlet weak var coverView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var authorsLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
     
-    
+    @IBOutlet weak var nameLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

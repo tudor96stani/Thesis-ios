@@ -29,4 +29,5 @@ enum Urls{
     static let CheckIfInLibrary = BaseUrl + "books/check?bookId="
     static let GoogleApiSearch = "https://www.googleapis.com/books/v1/volumes?q="
     static let AddNewBookToLibrary = BaseUrl + "books/addnew"
+    static let GetOwnersOfBook = BaseUrl + "books/owners?bookId="
 }

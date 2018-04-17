@@ -11,6 +11,7 @@ import UIKit
 class FriendRequestsTableViewController: UITableViewController {
 
     @IBOutlet var viewModel : FriendRequestsViewModel!
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -78,7 +79,28 @@ class FriendRequestsTableViewController: UITableViewController {
  
     
     func reloadData(){
+        ActivityIndicatorHelper.start(activityIndicator: self.activityIndicator, controller: self)
         self.viewModel.GetFriendRequests {
+            ActivityIndicatorHelper.stop(activityIndicator: self.activityIndicator)
+            if self.viewModel.GetCount() == 0{
+                let footer = UIView()
+                let image = UIImage(named: "minus.png")!
+                let resizedImage = ImageResizeHelper.resizeImage(image: image, newWidth: 70)!
+                let imageView = UIImageView(image: resizedImage)
+                imageView.frame = CGRect(x: 150, y: 130, width: 70, height: 70)
+                imageView.contentMode = .scaleAspectFit
+                let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
+                label.center = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height/2)
+                label.textAlignment = .center
+                label.text = "No friend requests"
+                
+                footer.addSubview(imageView)
+                footer.addSubview(label)
+                self.tableView.tableFooterView = footer
+            }
+            else{
+                self.tableView.tableFooterView = UIView()
+            }
             self.tableView.reloadData()
         }
     }

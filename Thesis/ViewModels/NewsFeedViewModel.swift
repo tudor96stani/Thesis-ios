@@ -78,8 +78,16 @@ class NewsFeedViewModel:NSObject{
         
         
        return formattedString
-        
-        
-       
+    }
+    
+    func GetTimeSincePostCreated(for indexPath:IndexPath) -> String {
+        let date = self.activities[indexPath.row].dateTime
+        let dateFormatter = DateFormatter()
+        if let unwrappedDate = date{
+            let nsdate = unwrappedDate as NSDate
+            let timeSince = dateFormatter.timeSince(from: nsdate, numericDates: true)
+            return timeSince
+        }
+        return ""
     }
 }

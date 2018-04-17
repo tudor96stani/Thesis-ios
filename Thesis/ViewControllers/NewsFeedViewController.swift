@@ -71,6 +71,7 @@ class NewsFeedViewController: UIViewController,UITableViewDelegate,UITableViewDa
         cell.authorsLabel.text = viewModel.BookAuthorToDisplay(for: indexPath)
         let image = ImageResizeHelper.resizeImage(image: viewModel.BookCoverToDisplay(for: indexPath), newWidth: cell.coverView!.bounds.size.width)
         cell.coverView?.image = image
+        cell.dateLabel.text = viewModel.GetTimeSincePostCreated(for: indexPath)
         return cell
     }
     

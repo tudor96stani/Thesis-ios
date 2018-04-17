@@ -7,15 +7,15 @@
 //
 
 import UIKit
-
-class AddBookInfoViewController: UIViewController {
+//addBookInfoCell
+class AddBookInfoViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     var viewModel : AddBookInfoViewModel!
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorsLabel: UILabel!
-    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var checkMarkImageViwe: UIImageView!
     @IBOutlet weak var alreadyInLibraryLabel: UILabel!
     
@@ -32,6 +32,9 @@ class AddBookInfoViewController: UIViewController {
         self.imageView.image = image
         self.imageView.addShadow()
         self.alreadyInLibraryLabel.text = ""
+        self.tableView.delegate=self
+        self.tableView.dataSource=self
+        self.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,6 +73,35 @@ class AddBookInfoViewController: UIViewController {
                 AlertMessageHelper.displayMessage(message: "Could not add to library " + msg, title: "Add book", controller: self)
             }
            
+        }
+    }
+    
+    
+    // MARK: - Table view data source
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return viewModel.GetCount()
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "addBookInfoCell", for: indexPath) as! AddBookInfoOwnerTableViewCell
+        
+        // Configure the cell...
+        cell.nameLabel.text = viewModel.GetOwnerName(for: indexPath)
+        
+        return cell
+    }
+    
+    func reloadData() {
+        self.viewModel.GetOwners {
+            self.tableView.reloadData()
         }
     }
 

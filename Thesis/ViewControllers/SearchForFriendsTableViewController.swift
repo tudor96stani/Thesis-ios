@@ -51,17 +51,23 @@ class SearchForFriendsTableViewController: UITableViewController,UISearchBarDele
 
         // Configure the cell...
         cell.nameLabel.text = viewModel.GetFriendName(for: indexPath)
-        cell.action = {
-            self.viewModel.AddFriend(at: indexPath, completion: { (success) in
-                switch success{
-                case true:
-                    AlertMessageHelper.displayMessage(message: "Successfully added friend", title: "Add friend", controller: self)
-                    self.viewModel.RemoveFromArray(at: indexPath)
-                    self.tableView.reloadData()
-                case false:
-                    AlertMessageHelper.displayMessage(message: "Could not add friend", title: "Add friend", controller: self)
-                }
-            })
+        if !viewModel.isAlreadyAFriend(at: indexPath){
+            cell.action = {
+                self.viewModel.AddFriend(at: indexPath, completion: { (success) in
+                    switch success{
+                    case true:
+                        AlertMessageHelper.displayMessage(message: "Successfully added friend", title: "Add friend", controller: self)
+                        self.viewModel.RemoveFromArray(at: indexPath)
+                        self.tableView.reloadData()
+                    case false:
+                        AlertMessageHelper.displayMessage(message: "Could not add friend", title: "Add friend", controller: self)
+                    }
+                })
+            }
+        }else{
+            cell.addButton.isEnabled = false
+            cell.addButton.setTitleColor(.gray, for: .disabled)
+            
         }
 
         return cell

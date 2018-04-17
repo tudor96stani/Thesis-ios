@@ -10,7 +10,7 @@ import Foundation
 class SearchForFriendsViewModel:NSObject{
     @IBOutlet var apiClient : ApiClientUsers!
     var users = [User]()
- 
+    var friends = [User]()
     
     func FindFriends(query:String, completion:@escaping ()->Void){
         apiClient.FindFriends(query: query) { (result) in
@@ -18,6 +18,17 @@ class SearchForFriendsViewModel:NSObject{
                 if let users = result{
                     self.users = users
                 }
+                self.GetExistingFriends {
+                    completion()
+                }
+            }
+        }
+    }
+    
+    func GetExistingFriends(completion:@escaping ()->Void){
+        apiClient.GetFriends { (friends) in
+            DispatchQueue.main.async{
+                self.friends = friends ?? [User]()
                 completion()
             }
         }
@@ -42,5 +53,13 @@ class SearchForFriendsViewModel:NSObject{
     
     func RemoveFromArray(at indexPath:IndexPath){
         self.users.remove(at: indexPath.row)
+    }
+    
+    func isAlreadyAFriend(at indexPath:IndexPath) -> Bool {
+        let user = self.users[indexPath.row]
+        return self.friends.contains(where: { (friend) -> Bool in
+            friend.Id == user.Id
+        })
+        
     }
 }
