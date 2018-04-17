@@ -28,11 +28,7 @@ class ApiClientBooks:NSObject{
                 switch response.result{
                 case .success(let value):
                     let json = JSON(value)
-                    var books = [Book]()
-                    for(_,subJson):(String,JSON) in json
-                    {
-                        books.append(Book(json:subJson))
-                    }
+                    let books = json.handleBookArray()
                     completion(books)
                 case .failure( _):
                     completion(nil)
@@ -73,11 +69,7 @@ class ApiClientBooks:NSObject{
                 switch response.result{
                 case .success(let value):
                     let json = JSON(value)
-                    var books = [Book]()
-                    for(_,subJson):(String,JSON) in json
-                    {
-                        books.append(Book(json:subJson))
-                    }
+                    let books = json.handleBookArray()
                     completion(books)
                 case .failure( _):
                     completion(nil)
@@ -116,7 +108,7 @@ class ApiClientBooks:NSObject{
         let headers : HTTPHeaders = [
             "Authorization" : "Bearer \(token!)"
         ]
-
+        
             let params : Parameters = [
                 "Title":title,
                 "Year":year,
@@ -153,12 +145,8 @@ class ApiClientBooks:NSObject{
                 switch response.result{
                 case .success(let value):
                     let json = JSON(value)
-                    var books = [Book]()
-                    let resultArray = json["items"].arrayValue
-                    for(subJson):(JSON) in resultArray
-                    {
-                        books.append(Book(googleJson: subJson))
-                    }
+                    let resultArray = json["items"]
+                    let books = resultArray.handleBookArrayFromGoogle()
                     completion(books)
                 case .failure( _):
                     completion(nil)

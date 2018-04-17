@@ -1,23 +1,18 @@
 //
-//  FriendRequestsTableViewCell.swift
+//  SearchForFriendsTableViewCell.swift
 //  Thesis
 //
-//  Created by Tudor Stanila on 11/04/2018.
+//  Created by Tudor Stanila on 17/04/2018.
 //  Copyright © 2018 Tudor Stanila. All rights reserved.
 //
 
 import UIKit
 
-class FriendRequestsTableViewCell: UITableViewCell {
+class SearchForFriendsTableViewCell: UITableViewCell {
 
-    
+    @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
-    
-    @IBOutlet weak var acceptBtn: UIButton!
-    
-    @IBOutlet weak var declineBtn: UIButton!
-    
-    var acceptAction: (()->Void)? = nil
+    var action : (()->Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,11 +24,8 @@ class FriendRequestsTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    @IBAction func acceptBtnPress(_ sender: Any) {
-        acceptAction?()
-    }
-    
-    
 
+    @IBAction func addBtnPress(_ sender: Any) {
+        action?()
+    }
 }

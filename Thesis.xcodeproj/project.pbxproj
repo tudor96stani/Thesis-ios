@@ -10,6 +10,9 @@
 		4B13A576207E495A00CAF9C1 /* FriendRequestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B13A575207E495A00CAF9C1 /* FriendRequestsTableViewController.swift */; };
 		4B13A578207E496B00CAF9C1 /* FriendRequestsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B13A577207E496B00CAF9C1 /* FriendRequestsTableViewCell.swift */; };
 		4B13A57A207E4C5300CAF9C1 /* FriendRequestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B13A579207E4C5300CAF9C1 /* FriendRequestsViewModel.swift */; };
+		4B13A57C207E790000CAF9C1 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B13A57B207E790000CAF9C1 /* SettingsViewModel.swift */; };
+		4B13A57E207F9A4F00CAF9C1 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B13A57D207F9A4F00CAF9C1 /* RegisterViewController.swift */; };
+		4B13A580207F9E5A00CAF9C1 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B13A57F207F9E5A00CAF9C1 /* RegisterViewModel.swift */; };
 		4B458D51207A70900082AD61 /* AddNewBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B458D50207A70900082AD61 /* AddNewBookViewController.swift */; };
 		4B458D53207A76200082AD61 /* AddNewBookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B458D52207A76200082AD61 /* AddNewBookViewModel.swift */; };
 		4B458D55207CF4660082AD61 /* NewsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B458D54207CF4650082AD61 /* NewsFeedViewController.swift */; };
@@ -17,6 +20,7 @@
 		4B458D59207CF5540082AD61 /* ActivityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B458D58207CF5540082AD61 /* ActivityType.swift */; };
 		4B458D5B207CF9A80082AD61 /* NewsFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B458D5A207CF9A80082AD61 /* NewsFeedViewModel.swift */; };
 		4B458D5D207CFB170082AD61 /* NewsFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B458D5C207CFB170082AD61 /* NewsFeedTableViewCell.swift */; };
+		4B60FF2420863EBE00AE8760 /* SearchForFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B60FF2320863EBE00AE8760 /* SearchForFriendsTableViewCell.swift */; };
 		4B6C7DD22076828900AFBC56 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6C7DD12076828900AFBC56 /* SettingsTableViewController.swift */; };
 		4B6E28682078DA4A0074D1B9 /* SearchForBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6E28672078DA4A0074D1B9 /* SearchForBookViewController.swift */; };
 		4B6E286A2078E0310074D1B9 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6E28692078E0310074D1B9 /* FriendsTableViewController.swift */; };
@@ -32,6 +36,9 @@
 		4B6E2880207A159E0074D1B9 /* GoogleResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6E287F207A159E0074D1B9 /* GoogleResultCollectionViewCell.swift */; };
 		4B6E2882207A16190074D1B9 /* GoogleResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6E2881207A16190074D1B9 /* GoogleResultViewModel.swift */; };
 		4B6E2885207A5E070074D1B9 /* CustomInfiniteIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6E2884207A5E070074D1B9 /* CustomInfiniteIndicator.swift */; };
+		4B79806A207FA6CE001ED274 /* SearchForFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B798069207FA6CE001ED274 /* SearchForFriendsTableViewController.swift */; };
+		4B79806C207FA9AB001ED274 /* SearchForFriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B79806B207FA9AB001ED274 /* SearchForFriendsViewModel.swift */; };
+		4B79806E207FAAF5001ED274 /* JSONParsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B79806D207FAAF5001ED274 /* JSONParsers.swift */; };
 		4B7A74512074DFCE003BAE07 /* MyLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A74502074DFCE003BAE07 /* MyLibraryViewController.swift */; };
 		4B7A74532074E291003BAE07 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A74522074E291003BAE07 /* Book.swift */; };
 		4B7A74552074E2B8003BAE07 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A74542074E2B8003BAE07 /* Author.swift */; };
@@ -73,6 +80,9 @@
 		4B13A575207E495A00CAF9C1 /* FriendRequestsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestsTableViewController.swift; sourceTree = "<group>"; };
 		4B13A577207E496B00CAF9C1 /* FriendRequestsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestsTableViewCell.swift; sourceTree = "<group>"; };
 		4B13A579207E4C5300CAF9C1 /* FriendRequestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestsViewModel.swift; sourceTree = "<group>"; };
+		4B13A57B207E790000CAF9C1 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		4B13A57D207F9A4F00CAF9C1 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		4B13A57F207F9E5A00CAF9C1 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		4B458D50207A70900082AD61 /* AddNewBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewBookViewController.swift; sourceTree = "<group>"; };
 		4B458D52207A76200082AD61 /* AddNewBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewBookViewModel.swift; sourceTree = "<group>"; };
 		4B458D54207CF4650082AD61 /* NewsFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +90,7 @@
 		4B458D58207CF5540082AD61 /* ActivityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityType.swift; sourceTree = "<group>"; };
 		4B458D5A207CF9A80082AD61 /* NewsFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedViewModel.swift; sourceTree = "<group>"; };
 		4B458D5C207CFB170082AD61 /* NewsFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCell.swift; sourceTree = "<group>"; };
+		4B60FF2320863EBE00AE8760 /* SearchForFriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchForFriendsTableViewCell.swift; sourceTree = "<group>"; };
 		4B6C7DD12076828900AFBC56 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		4B6E28672078DA4A0074D1B9 /* SearchForBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchForBookViewController.swift; sourceTree = "<group>"; };
 		4B6E28692078E0310074D1B9 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +107,9 @@
 		4B6E2881207A16190074D1B9 /* GoogleResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleResultViewModel.swift; sourceTree = "<group>"; };
 		4B6E2883207A5D390074D1B9 /* Thesis-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Thesis-Bridging-Header.h"; sourceTree = "<group>"; };
 		4B6E2884207A5E070074D1B9 /* CustomInfiniteIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInfiniteIndicator.swift; sourceTree = "<group>"; };
+		4B798069207FA6CE001ED274 /* SearchForFriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchForFriendsTableViewController.swift; sourceTree = "<group>"; };
+		4B79806B207FA9AB001ED274 /* SearchForFriendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchForFriendsViewModel.swift; sourceTree = "<group>"; };
+		4B79806D207FAAF5001ED274 /* JSONParsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParsers.swift; sourceTree = "<group>"; };
 		4B7A74502074DFCE003BAE07 /* MyLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLibraryViewController.swift; sourceTree = "<group>"; };
 		4B7A74522074E291003BAE07 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		4B7A74542074E2B8003BAE07 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
@@ -163,6 +177,7 @@
 				4B6E286B2078E0840074D1B9 /* FriendTableViewCell.swift */,
 				4B458D5C207CFB170082AD61 /* NewsFeedTableViewCell.swift */,
 				4B13A577207E496B00CAF9C1 /* FriendRequestsTableViewCell.swift */,
+				4B60FF2320863EBE00AE8760 /* SearchForFriendsTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -240,6 +255,9 @@
 				4B458D52207A76200082AD61 /* AddNewBookViewModel.swift */,
 				4B458D5A207CF9A80082AD61 /* NewsFeedViewModel.swift */,
 				4B13A579207E4C5300CAF9C1 /* FriendRequestsViewModel.swift */,
+				4B13A57B207E790000CAF9C1 /* SettingsViewModel.swift */,
+				4B13A57F207F9E5A00CAF9C1 /* RegisterViewModel.swift */,
+				4B79806B207FA9AB001ED274 /* SearchForFriendsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -257,6 +275,8 @@
 				4B458D50207A70900082AD61 /* AddNewBookViewController.swift */,
 				4B458D54207CF4650082AD61 /* NewsFeedViewController.swift */,
 				4B13A575207E495A00CAF9C1 /* FriendRequestsTableViewController.swift */,
+				4B13A57D207F9A4F00CAF9C1 /* RegisterViewController.swift */,
+				4B798069207FA6CE001ED274 /* SearchForFriendsTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -290,6 +310,7 @@
 				4B6E286F2078FE830074D1B9 /* BackButtonHelper.swift */,
 				4B6E28772079095E0074D1B9 /* ImageResize.swift */,
 				4B6E2884207A5E070074D1B9 /* CustomInfiniteIndicator.swift */,
+				4B79806D207FAAF5001ED274 /* JSONParsers.swift */,
 			);
 			path = "Helper methods";
 			sourceTree = "<group>";
@@ -537,6 +558,7 @@
 				4B7A74572074E595003BAE07 /* ApiClientBooks.swift in Sources */,
 				4BB293062074C69F00C394CC /* User.swift in Sources */,
 				4B6E287E207A14A60074D1B9 /* GoogleResultsCollectionViewController.swift in Sources */,
+				4B79806E207FAAF5001ED274 /* JSONParsers.swift in Sources */,
 				4BB292E12074C3A800C394CC /* ViewController.swift in Sources */,
 				4B458D57207CF5070082AD61 /* Activity.swift in Sources */,
 				4B6E2885207A5E070074D1B9 /* CustomInfiniteIndicator.swift in Sources */,
@@ -544,8 +566,12 @@
 				4BB2930C2074CA7A00C394CC /* ApiClientUsers.swift in Sources */,
 				4BB2930F2074CB0D00C394CC /* Urls.swift in Sources */,
 				4BB293112074CC1400C394CC /* ExtensionMethods.swift in Sources */,
+				4B60FF2420863EBE00AE8760 /* SearchForFriendsTableViewCell.swift in Sources */,
+				4B79806A207FA6CE001ED274 /* SearchForFriendsTableViewController.swift in Sources */,
 				4B6E286C2078E0840074D1B9 /* FriendTableViewCell.swift in Sources */,
 				4B13A576207E495A00CAF9C1 /* FriendRequestsTableViewController.swift in Sources */,
+				4B13A57C207E790000CAF9C1 /* SettingsViewModel.swift in Sources */,
+				4B13A580207F9E5A00CAF9C1 /* RegisterViewModel.swift in Sources */,
 				4B6C7DD22076828900AFBC56 /* SettingsTableViewController.swift in Sources */,
 				4B458D5D207CFB170082AD61 /* NewsFeedTableViewCell.swift in Sources */,
 				4BB2930A2074CA5000C394CC /* LoginViewModel.swift in Sources */,
@@ -553,11 +579,13 @@
 				4B6E287A2079102D0074D1B9 /* AddBookInfoViewController.swift in Sources */,
 				4B458D59207CF5540082AD61 /* ActivityType.swift in Sources */,
 				4B458D5B207CF9A80082AD61 /* NewsFeedViewModel.swift in Sources */,
+				4B13A57E207F9A4F00CAF9C1 /* RegisterViewController.swift in Sources */,
 				4BB292DF2074C3A800C394CC /* AppDelegate.swift in Sources */,
 				4B6E287C207911B70074D1B9 /* AddBookInfoViewModel.swift in Sources */,
 				4B6E2872207905370074D1B9 /* SearchForBookViewModel.swift in Sources */,
 				4B7A745D2074E9FB003BAE07 /* MyLibraryViewCell.swift in Sources */,
 				4BCD7AC02077841400A2C5EC /* ActivityIndicatorHelper.swift in Sources */,
+				4B79806C207FA9AB001ED274 /* SearchForFriendsViewModel.swift in Sources */,
 				4B458D53207A76200082AD61 /* AddNewBookViewModel.swift in Sources */,
 				4BB293142074D9D600C394CC /* DisplayAlert.swift in Sources */,
 				4B7A745A2074E7B4003BAE07 /* MyLibraryViewModel.swift in Sources */,
@@ -728,6 +756,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KM3C4M2S4T;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				INFOPLIST_FILE = Thesis/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tudor.mobile.Thesis;
@@ -745,6 +774,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KM3C4M2S4T;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				INFOPLIST_FILE = Thesis/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tudor.mobile.Thesis;

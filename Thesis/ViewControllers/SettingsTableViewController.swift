@@ -12,6 +12,7 @@ class SettingsTableViewController: UITableViewController {
 
     let keychain = KeychainSwift()
     let defaultValues = UserDefaults.standard
+    @IBOutlet var viewModel : SettingsViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +24,42 @@ class SettingsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.tableView.tableFooterView = UIView()
         self.tableView.contentInset = UIEdgeInsetsMake(-50, 0, 0, 0)
-    
+        
+        self.viewModel.GetFriendRequestsNumber {
+            let cell = self.tableView.cellForRow(at: IndexPath(item: 1, section: 0))
+            if (self.viewModel.friendRequests > 0) {
+                
+                // Create label
+                let fontSize : CGFloat = 14;
+                let label : UILabel = UILabel()
+                label.font = UIFont.systemFont(ofSize: fontSize)
+                label.textAlignment = NSTextAlignment.center
+                label.textColor = .white
+                label.backgroundColor = .red
+                
+                // Add count to label and size to fit
+                label.text = String(self.viewModel.friendRequests)
+                label.sizeToFit()
+                
+                // Adjust frame to be square for single digits or elliptical for numbers > 9
+                var frame : CGRect = label.frame;
+                frame.size.height += 0.4*fontSize
+                frame.size.width = (self.viewModel.friendRequests <= 9) ? frame.size.height : frame.size.width + fontSize;
+                label.frame = frame;
+                
+                // Set radius and clip to bounds
+                label.layer.cornerRadius = frame.size.height/2.0;
+                label.clipsToBounds = true;
+                
+                // Show label in accessory view and remove disclosure
+                cell?.accessoryView = label;
+                cell?.accessoryType = UITableViewCellAccessoryType.none
+            }
+            else {
+                cell?.accessoryView = nil;
+                cell?.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -46,52 +82,52 @@ class SettingsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        if section == 0{
-            return 2
-        }
-        else{
-            return 1
+        switch section{
+            case 0:
+                return 3
+            case 1:
+                return 1
+            default:
+                return 0
         }
     }
     
-    
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if indexPath.section==1 && indexPath.row==0{
-            self.keychain.delete(KeychainSwift.Keys.Token)
-            self.keychain.delete(KeychainSwift.Keys.Username)
-            self.keychain.delete(KeychainSwift.Keys.Password)
-            self.defaultValues.removeObject(forKey: UserDefaults.Keys.UserId)
-            
-            if (self.navigationController?.popViewController(animated: true)) != nil{
-                
-            }
-            else{
-                let appdelegate = UIApplication.shared.delegate as! AppDelegate
-                let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let ViewController = mainStoryboard.instantiateViewController(withIdentifier: "loginCtrl") as! LoginViewController
-                let nav = UINavigationController(rootViewController: ViewController)
-                appdelegate.window!.rootViewController = nav
-            }
-        }
-        //sec 0 row 1
         if indexPath.section == 0 {
             if indexPath.row == 0{
                 let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let ViewController = mainStoryboard.instantiateViewController(withIdentifier: "friendsTbl") as! FriendsTableViewController
                 self.navigationController?.pushViewController(ViewController, animated: true)
             }
-            if indexPath.row == 1{
+            else if indexPath.row == 1{
                 let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let ViewController = mainStoryboard.instantiateViewController(withIdentifier: "friendRequestsCtrl") as! FriendRequestsTableViewController
                 self.navigationController?.pushViewController(ViewController, animated: true)
+            }
+            else if indexPath.row == 2{
+                
+                let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let ViewController = mainStoryboard.instantiateViewController(withIdentifier: "searchFriendsCtrl") as! SearchForFriendsTableViewController
+                self.navigationController?.pushViewController(ViewController, animated: true)
+            }
+        }
+        else if indexPath.section==1 {
+            if indexPath.row==0{
+                self.keychain.delete(KeychainSwift.Keys.Token)
+                self.keychain.delete(KeychainSwift.Keys.Username)
+                self.keychain.delete(KeychainSwift.Keys.Password)
+                self.defaultValues.removeObject(forKey: UserDefaults.Keys.UserId)
+                if (self.navigationController?.popViewController(animated: true)) == nil{
+                    let appdelegate = UIApplication.shared.delegate as! AppDelegate
+                    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    let ViewController = mainStoryboard.instantiateViewController(withIdentifier: "loginCtrl") as! LoginViewController
+                    let nav = UINavigationController(rootViewController: ViewController)
+                    appdelegate.window!.rootViewController = nav
+                }
             }
         }
     }

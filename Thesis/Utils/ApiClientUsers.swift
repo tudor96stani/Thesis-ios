@@ -83,6 +83,23 @@ class ApiClientUsers:NSObject{
             }
     }
     
+    func Register(username:String,password:String,completion:@escaping (Bool) -> Void){
+        let params : Parameters = [
+            "Username":username,
+            "Password":password
+        ]
+        Alamofire.request(Urls.Register,method:.post,parameters:params,encoding:URLEncoding.httpBody)
+            .validate()
+            .response { (response) in
+                switch response.response?.statusCode{
+                case 200?:
+                    completion(true)
+                default:
+                    completion(false)
+                }
+        }
+    }
+    
     func GetFriends(completion:@escaping ([User]?)->Void){
         let token = self.keychain.get(KeychainSwift.Keys.Token)!
         let headers : HTTPHeaders = [
@@ -96,10 +113,7 @@ class ApiClientUsers:NSObject{
                 switch response.result{
                 case .success(let value):
                     let json = JSON(value)
-                    var users = [User]()
-                    for(_,subJson) in json{
-                        users.append(User(json:subJson))
-                    }
+                    let users = json.handleUserArray()
                     completion(users)
                 case .failure( _):
                     completion(nil)
@@ -143,13 +157,30 @@ class ApiClientUsers:NSObject{
                 switch response.result{
                 case .success(let value):
                     let json = JSON(value)
-                    var users = [User]()
-                    for(_,subJson) in json{
-                        users.append(User(json:subJson))
-                    }
+                    let users = json.handleUserArray()
                     completion(users)
                 case .failure( _):
                     completion(nil)
+                }
+        }
+    }
+    
+    func GetFriendRequestsNumber(completion:@escaping (Int)->Void){
+        let token = self.keychain.get(KeychainSwift.Keys.Token)!
+        let headers : HTTPHeaders = [
+            "Authorization" : "Bearer \(token)"
+        ]
+        
+        Alamofire.request(Urls.GetFriendRequestsNumber,headers:headers)
+            .validate()
+            .responseJSON { (response) in
+                switch response.result{
+                case .success(let value):
+                    let json = JSON(value)
+                    let result = json["count"].intValue
+                    completion(result)
+                case .failure( _):
+                    completion(0)
                 }
         }
     }
@@ -173,5 +204,43 @@ class ApiClientUsers:NSObject{
         
     }
     
+    func FindFriends(query:String, completion:@escaping ([User]?)->Void){
+        let token = self.keychain.get(KeychainSwift.Keys.Token)!
+        let headers : HTTPHeaders = [
+            "Authorization" : "Bearer \(token)"
+        ]
+        let url = Urls.FindUsers + query
+        Alamofire.request(url,headers:headers)
+            .validate()
+            .responseJSON { (response) in
+                switch response.result{
+                case .success(let value):
+                    let json = JSON(value)
+                    let users = json.handleUserArray()
+                    completion(users)
+                case .failure( _):
+                    completion(nil)
+                }
+        }
+    }
+    
+    func AddFriend(userId:String,completion:@escaping (Bool)->Void){
+        let token = self.keychain.get(KeychainSwift.Keys.Token)!
+        let headers : HTTPHeaders = [
+            "Authorization" : "Bearer \(token)"
+        ]
+        let url = Urls.AddFriend + userId
+        Alamofire.request(url,method:.post,headers:headers)
+            .validate()
+            .response { (response) in
+                switch response.response?.statusCode{
+                case 200?:
+                    completion(true)
+                default:
+                    completion(false)
+                }
+        }
+        
+    }
     
 }
