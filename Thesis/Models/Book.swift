@@ -16,6 +16,10 @@ class Book{
     var Authors:[Author]?
     var Cover:NSData?
     var CoverUrl:String!
+    var Borrowed:Bool!
+    var BorrowedFrom:User!
+    var Lent:Bool!
+    var LentTo:User!
     
     init(id:UUID,title:String,year:Int,pub:String){
         Id=id
@@ -38,7 +42,15 @@ class Book{
         if base64String != ""
         {
             self.Cover = NSData(base64Encoded: base64String, options: NSData.Base64DecodingOptions(rawValue: 0))
-            
+        }
+        Borrowed = json["borrowed"].boolValue
+        if Borrowed {
+            BorrowedFrom = User(json:json["borrowedFrom"])
+        }
+        
+        Lent = json["lent"].boolValue
+        if Lent{
+            LentTo = User(json:json["lentTo"])
         }
     }
     

@@ -20,6 +20,10 @@
 		4B458D59207CF5540082AD61 /* ActivityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B458D58207CF5540082AD61 /* ActivityType.swift */; };
 		4B458D5B207CF9A80082AD61 /* NewsFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B458D5A207CF9A80082AD61 /* NewsFeedViewModel.swift */; };
 		4B458D5D207CFB170082AD61 /* NewsFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B458D5C207CFB170082AD61 /* NewsFeedTableViewCell.swift */; };
+		4B4F1EE82088F92800CE65F5 /* BorrowRequestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4F1EE72088F92800CE65F5 /* BorrowRequestsTableViewController.swift */; };
+		4B4F1EEA2088F93B00CE65F5 /* BorrowRequestsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4F1EE92088F93B00CE65F5 /* BorrowRequestsTableViewCell.swift */; };
+		4B4F1EEC208A89C000CE65F5 /* BorrowRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4F1EEB208A89C000CE65F5 /* BorrowRequest.swift */; };
+		4B4F1EEE208A8B3A00CE65F5 /* BorrowRequestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4F1EED208A8B3A00CE65F5 /* BorrowRequestsViewModel.swift */; };
 		4B60FF2420863EBE00AE8760 /* SearchForFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B60FF2320863EBE00AE8760 /* SearchForFriendsTableViewCell.swift */; };
 		4B6C7DD22076828900AFBC56 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6C7DD12076828900AFBC56 /* SettingsTableViewController.swift */; };
 		4B6E28682078DA4A0074D1B9 /* SearchForBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6E28672078DA4A0074D1B9 /* SearchForBookViewController.swift */; };
@@ -91,6 +95,10 @@
 		4B458D58207CF5540082AD61 /* ActivityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityType.swift; sourceTree = "<group>"; };
 		4B458D5A207CF9A80082AD61 /* NewsFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedViewModel.swift; sourceTree = "<group>"; };
 		4B458D5C207CFB170082AD61 /* NewsFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCell.swift; sourceTree = "<group>"; };
+		4B4F1EE72088F92800CE65F5 /* BorrowRequestsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorrowRequestsTableViewController.swift; sourceTree = "<group>"; };
+		4B4F1EE92088F93B00CE65F5 /* BorrowRequestsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorrowRequestsTableViewCell.swift; sourceTree = "<group>"; };
+		4B4F1EEB208A89C000CE65F5 /* BorrowRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorrowRequest.swift; sourceTree = "<group>"; };
+		4B4F1EED208A8B3A00CE65F5 /* BorrowRequestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorrowRequestsViewModel.swift; sourceTree = "<group>"; };
 		4B60FF2320863EBE00AE8760 /* SearchForFriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchForFriendsTableViewCell.swift; sourceTree = "<group>"; };
 		4B6C7DD12076828900AFBC56 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		4B6E28672078DA4A0074D1B9 /* SearchForBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchForBookViewController.swift; sourceTree = "<group>"; };
@@ -181,6 +189,7 @@
 				4B13A577207E496B00CAF9C1 /* FriendRequestsTableViewCell.swift */,
 				4B60FF2320863EBE00AE8760 /* SearchForFriendsTableViewCell.swift */,
 				4BC4FECF208663620093102E /* AddBookInfoOwnerTableViewCell.swift */,
+				4B4F1EE92088F93B00CE65F5 /* BorrowRequestsTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -261,6 +270,7 @@
 				4B13A57B207E790000CAF9C1 /* SettingsViewModel.swift */,
 				4B13A57F207F9E5A00CAF9C1 /* RegisterViewModel.swift */,
 				4B79806B207FA9AB001ED274 /* SearchForFriendsViewModel.swift */,
+				4B4F1EED208A8B3A00CE65F5 /* BorrowRequestsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -280,6 +290,7 @@
 				4B13A575207E495A00CAF9C1 /* FriendRequestsTableViewController.swift */,
 				4B13A57D207F9A4F00CAF9C1 /* RegisterViewController.swift */,
 				4B798069207FA6CE001ED274 /* SearchForFriendsTableViewController.swift */,
+				4B4F1EE72088F92800CE65F5 /* BorrowRequestsTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -292,6 +303,7 @@
 				4B7A74542074E2B8003BAE07 /* Author.swift */,
 				4B458D56207CF5070082AD61 /* Activity.swift */,
 				4B458D58207CF5540082AD61 /* ActivityType.swift */,
+				4B4F1EEB208A89C000CE65F5 /* BorrowRequest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -571,6 +583,7 @@
 				4BB293112074CC1400C394CC /* ExtensionMethods.swift in Sources */,
 				4B60FF2420863EBE00AE8760 /* SearchForFriendsTableViewCell.swift in Sources */,
 				4B79806A207FA6CE001ED274 /* SearchForFriendsTableViewController.swift in Sources */,
+				4B4F1EEC208A89C000CE65F5 /* BorrowRequest.swift in Sources */,
 				4B6E286C2078E0840074D1B9 /* FriendTableViewCell.swift in Sources */,
 				4B13A576207E495A00CAF9C1 /* FriendRequestsTableViewController.swift in Sources */,
 				4BC4FED0208663620093102E /* AddBookInfoOwnerTableViewCell.swift in Sources */,
@@ -585,6 +598,7 @@
 				4B458D5B207CF9A80082AD61 /* NewsFeedViewModel.swift in Sources */,
 				4B13A57E207F9A4F00CAF9C1 /* RegisterViewController.swift in Sources */,
 				4BB292DF2074C3A800C394CC /* AppDelegate.swift in Sources */,
+				4B4F1EEA2088F93B00CE65F5 /* BorrowRequestsTableViewCell.swift in Sources */,
 				4B6E287C207911B70074D1B9 /* AddBookInfoViewModel.swift in Sources */,
 				4B6E2872207905370074D1B9 /* SearchForBookViewModel.swift in Sources */,
 				4B7A745D2074E9FB003BAE07 /* MyLibraryViewCell.swift in Sources */,
@@ -604,7 +618,9 @@
 				4B6E2882207A16190074D1B9 /* GoogleResultViewModel.swift in Sources */,
 				4BB293082074C9E800C394CC /* LoginViewController.swift in Sources */,
 				4BB292E72074C3A800C394CC /* Thesis.xcdatamodeld in Sources */,
+				4B4F1EEE208A8B3A00CE65F5 /* BorrowRequestsViewModel.swift in Sources */,
 				4B458D55207CF4660082AD61 /* NewsFeedViewController.swift in Sources */,
+				4B4F1EE82088F92800CE65F5 /* BorrowRequestsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -33,6 +33,13 @@ extension JSON{
         return books
     }
     
+    func handleBorrowRequestArray() -> [BorrowRequest] {
+        var requests = [BorrowRequest]()
+        for(_,subJson) in self {
+            requests.append(BorrowRequest(json:subJson))
+        }
+        return requests
+    }
 }
 
 

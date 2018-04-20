@@ -30,4 +30,7 @@ enum Urls{
     static let GoogleApiSearch = "https://www.googleapis.com/books/v1/volumes?q="
     static let AddNewBookToLibrary = BaseUrl + "books/addnew"
     static let GetOwnersOfBook = BaseUrl + "books/owners?bookId="
+    static let GetNumberOfBorrowRequests = BaseUrl + "books/borrow/request/count"
+    static let GetBorrowRequests = BaseUrl + "books/borrow/requests"
+    static let AcceptBorrowRequest = BaseUrl + "books/borrow/accept"
 }

@@ -47,6 +47,30 @@ class MyLibraryViewModel:NSObject{
         return UIImage(named: "default_cover")!
     }
     
+    func GetSource(for indexPath:IndexPath) -> String {
+        var source = ""
+        if let book = self.books?[indexPath.row] {
+            if book.Borrowed{
+                source = "Borrowed from " + book.BorrowedFrom.Username
+            }
+            else if book.Lent{
+                source = "Lent to " + book.LentTo.Username
+            }
+            else{
+                source = "In library"
+            }
+        }
+        return source
+    }
+    
+    func GetNumberOfBorrowRequests(completion:@escaping (Int) -> Void){
+        apiClient.GetNumberOfBorrowRequest { (result) in
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
+    }
+    
 //    func FindBookDetailsViewModel(for indexPath: IndexPath) -> BookDetailsViewModel?
 //    {
 //        if let book = books?[indexPath.row]

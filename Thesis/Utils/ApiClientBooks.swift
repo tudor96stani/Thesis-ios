@@ -100,7 +100,7 @@ class ApiClientBooks:NSObject{
                     let json = JSON(data)
                     completion(false,json.stringValue)
                 }
-        }
+            }
     }
     
     func AddNewBookToLibrary(title:String,year:Int,publisher:String,authors:[String]?,cover:String,completion:@escaping (Bool,String?)->Void){
@@ -170,6 +170,66 @@ class ApiClientBooks:NSObject{
                     completion(users)
                 case .failure( _):
                     completion(nil)
+                }
+        }
+    }
+    
+    func GetNumberOfBorrowRequest(completion: @escaping (Int) -> Void){
+        let token = self.keychain.get(KeychainSwift.Keys.Token)
+        let headers : HTTPHeaders = [
+            "Authorization" : "Bearer \(token!)"
+        ]
+        Alamofire.request(Urls.GetNumberOfBorrowRequests,headers:headers)
+            .validate()
+            .responseJSON { (response) in
+                switch response.result{
+                case .success(let value):
+                    let json = JSON(value)
+                    let result = json["number"].intValue
+                    completion(result)
+                case .failure( _):
+                    completion(0)
+                }
+        }
+    }
+    
+    func GetBorrowRequests(completion: @escaping ([BorrowRequest]?) -> Void){
+        let token = self.keychain.get(KeychainSwift.Keys.Token)
+        let headers : HTTPHeaders = [
+            "Authorization" : "Bearer \(token!)"
+        ]
+        Alamofire.request(Urls.GetBorrowRequests,headers:headers)
+            .validate()
+            .responseJSON { (response) in
+                switch response.result{
+                case .success(let value):
+                    let json = JSON(value)
+                    let requests = json.handleBorrowRequestArray()
+                    completion(requests)
+                case .failure( _):
+                    completion(nil)
+                }
+        }
+    }
+    
+    func AcceptBorrowRequest(userId : String, bookId: UUID, completion: @escaping (Bool)->Void){
+        let token = self.keychain.get(KeychainSwift.Keys.Token)
+        let headers : HTTPHeaders = [
+            "Authorization" : "Bearer \(token!)"
+        ]
+        
+        let params : Parameters = [
+            "From":userId.lowercased(),
+            "BookId":bookId.uuidString
+        ]
+        Alamofire.request(Urls.AcceptBorrowRequest,method:.post,parameters:params,encoding:URLEncoding.httpBody, headers: headers)
+            .validate()
+            .response { (response) in
+                switch response.response?.statusCode{
+                case 200?:
+                    completion(true)
+                default:
+                    completion(false)
                 }
         }
     }

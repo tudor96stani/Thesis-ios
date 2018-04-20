@@ -8,10 +8,14 @@
 
 import UIKit
 import KeychainSwift
+
+
 class MyLibraryViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var viewModel:MyLibraryViewModel!
+    
+   
     
     let keychain = KeychainSwift()
     let defaultValues = UserDefaults.standard
@@ -30,20 +34,25 @@ class MyLibraryViewController: UIViewController,UITableViewDelegate, UITableView
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: .valueChanged)
         tableView.refreshControl = refreshControl
-        
-        self.tabBarController?.title="My books"
-        //let button1 = UIBarButtonItem(title:"+" , style: .plain, target: self, action: #selector(MyLibraryViewController.goTo(_:)))
-        let btn2 = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(MyLibraryViewController.goTo(_:)))
-        self.tabBarController?.navigationItem.rightBarButtonItem=btn2 
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.title="My books"
-        //let button1 = UIBarButtonItem(title:"+" , style: .plain, target: self, action: #selector(MyLibraryViewController.goTo(_:)))
+        
         let btn2 = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(MyLibraryViewController.goTo(_:)))
-        self.tabBarController?.navigationItem.rightBarButtonItem=btn2 
-        self.tabBarController?.navigationItem.leftBarButtonItem=nil
+        self.tabBarController?.navigationItem.rightBarButtonItem=btn2
+        
+        let borrowRequestsBtn = UIButton(type: .custom)
+        let borrowRequestBtnImage = UIImage(named: "videos_purchased")!
+        borrowRequestsBtn.setImage(borrowRequestBtnImage, for: .normal)
+        borrowRequestsBtn.addTarget(self, action: #selector(MyLibraryViewController.goToBorrowRequests(_:)), for: UIControlEvents.touchUpInside)
+        let leftBarButton = UIBarButtonItem(customView: borrowRequestsBtn)
+        
+        self.tabBarController?.navigationItem.leftBarButtonItem=leftBarButton
+        //leftBarButton.addBadge(number: 0)
+        self.viewModel.GetNumberOfBorrowRequests { (nbOfRequest) in
+            leftBarButton.addBadge(number: nbOfRequest)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,7 +60,7 @@ class MyLibraryViewController: UIViewController,UITableViewDelegate, UITableView
         // Dispose of any resources that can be recreated.
     }
     
-    //MARK: TableView
+    //MARK: - TableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.NumberOfItemsToDisplay(in: 1)
@@ -64,9 +73,12 @@ class MyLibraryViewController: UIViewController,UITableViewDelegate, UITableView
         cell.AuthorLabel?.text = viewModel.BookAuthorToDisplay(for: indexPath)
         let image = ImageResizeHelper.resizeImage(image: viewModel.BookCoverToDisplay(for: indexPath), newWidth: cell.CoverView!.bounds.size.width)
         cell.CoverView?.image = image
+        cell.sourceLabel.text = viewModel.GetSource(for: indexPath)
         return cell
     }
     
+    
+    //MARK: - Methods
     
     func ReloadData(){
         viewModel.GetBooks(UserId: UUID(uuidString:UserDefaults.standard.string(forKey:UserDefaults.Keys.UserId)!)!) {
@@ -104,6 +116,12 @@ class MyLibraryViewController: UIViewController,UITableViewDelegate, UITableView
     @objc func goTo(_ sender:UIBarButtonItem){
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let ViewController = mainStoryboard.instantiateViewController(withIdentifier: "searchBookCtrl") as! SearchForBookViewController
+        self.navigationController?.pushViewController(ViewController, animated: true)
+    }
+    
+    @objc func goToBorrowRequests(_ sender:UIButton){
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let ViewController = mainStoryboard.instantiateViewController(withIdentifier: "borrowRequestsCtrl") as! BorrowRequestsTableViewController
         self.navigationController?.pushViewController(ViewController, animated: true)
     }
      
