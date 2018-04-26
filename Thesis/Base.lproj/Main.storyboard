@@ -440,7 +440,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tBy-cI-lIr">
                                                             <rect key="frame" x="0.0" y="111" width="258" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -786,10 +786,21 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7g-kV-Oti">
+                                                    <rect key="frame" x="233" y="7" width="127" height="30"/>
+                                                    <state key="normal" title="Request to borrow"/>
+                                                    <connections>
+                                                        <action selector="requestBtnPress:" destination="5Gq-4K-1l0" eventType="touchUpInside" id="GGL-nK-TUf"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="R7g-kV-Oti" firstAttribute="top" secondItem="9bi-7H-equ" secondAttribute="top" constant="7" id="Bfl-XD-FNA"/>
+                                                <constraint firstItem="R7g-kV-Oti" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9bi-7H-equ" secondAttribute="leading" constant="20" symbolic="YES" id="DS8-Ey-hsW"/>
                                                 <constraint firstItem="sBI-Ez-8bW" firstAttribute="leading" secondItem="9bi-7H-equ" secondAttribute="leading" constant="15" id="FWv-dr-hg0"/>
+                                                <constraint firstAttribute="trailing" secondItem="R7g-kV-Oti" secondAttribute="trailing" constant="15" id="hJf-Y3-D53"/>
                                                 <constraint firstAttribute="bottom" secondItem="sBI-Ez-8bW" secondAttribute="bottom" constant="11" id="huM-WY-U6L"/>
+                                                <constraint firstAttribute="bottom" secondItem="R7g-kV-Oti" secondAttribute="bottom" constant="7" id="ip2-GH-2lT"/>
                                                 <constraint firstItem="sBI-Ez-8bW" firstAttribute="top" secondItem="9bi-7H-equ" secondAttribute="top" constant="11" id="p24-c3-84y"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="sBI-Ez-8bW" secondAttribute="trailing" id="zDg-q7-zfS"/>
                                             </constraints>

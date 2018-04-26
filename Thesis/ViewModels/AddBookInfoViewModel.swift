@@ -71,4 +71,19 @@ class AddBookInfoViewModel:NSObject{
     func GetCount() -> Int {
         return self.owners?.count ?? 0
     }
+    
+    func SendBorrowRequest(to userAt:IndexPath, completion:@escaping (Bool)->Void){
+        if let userId = self.owners?[userAt.row].Id {
+            self.apiClient.SendBorrowRequest(from: userId, bookId: self.book.Id) { (success) in
+                DispatchQueue.main.async{
+                    completion(success)
+                }
+            }
+        }
+    }
+    
+    func CanBeBorrowed(from userId:String) -> Bool {
+        //TODO
+        return true;
+    }
 }

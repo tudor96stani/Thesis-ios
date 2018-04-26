@@ -95,7 +95,15 @@ class AddBookInfoViewController: UIViewController,UITableViewDelegate,UITableVie
         
         // Configure the cell...
         cell.nameLabel.text = viewModel.GetOwnerName(for: indexPath)
-        
+        cell.requestAction = {
+            self.viewModel.SendBorrowRequest(to: indexPath, completion: { (success) in
+                if success {
+                    AlertMessageHelper.displayMessage(message: "A borrow request was sent", title: "Request a borrow", controller: self)
+                }else{
+                    AlertMessageHelper.displayMessage(message: "Could not make request", title: "Request a borrow", controller: self)
+                }
+            })
+        }
         return cell
     }
     

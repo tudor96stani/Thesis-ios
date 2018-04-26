@@ -233,5 +233,28 @@ class ApiClientBooks:NSObject{
                 }
         }
     }
+    
+    func SendBorrowRequest(from userId: String, bookId: UUID,completion:@escaping (Bool) ->Void){
+        let token = self.keychain.get(KeychainSwift.Keys.Token)
+        let headers : HTTPHeaders = [
+            "Authorization" : "Bearer \(token!)"
+        ]
+        
+        let params : Parameters = [
+            "From":userId.lowercased(),
+            "BookId":bookId.uuidString
+        ]
+        
+        Alamofire.request(Urls.SendBorrowRequest,method:.post,parameters:params,encoding:URLEncoding.httpBody,headers:headers)
+            .validate()
+            .response { (response) in
+                switch response.response?.statusCode{
+                case 200?:
+                    completion(true)
+                default:
+                    completion(false)
+                }
+        }
+    }
 }
 

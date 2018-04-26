@@ -12,7 +12,7 @@ class AddBookInfoOwnerTableViewCell: UITableViewCell {
 
     
     @IBOutlet weak var nameLabel: UILabel!
-    
+    var requestAction: (()->Void)?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,4 +24,7 @@ class AddBookInfoOwnerTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func requestBtnPress(_ sender: Any) {
+        requestAction?()
+    }
 }

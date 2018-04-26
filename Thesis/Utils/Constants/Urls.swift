@@ -33,4 +33,5 @@ enum Urls{
     static let GetNumberOfBorrowRequests = BaseUrl + "books/borrow/request/count"
     static let GetBorrowRequests = BaseUrl + "books/borrow/requests"
     static let AcceptBorrowRequest = BaseUrl + "books/borrow/accept"
+    static let SendBorrowRequest = BaseUrl + "books/borrow/request"
 }
