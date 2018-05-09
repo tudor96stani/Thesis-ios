@@ -40,6 +40,15 @@ extension JSON{
         }
         return requests
     }
+    
+    func handleOCRResult() -> String {
+        let statusCode = self["OCRExitCode"].intValue
+        if statusCode == 1 || statusCode==2{
+            let text = self["ParsedResults"].arrayValue[0]["ParsedText"].stringValue
+            return text
+        }
+        return ""
+    }
 }
 
 

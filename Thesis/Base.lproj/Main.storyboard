@@ -641,8 +641,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KO3-pg-MxZ">
-                                <rect key="frame" x="30" y="94" width="315" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KO3-pg-MxZ">
+                                <rect key="frame" x="30" y="94" width="261" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
@@ -706,18 +706,27 @@
                                     <outlet property="delegate" destination="blf-pG-m6u" id="LZz-Vf-81d"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Noy-QC-PfQ">
+                                <rect key="frame" x="301" y="94" width="54" height="30"/>
+                                <state key="normal" title="Camera"/>
+                                <connections>
+                                    <action selector="cameraBtnAction:" destination="blf-pG-m6u" eventType="touchUpInside" id="chx-oR-Bmv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="wsH-u4-uvp" firstAttribute="trailing" secondItem="KO3-pg-MxZ" secondAttribute="trailing" constant="30" id="3PK-Wb-Vhe"/>
+                            <constraint firstItem="Noy-QC-PfQ" firstAttribute="leading" secondItem="KO3-pg-MxZ" secondAttribute="trailing" constant="10" id="2OV-nb-juQ"/>
                             <constraint firstAttribute="bottom" secondItem="Xze-4X-ivs" secondAttribute="bottom" constant="525" id="GRM-Fm-eKJ"/>
                             <constraint firstItem="Xze-4X-ivs" firstAttribute="top" secondItem="yh0-3i-6Nc" secondAttribute="top" constant="141" id="MUJ-L3-CM0"/>
                             <constraint firstItem="iqT-HH-tUA" firstAttribute="leading" secondItem="wsH-u4-uvp" secondAttribute="leading" id="RHg-c7-Sp0"/>
+                            <constraint firstItem="wsH-u4-uvp" firstAttribute="trailing" secondItem="Noy-QC-PfQ" secondAttribute="trailing" constant="20" id="XwD-YV-ANw"/>
                             <constraint firstItem="iqT-HH-tUA" firstAttribute="top" secondItem="Xze-4X-ivs" secondAttribute="bottom" constant="8" id="bUt-6z-zsS"/>
                             <constraint firstItem="Xze-4X-ivs" firstAttribute="top" secondItem="KO3-pg-MxZ" secondAttribute="bottom" constant="17" id="fcK-42-tdJ"/>
                             <constraint firstItem="Xze-4X-ivs" firstAttribute="trailing" secondItem="iqT-HH-tUA" secondAttribute="trailing" id="kE9-LS-4kZ"/>
-                            <constraint firstItem="KO3-pg-MxZ" firstAttribute="leading" secondItem="wsH-u4-uvp" secondAttribute="leading" constant="30" id="nlc-PI-u90"/>
+                            <constraint firstItem="KO3-pg-MxZ" firstAttribute="leading" secondItem="wsH-u4-uvp" secondAttribute="leading" constant="30" id="lmz-6z-pUl"/>
                             <constraint firstItem="iqT-HH-tUA" firstAttribute="bottom" secondItem="wsH-u4-uvp" secondAttribute="bottom" id="ooY-eP-0md"/>
+                            <constraint firstItem="Xze-4X-ivs" firstAttribute="top" secondItem="Noy-QC-PfQ" secondAttribute="bottom" constant="17" id="rE9-k5-kRx"/>
                             <constraint firstItem="Xze-4X-ivs" firstAttribute="leading" secondItem="yh0-3i-6Nc" secondAttribute="leading" constant="-278" id="uN1-EL-Bw6"/>
                             <constraint firstItem="iqT-HH-tUA" firstAttribute="trailing" secondItem="wsH-u4-uvp" secondAttribute="trailing" id="wNb-sS-d8A"/>
                         </constraints>

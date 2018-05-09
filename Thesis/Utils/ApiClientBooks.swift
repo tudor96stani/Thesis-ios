@@ -256,5 +256,30 @@ class ApiClientBooks:NSObject{
                 }
         }
     }
+    
+    func CallOCR(imageData: NSData, completion: @escaping (String?) -> Void){
+        let api_key = Constants.OCR_API_KEY;
+        let headers : HTTPHeaders = [
+            "apikey":api_key
+        ]
+        let base64img = imageData.base64EncodedString()
+        //print(base64img)
+        let param = "data:image/png;base64,"+base64img
+        let params : Parameters = [
+            "base64Image":param
+        ]
+        Alamofire.request(Urls.OCR, method:.post,parameters:params,encoding:URLEncoding.httpBody,headers:headers)
+            .validate()
+            .responseJSON { (response) in
+                switch response.result{
+                case .success(let value):
+                    let json = JSON(value)
+                    let text = json.handleOCRResult()
+                    completion(text)
+                case .failure( _):
+                    completion(nil)
+                }
+        }
+    }
 }
 

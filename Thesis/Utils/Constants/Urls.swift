@@ -34,4 +34,9 @@ enum Urls{
     static let GetBorrowRequests = BaseUrl + "books/borrow/requests"
     static let AcceptBorrowRequest = BaseUrl + "books/borrow/accept"
     static let SendBorrowRequest = BaseUrl + "books/borrow/request"
+    static let OCR = "http://api.ocr.space/parse/image"
+}
+
+enum Constants {
+    static let OCR_API_KEY = "b66189bf9f88957"
 }

@@ -8,12 +8,21 @@
 
 import UIKit
 
-class SearchForBookViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UITextFieldDelegate {
+class SearchForBookViewController: UIViewController,
+            UICollectionViewDelegate,
+            UICollectionViewDataSource,
+            UITextFieldDelegate,
+            UINavigationControllerDelegate,
+            UIImagePickerControllerDelegate
+{
     
     @IBOutlet var viewModel : SearchForBookViewModel!
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var collectionView: UICollectionView!
     fileprivate var query : String?
+    var photoForOCR : UIImageView = UIImageView()
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,18 +109,7 @@ class SearchForBookViewController: UIViewController,UICollectionViewDelegate,UIC
         
         self.navigationController?.pushViewController(ViewController, animated: true)
     }
-
-//    @IBAction func searchBtnPress(_ sender: Any) {
-//        if let query = searchField.text, query != ""{
-//            self.viewModel.Search(query: query) {
-//                self.collectionView.reloadData()
-//            }
-//            self.query = query
-//        }else{
-//            AlertMessageHelper.displayMessage(message: "Please enter a keyword", title: "Search", controller: self)
-//        }
-//    }
-//
+    
     func textFieldShouldReturn(_ textField:UITextField) -> Bool{
         self.viewModel.Search(query: textField.text!) {
             self.collectionView?.reloadData()
@@ -121,7 +119,47 @@ class SearchForBookViewController: UIViewController,UICollectionViewDelegate,UIC
         return true;
     }
     
+    
+    //MARK: - Camera functions
+    @IBAction func cameraBtnAction(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = .camera;
+            imagePicker.allowsEditing = false
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
 
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        //photoForOCR.image = image
+        let smallImage = image.resizedTo1MB()!
+        self.dismiss(animated:true, completion: nil)
+        ActivityIndicatorHelper.start(activityIndicator: self.activityIndicator, controller: self)
+        viewModel.SendToOCRApi(image: smallImage) { (result) in
+            ActivityIndicatorHelper.stop(activityIndicator: self.activityIndicator)
+            if let foundText = result {
+                self.searchField.becomeFirstResponder()
+                self.searchField.text = foundText
+                //self.searchField.resignFirstResponder()
+//                self.viewModel.Search(query: foundText, completion: {
+//                    self.collectionView.reloadData()
+//                })
+                //self.query = foundText
+            }
+            else{
+                AlertMessageHelper.displayMessage(message: "No text found in photo", title: "Search", controller: self)
+            }
+            
+        }
+        
+        
+        
+    }
+    
+    
+    
     /*
     // MARK: - Navigation
 

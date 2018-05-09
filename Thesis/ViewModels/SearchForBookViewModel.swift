@@ -60,4 +60,15 @@ class SearchForBookViewModel:NSObject{
             book.Id==id
         }))!
     }
+    
+    func SendToOCRApi(image: UIImage, completion:@escaping (String?) -> Void){
+        apiClient.CallOCR(imageData: UIImagePNGRepresentation(image)! as NSData) { (result) in
+            if let text = result {
+                let test = String(text.filter { !"\r\n".contains($0) })
+                completion(test)
+            }else{
+                completion(result)
+            }
+        }
+    }
 }
