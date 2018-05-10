@@ -13,15 +13,13 @@ class SearchForBookViewController: UIViewController,
             UICollectionViewDataSource,
             UITextFieldDelegate,
             UINavigationControllerDelegate,
-            UIImagePickerControllerDelegate
-{
+            UIImagePickerControllerDelegate{
     
     @IBOutlet var viewModel : SearchForBookViewModel!
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var collectionView: UICollectionView!
     fileprivate var query : String?
-    var photoForOCR : UIImageView = UIImageView()
-    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    fileprivate var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
 
     
     override func viewDidLoad() {
@@ -29,7 +27,6 @@ class SearchForBookViewController: UIViewController,
         self.collectionView.dataSource=self
         self.collectionView.delegate = self
         self.searchField.delegate = self
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -132,30 +129,24 @@ class SearchForBookViewController: UIViewController,
     }
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        //photoForOCR.image = image
-        let smallImage = image.resizedTo1MB()!
-        self.dismiss(animated:true, completion: nil)
         ActivityIndicatorHelper.start(activityIndicator: self.activityIndicator, controller: self)
-        viewModel.SendToOCRApi(image: smallImage) { (result) in
-            ActivityIndicatorHelper.stop(activityIndicator: self.activityIndicator)
-            if let foundText = result {
-                self.searchField.becomeFirstResponder()
-                self.searchField.text = foundText
-                //self.searchField.resignFirstResponder()
-//                self.viewModel.Search(query: foundText, completion: {
-//                    self.collectionView.reloadData()
-//                })
-                //self.query = foundText
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        self.dismiss(animated:true){
+            let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+            if let smallImage = image.resizedTo1MB(){
+                self.viewModel.SendToOCRApi(image: smallImage) { (result) in
+                    ActivityIndicatorHelper.stop(activityIndicator: self.activityIndicator)
+                    UIApplication.shared.endIgnoringInteractionEvents()
+                    if let foundText = result,!foundText.isEmpty {
+                        self.searchField.becomeFirstResponder()
+                        self.searchField.text = foundText
+                    }
+                    else{
+                        AlertMessageHelper.displayMessage(message: "No text found in photo", title: "Search", controller: self)
+                    }
+                }
             }
-            else{
-                AlertMessageHelper.displayMessage(message: "No text found in photo", title: "Search", controller: self)
-            }
-            
         }
-        
-        
-        
     }
     
     

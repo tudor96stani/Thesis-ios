@@ -14,6 +14,7 @@ class MyLibraryViewController: UIViewController,UITableViewDelegate, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var viewModel:MyLibraryViewModel!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
    
     
@@ -58,6 +59,13 @@ class MyLibraryViewController: UIViewController,UITableViewDelegate, UITableView
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //MARK: - Segmneted Control
+    
+    @IBAction func segmentedControlChanged(_ sender: Any) {
+        self.viewModel.changeFilter(newCategory: segmentedControl.selectedSegmentIndex)
+        tableView.reloadData()
     }
     
     //MARK: - TableView

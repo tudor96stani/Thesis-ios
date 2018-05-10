@@ -347,18 +347,23 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWQ-aS-nCC">
-                                            <rect key="frame" x="314" y="11" width="49" height="30"/>
-                                            <state key="normal" title="Accept"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWQ-aS-nCC">
+                                            <rect key="frame" x="313" y="20" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="5RR-bF-Sud"/>
+                                                <constraint firstAttribute="width" constant="50" id="l2g-gY-E2B"/>
+                                            </constraints>
+                                            <state key="normal" image="accept-checkmark"/>
                                             <connections>
                                                 <action selector="acceptBtnPress:" destination="vzH-wh-FDE" eventType="touchUpInside" id="Tt7-ng-4FO"/>
                                             </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="bWQ-aS-nCC" secondAttribute="bottom" constant="48.5" id="0ow-X7-rlR"/>
+                                        <constraint firstAttribute="bottom" secondItem="bWQ-aS-nCC" secondAttribute="bottom" constant="20" id="8zY-Mh-Ahs"/>
                                         <constraint firstItem="gBi-yu-jkD" firstAttribute="leading" secondItem="AGw-pa-7jg" secondAttribute="leading" constant="16" id="DPd-Jc-YbP"/>
                                         <constraint firstItem="bWQ-aS-nCC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="AGw-pa-7jg" secondAttribute="leading" constant="20" symbolic="YES" id="ETs-0W-ZIq"/>
+                                        <constraint firstItem="bWQ-aS-nCC" firstAttribute="top" secondItem="AGw-pa-7jg" secondAttribute="top" constant="20" id="HBG-RV-T4H"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2If-ir-OFI" secondAttribute="trailing" constant="20" symbolic="YES" id="IXK-7J-yD9"/>
                                         <constraint firstItem="2If-ir-OFI" firstAttribute="leading" secondItem="AGw-pa-7jg" secondAttribute="leading" constant="16" id="JYb-9q-x1m"/>
                                         <constraint firstItem="2If-ir-OFI" firstAttribute="top" secondItem="gBi-yu-jkD" secondAttribute="bottom" constant="20.5" id="MW8-gI-niP"/>
@@ -366,7 +371,6 @@
                                         <constraint firstAttribute="trailing" secondItem="bWQ-aS-nCC" secondAttribute="trailing" constant="12" id="Xcw-tV-aTN"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gBi-yu-jkD" secondAttribute="trailing" constant="20" symbolic="YES" id="ec8-WM-QU5"/>
                                         <constraint firstAttribute="bottom" secondItem="2If-ir-OFI" secondAttribute="bottom" constant="16.5" id="pLR-6a-qJ4"/>
-                                        <constraint firstItem="bWQ-aS-nCC" firstAttribute="top" secondItem="AGw-pa-7jg" secondAttribute="top" constant="11" id="sze-uJ-nmU"/>
                                         <constraint firstItem="gBi-yu-jkD" firstAttribute="leading" secondItem="AGw-pa-7jg" secondAttribute="leading" constant="16" id="xTb-s1-i4d"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -408,9 +412,21 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <segmentedControl key="tableHeaderView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Gio-b7-jfn">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <segments>
+                                        <segment title="All"/>
+                                        <segment title="Borrowed"/>
+                                        <segment title="Lent"/>
+                                    </segments>
+                                    <connections>
+                                        <action selector="segmentedControlChanged:" destination="5PK-Hy-jIU" eventType="valueChanged" id="Czb-vk-VAX"/>
+                                    </connections>
+                                </segmentedControl>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myLibraryCell" rowHeight="160" id="WZq-7f-yga" customClass="MyLibraryViewCell" customModule="Thesis" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="160"/>
+                                        <rect key="frame" x="0.0" y="58" width="375" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WZq-7f-yga" id="k6Y-p2-L19">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="159.5"/>
@@ -475,6 +491,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="My books" id="ahY-fk-7zN"/>
                     <connections>
+                        <outlet property="segmentedControl" destination="Gio-b7-jfn" id="sMv-gR-hXW"/>
                         <outlet property="tableView" destination="pLH-qN-SXa" id="Z7i-SI-Rmk"/>
                         <outlet property="viewModel" destination="zMf-gF-eon" id="zGy-1T-2AT"/>
                     </connections>
@@ -1193,28 +1210,27 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="E5I-hJ-fm1">
-                                            <rect key="frame" x="252" y="14" width="107" height="31"/>
+                                            <rect key="frame" x="252" y="5" width="107" height="49.5"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WI-Xo-V5O">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="31"/>
-                                                    <color key="backgroundColor" red="0.0001079517569" green="0.72581363340000005" blue="0.0001674701555" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WI-Xo-V5O">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="49.5"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="8hk-4T-GeD"/>
                                                         <constraint firstAttribute="width" constant="50" id="Adu-dF-0t1"/>
                                                     </constraints>
-                                                    <state key="normal" title="Accept">
+                                                    <state key="normal" image="accept-checkmark">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="acceptBtnPress:" destination="k9n-zK-hx3" eventType="touchUpInside" id="y39-9T-h2b"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cO9-fE-CNn">
-                                                    <rect key="frame" x="55" y="0.0" width="52" height="31"/>
-                                                    <color key="backgroundColor" red="1" green="0.0" blue="0.034920876080000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cO9-fE-CNn">
+                                                    <rect key="frame" x="55" y="0.0" width="52" height="49.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="52" id="7Fx-mV-MfD"/>
                                                     </constraints>
-                                                    <state key="normal" title="Decline">
+                                                    <state key="normal" image="deny-x">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                 </button>
@@ -1222,9 +1238,9 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="E5I-hJ-fm1" secondAttribute="bottom" constant="14.5" id="1oT-yv-VqL"/>
+                                        <constraint firstAttribute="bottom" secondItem="E5I-hJ-fm1" secondAttribute="bottom" constant="5" id="4pw-kL-LB7"/>
+                                        <constraint firstItem="E5I-hJ-fm1" firstAttribute="top" secondItem="pxY-wO-XbV" secondAttribute="top" constant="5" id="XKd-kf-N2D"/>
                                         <constraint firstItem="E5I-hJ-fm1" firstAttribute="leading" secondItem="DXK-Lg-6ZP" secondAttribute="trailing" constant="50" id="ZAn-BG-LKC"/>
-                                        <constraint firstItem="E5I-hJ-fm1" firstAttribute="top" secondItem="pxY-wO-XbV" secondAttribute="top" constant="14.5" id="ea3-kJ-veT"/>
                                         <constraint firstAttribute="trailing" secondItem="E5I-hJ-fm1" secondAttribute="trailing" constant="16" id="fm1-FT-jIV"/>
                                         <constraint firstItem="DXK-Lg-6ZP" firstAttribute="top" secondItem="pxY-wO-XbV" secondAttribute="top" constant="19" id="jZE-8c-ojV"/>
                                         <constraint firstItem="E5I-hJ-fm1" firstAttribute="leading" secondItem="DXK-Lg-6ZP" secondAttribute="trailing" constant="50" id="lyp-fa-0oq"/>
@@ -1472,6 +1488,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="accept-checkmark" width="50" height="50"/>
+        <image name="deny-x" width="48" height="48"/>
         <image name="literature" width="30" height="30"/>
         <image name="news" width="30" height="30"/>
         <image name="settings" width="30" height="30"/>

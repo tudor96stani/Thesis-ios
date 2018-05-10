@@ -9,6 +9,7 @@
 import Foundation
 import KeychainSwift
 import UIKit
+//MARK: - Keys
 extension KeychainSwift{
     enum Keys{
         static let Token = "token"
@@ -26,6 +27,7 @@ extension UserDefaults {
     }
 }
 
+//MARK: - UITextField
 extension UITextField {
     func setBottomBorder() {
         self.borderStyle = .none
@@ -39,6 +41,8 @@ extension UITextField {
     }
 }
 
+
+//MARK: - String
 extension String {
     func toDate(dateFormat: String) -> Date? {
         
@@ -57,6 +61,7 @@ extension String {
     }
 }
 
+//MARK: - UIImageView
 extension UIImageView{
     func addShadow(){
         self.layer.shadowColor = UIColor.black.cgColor
@@ -66,6 +71,7 @@ extension UIImageView{
     }
 }
 
+//MARK: - NSMutableAttributedString
 extension NSMutableAttributedString {
     @discardableResult func bold(_ text: String,size:CGFloat) -> NSMutableAttributedString {
         let attrs: [NSAttributedStringKey: Any] = [.font: UIFont.boldSystemFont(ofSize: size)]
@@ -84,6 +90,7 @@ extension NSMutableAttributedString {
     }
 }
 
+//MARK: - DateFormatter
 extension DateFormatter {
     /**
      Formats a date as the time since that date (e.g., “Last week, yesterday, etc.”).
@@ -229,6 +236,7 @@ extension UIBarButtonItem {
     }
 }
 
+//MARK: - UIImage
 extension UIImage {
     
     func resized(withPercentage percentage: CGFloat) -> UIImage? {
