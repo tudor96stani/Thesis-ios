@@ -63,7 +63,7 @@ class SearchForBookViewController: UIViewController,
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "searchResultCell", for: indexPath) as! SearchForBookCollectionViewCell
         cell.titleAuthorLabel.text = viewModel.GetTitleAndAuthor(for: indexPath)
-        let image = ImageResizeHelper.resizeImage(image: viewModel.BookCoverToDisplay(for: indexPath), newWidth: cell.coverImageView!.bounds.size.width)
+        let image = ImageResizeHelper.resizeImage(image: viewModel.BookCoverToDisplay(for: indexPath), newWidth: cell.coverImageView!.bounds.size.width*2)
         guard let id = viewModel.GetBookId(for: indexPath)
             else{
                 fatalError()

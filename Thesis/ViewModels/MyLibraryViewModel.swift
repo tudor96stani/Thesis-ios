@@ -169,13 +169,69 @@ class MyLibraryViewModel:NSObject{
         }
     }
     
-//    func FindBookDetailsViewModel(for indexPath: IndexPath) -> BookDetailsViewModel?
-//    {
-//        if let book = books?[indexPath.row]
-//        {
-//            let viewmodel = BookDetailsViewModel(b:book)
-//            return viewmodel
-//        }
-//        return nil
-//    }
+    func CanBeDeleted(for indexPath : IndexPath) -> Bool {
+        if let book = self.books?[indexPath.row]{
+            if book.Borrowed ||  book.Lent{
+                return false
+            }
+            return true
+        }
+        return false
+    }
+    
+    func CanBeReturned(for indexPath:IndexPath) -> Bool {
+        if let book = self.books?[indexPath.row]{
+            return book.Borrowed
+        }
+        return false
+    }
+    
+    func DeleteFromLibrary(for indexPath:IndexPath, completion: @escaping (Bool) -> Void){
+        var book : Book? = nil
+        book = self.books?[indexPath.row]
+        if let unwrappedBook = book{
+            apiClient.DeleteFromLibrary(bookId: unwrappedBook.Id) { (ok) in
+                DispatchQueue.main.async{
+                    completion(ok)
+                }
+            }
+        }else{
+            completion(false)
+        }
+    }
+    
+    func ReturnBook(for indexPath:IndexPath,from segment:Int,completion: @escaping (Bool) -> Void){
+        var book : Book? = nil
+        switch segment{
+        case 0:
+            book = self.books?[indexPath.row]
+        case 1:
+            book = self.borrowedBooks?[indexPath.row]
+        default:
+            break
+        }
+        if let unwrappedBook = book {
+            apiClient.ReturnBook(bookId: unwrappedBook.Id, to: unwrappedBook.BorrowedFrom.Id) { (ok) in
+                DispatchQueue.main.async{
+                    completion(ok)
+                }
+            }
+        }
+    }
+    
+    func DeleteFromLocalList(for indexPath:IndexPath, from segment:Int){
+        switch segment{
+        case 0:
+            self.books?.remove(at: indexPath.row)
+        case 1:
+            let bookid = self.borrowedBooks?[indexPath.row].Id
+            self.borrowedBooks?.remove(at:indexPath.row)
+            let idx = self.books?.index(where: { (b) -> Bool in
+                b.Id==bookid
+            })
+            self.books?.remove(at: idx!)
+        default:
+            break
+        }
+    }
 }

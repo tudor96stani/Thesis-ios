@@ -206,7 +206,7 @@ extension UIBarButtonItem {
         // Initialize Badge
         let badge = CAShapeLayer()
         let radius = CGFloat(7)
-        let location = CGPoint(x: view.frame.width - (radius + offset.x), y: (radius + offset.y))
+        let location = CGPoint(x: view.frame.width - (radius + offset.x) + 9, y: (radius + offset.y))
         badge.drawCircleAtLocation(location: location, withRadius: radius, andColor: color, filled: filled)
         view.layer.addSublayer(badge)
         
@@ -263,5 +263,43 @@ extension UIImage {
         }
         
         return resizingImage
+    }
+}
+
+
+//MARK: - UITableViewCell
+extension UITableViewCell{
+    func addBadge(number:Int) {
+        if (number > 0) {
+            // Create label
+            let fontSize : CGFloat = 14;
+            let label : UILabel = UILabel()
+            label.font = UIFont.systemFont(ofSize: fontSize)
+            label.textAlignment = NSTextAlignment.center
+            label.textColor = .white
+            label.backgroundColor = .red
+            
+            // Add count to label and size to fit
+            label.text = String(number)
+            label.sizeToFit()
+            
+            // Adjust frame to be square for single digits or elliptical for numbers > 9
+            var frame : CGRect = label.frame;
+            frame.size.height += 0.4*fontSize
+            frame.size.width = (number <= 9) ? frame.size.height : frame.size.width + fontSize;
+            label.frame = frame;
+            
+            // Set radius and clip to bounds
+            label.layer.cornerRadius = frame.size.height/2.0;
+            label.clipsToBounds = true;
+            
+            // Show label in accessory view and remove disclosure
+            self.accessoryView = label;
+            self.accessoryType = UITableViewCellAccessoryType.none
+        }
+        else {
+            self.accessoryView = nil;
+            self.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+        }
     }
 }

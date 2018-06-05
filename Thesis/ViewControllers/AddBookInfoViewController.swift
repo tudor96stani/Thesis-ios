@@ -28,7 +28,7 @@ class AddBookInfoViewController: UIViewController,UITableViewDelegate,UITableVie
         self.titleLabel.text = viewModel.GetTitle()
         self.authorsLabel.text = viewModel.GetAuthors()
         //let image = ImageResizeHelper.resizeImage(image: viewModel.GetBookCover(), newWidth: self.imageView.bounds.size.width)
-        let image = ImageResizeHelper.imageWithImage(sourceImage: viewModel.GetBookCover(), scaledToWidth: self.imageView.bounds.size.width)
+        let image = ImageResizeHelper.imageWithImage(sourceImage: viewModel.GetBookCover(), scaledToWidth: self.imageView.bounds.size.width*2)
         self.imageView.image = image
         self.imageView.addShadow()
         self.alreadyInLibraryLabel.text = ""

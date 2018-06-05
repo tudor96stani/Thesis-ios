@@ -69,7 +69,7 @@ class NewsFeedViewController: UIViewController,UITableViewDelegate,UITableViewDa
         cell.ownerActionLabel.attributedText = viewModel.OwnerActionToDisplay(for: indexPath)
         cell.titleLabel.text = viewModel.BookTitleToDisplay(for: indexPath)
         cell.authorsLabel.text = viewModel.BookAuthorToDisplay(for: indexPath)
-        let image = ImageResizeHelper.resizeImage(image: viewModel.BookCoverToDisplay(for: indexPath), newWidth: cell.coverView!.bounds.size.width)
+        let image = ImageResizeHelper.resizeImage(image: viewModel.BookCoverToDisplay(for: indexPath), newWidth: cell.coverView!.bounds.size.width*2)
         cell.coverView?.image = image
         cell.dateLabel.text = viewModel.GetTimeSincePostCreated(for: indexPath)
         return cell

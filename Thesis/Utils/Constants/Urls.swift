@@ -34,7 +34,9 @@ enum Urls{
     static let GetBorrowRequests = BaseUrl + "books/borrow/requests"
     static let AcceptBorrowRequest = BaseUrl + "books/borrow/accept"
     static let SendBorrowRequest = BaseUrl + "books/borrow/request"
+    static let ReturnBook = BaseUrl + "books/borrow/return"
     static let OCR = "http://api.ocr.space/parse/image"
+    static let DeleteFromLibrary = BaseUrl + "books/delete?bookId="
 }
 
 enum Constants {

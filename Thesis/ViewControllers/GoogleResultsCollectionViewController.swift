@@ -102,7 +102,7 @@ class GoogleResultsCollectionViewController: UICollectionViewController {
     
         // Configure the cell
         cell.titleAuthorLabel.text = viewModel.GetTitleAndAuthor(for: indexPath)
-        let image = ImageResizeHelper.resizeImage(image: viewModel.BookCoverToDisplay(for: indexPath), newWidth: cell.coverView!.bounds.size.width)
+        let image = ImageResizeHelper.resizeImage(image: viewModel.BookCoverToDisplay(for: indexPath), newWidth: cell.coverView!.bounds.size.width*2)
         cell.coverView?.image = image
         cell.coverView?.addShadow()
         guard let id = viewModel.GetBookId(for: indexPath)

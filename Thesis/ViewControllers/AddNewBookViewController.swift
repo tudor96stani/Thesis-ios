@@ -21,7 +21,7 @@ class AddNewBookViewController: UIViewController,UITextFieldDelegate {
         // Do any additional setup after loading the view.
         self.titleField.text = viewModel.GetTile()
         self.authorsField.text = viewModel.GetAuthors()
-        let image = ImageResizeHelper.imageWithImage(sourceImage: viewModel.GetBookCover(), scaledToWidth: self.coverVIew.bounds.size.width)
+        let image = ImageResizeHelper.imageWithImage(sourceImage: viewModel.GetBookCover(), scaledToWidth: self.coverVIew.bounds.size.width*2)
         self.coverVIew.image = image
         self.coverVIew.addShadow()
         

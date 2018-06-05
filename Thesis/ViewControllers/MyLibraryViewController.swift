@@ -79,10 +79,72 @@ class MyLibraryViewController: UIViewController,UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "myLibraryCell", for: indexPath) as! MyLibraryViewCell
         cell.TitleLabel?.text = viewModel.BookTitleToDisplay(for: indexPath)
         cell.AuthorLabel?.text = viewModel.BookAuthorToDisplay(for: indexPath)
-        let image = ImageResizeHelper.resizeImage(image: viewModel.BookCoverToDisplay(for: indexPath), newWidth: cell.CoverView!.bounds.size.width)
+        let image = ImageResizeHelper.resizeImage(image: viewModel.BookCoverToDisplay(for: indexPath), newWidth: cell.CoverView!.bounds.size.width*2)
         cell.CoverView?.image = image
         cell.sourceLabel.text = viewModel.GetSource(for: indexPath)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if segmentedControl.selectedSegmentIndex == 2 {
+            return false;
+        }
+        if viewModel.CanBeDeleted(for: indexPath) || viewModel.CanBeReturned(for: indexPath)
+        {
+            return true;
+        }
+        else{
+            return false
+        }
+    }
+
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        switch segmentedControl.selectedSegmentIndex{
+        case 0:
+            //All books - both delete and return
+            if viewModel.CanBeDeleted(for: indexPath){
+                let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+                    self.viewModel.DeleteFromLibrary(for: indexPath,completion: { (result) in
+                        if result {
+                            self.viewModel.DeleteFromLocalList(for: indexPath, from: 0)
+                            self.tableView.reloadData()
+                        }
+                    })
+                }
+                return [delete]
+            }
+            else if viewModel.CanBeReturned(for: indexPath){
+                let returnBook = UITableViewRowAction(style: .default, title: "Return") { (action, indexPath) in
+                    self.viewModel.ReturnBook(for: indexPath, from: 0, completion: { (ok) in
+                        if ok {
+                            self.viewModel.DeleteFromLocalList(for: indexPath, from: 0)
+                            self.tableView.reloadData()
+                        }
+                        else{
+                            AlertMessageHelper.displayMessage(message: "Could not return book", title: "Return", controller: self)
+                        }
+                    })
+                }
+                returnBook.backgroundColor = UIColor.green.withAlphaComponent(0.5)
+                return [returnBook]
+            }else{
+                return nil
+            }
+            
+        case 1:
+            //Borrowed books
+            let returnBook = UITableViewRowAction(style: .default, title: "Return") { (action, indexPath) in
+                // return item at indexPath
+            }
+            returnBook.backgroundColor = UIColor.green.withAlphaComponent(0.5)
+            return [returnBook]
+        case 2:
+            //Lent books - no actions here
+            return nil
+        default:
+            return nil
+        }
     }
     
     

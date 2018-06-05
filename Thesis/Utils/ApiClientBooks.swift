@@ -257,6 +257,29 @@ class ApiClientBooks:NSObject{
         }
     }
     
+    func ReturnBook(bookId:UUID,to lenderId:String,completion:@escaping (Bool) -> Void){
+        let token = self.keychain.get(KeychainSwift.Keys.Token)
+        let headers : HTTPHeaders = [
+            "Authorization" : "Bearer \(token!)"
+        ]
+        
+        let params : Parameters = [
+            "From":lenderId.lowercased(),
+            "BookId":bookId.uuidString
+        ]
+        
+        Alamofire.request(Urls.ReturnBook,method:.post,parameters:params,encoding:URLEncoding.httpBody,headers:headers)
+            .validate()
+            .response { (response) in
+                switch response.response?.statusCode{
+                case 200?:
+                    completion(true)
+                default:
+                    completion(false)
+                }
+        }
+    }
+    
     func CallOCR(imageData: NSData, completion: @escaping (String?) -> Void){
         let api_key = Constants.OCR_API_KEY;
         let headers : HTTPHeaders = [
@@ -278,6 +301,25 @@ class ApiClientBooks:NSObject{
                     completion(text)
                 case .failure( _):
                     completion(nil)
+                }
+        }
+    }
+    
+    func DeleteFromLibrary(bookId:UUID,completion:@escaping (Bool)->Void){
+        let token = self.keychain.get(KeychainSwift.Keys.Token)
+        let headers : HTTPHeaders = [
+            "Authorization" : "Bearer \(token!)"
+        ]
+        
+        let url = Urls.DeleteFromLibrary + bookId.uuidString
+        Alamofire.request(url,method:.delete,headers:headers)
+            .validate()
+            .response { (response) in
+                switch response.response?.statusCode{
+                case 200?:
+                    completion(true)
+                default:
+                    completion(false)
                 }
         }
     }

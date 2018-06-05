@@ -27,38 +27,7 @@ class SettingsTableViewController: UITableViewController {
         
         self.viewModel.GetFriendRequestsNumber {
             let cell = self.tableView.cellForRow(at: IndexPath(item: 1, section: 0))
-            if (self.viewModel.friendRequests > 0) {
-                
-                // Create label
-                let fontSize : CGFloat = 14;
-                let label : UILabel = UILabel()
-                label.font = UIFont.systemFont(ofSize: fontSize)
-                label.textAlignment = NSTextAlignment.center
-                label.textColor = .white
-                label.backgroundColor = .red
-                
-                // Add count to label and size to fit
-                label.text = String(self.viewModel.friendRequests)
-                label.sizeToFit()
-                
-                // Adjust frame to be square for single digits or elliptical for numbers > 9
-                var frame : CGRect = label.frame;
-                frame.size.height += 0.4*fontSize
-                frame.size.width = (self.viewModel.friendRequests <= 9) ? frame.size.height : frame.size.width + fontSize;
-                label.frame = frame;
-                
-                // Set radius and clip to bounds
-                label.layer.cornerRadius = frame.size.height/2.0;
-                label.clipsToBounds = true;
-                
-                // Show label in accessory view and remove disclosure
-                cell?.accessoryView = label;
-                cell?.accessoryType = UITableViewCellAccessoryType.none
-            }
-            else {
-                cell?.accessoryView = nil;
-                cell?.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
-            }
+            cell?.addBadge(number: self.viewModel.friendRequests)
         }
     }
     
