@@ -11,7 +11,7 @@ import UIKit
 class AddBookInfoViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     var viewModel : AddBookInfoViewModel!
-    
+    fileprivate var inLibrary: Bool = false
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -35,6 +35,7 @@ class AddBookInfoViewController: UIViewController,UITableViewDelegate,UITableVie
         self.tableView.delegate=self
         self.tableView.dataSource=self
         self.reloadData()
+        self.tableView?.tableFooterView = UIView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,11 +46,23 @@ class AddBookInfoViewController: UIViewController,UITableViewDelegate,UITableVie
         addBtn.addTarget(self, action: #selector(addAction(_:)), for: .touchUpInside)
         self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(customView:addBtn)
         self.viewModel.CheckIfInLibrary { (result) in
+            self.inLibrary = result
             if result {
+                
                 self.alreadyInLibraryLabel.text = "Book already in your library"
-                self.checkMarkImageViwe.image = ImageResizeHelper.imageWithImage(sourceImage: UIImage(named: "checkmark_green")!, scaledToWidth: self.checkMarkImageViwe.bounds.width)
+                self.checkMarkImageViwe.image = ImageResizeHelper.imageWithImage(sourceImage: UIImage(named: "checkmark_green")!, scaledToWidth: self.checkMarkImageViwe.bounds.width*2)
+                
+                let addBtn = UIButton(type: .custom)
+                addBtn.tintColor = .gray
+                addBtn.setTitle("Add to library", for: [])
+                addBtn.setTitleColor(addBtn.tintColor, for: [])
+                addBtn.addTarget(self, action: #selector(self.addAction(_:)), for: .touchUpInside)
+                self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(customView:addBtn)
+                
                 self.tabBarController?.navigationItem.rightBarButtonItem?.isEnabled = false;
-                self.tabBarController?.navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedStringKey.foregroundColor : UIColor.gray], for: .disabled)
+                //self.tabBarController?.navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedStringKey.foregroundColor : UIColor.gray], for: .disabled)
+                //self.tabBarController?.navigationItem.rightBarButtonItem?.tintColor = .gray
+                
             }
         }
     }
@@ -95,6 +108,7 @@ class AddBookInfoViewController: UIViewController,UITableViewDelegate,UITableVie
         
         // Configure the cell...
         cell.nameLabel.text = viewModel.GetOwnerName(for: indexPath)
+        cell.setButtonDesign(isInLibrary: self.inLibrary)
         cell.requestAction = {
             self.viewModel.SendBorrowRequest(to: indexPath, completion: { (success) in
                 if success {

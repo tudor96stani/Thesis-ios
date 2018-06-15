@@ -11,6 +11,7 @@ import UIKit
 class AddBookInfoOwnerTableViewCell: UITableViewCell {
 
     
+    @IBOutlet weak var requestBtn: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     var requestAction: (()->Void)?
     override func awakeFromNib() {
@@ -26,5 +27,12 @@ class AddBookInfoOwnerTableViewCell: UITableViewCell {
 
     @IBAction func requestBtnPress(_ sender: Any) {
         requestAction?()
+    }
+    
+    func setButtonDesign(isInLibrary: Bool) {
+        if isInLibrary{
+            self.requestBtn.isEnabled=false;
+            self.requestBtn.tintColor = .gray
+        }
     }
 }

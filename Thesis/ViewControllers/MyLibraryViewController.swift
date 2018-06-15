@@ -81,7 +81,9 @@ class MyLibraryViewController: UIViewController,UITableViewDelegate, UITableView
         cell.AuthorLabel?.text = viewModel.BookAuthorToDisplay(for: indexPath)
         let image = ImageResizeHelper.resizeImage(image: viewModel.BookCoverToDisplay(for: indexPath), newWidth: cell.CoverView!.bounds.size.width*2)
         cell.CoverView?.image = image
+        cell.CoverView?.addShadow()
         cell.sourceLabel.text = viewModel.GetSource(for: indexPath)
+        cell.selectionStyle = .none
         return cell
     }
     
