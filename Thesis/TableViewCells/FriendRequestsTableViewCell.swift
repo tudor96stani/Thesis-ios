@@ -13,6 +13,7 @@ class FriendRequestsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     
+    @IBOutlet weak var commonFriendsLabel: UILabel!
     @IBOutlet weak var acceptBtn: UIButton!
     
     @IBOutlet weak var declineBtn: UIButton!

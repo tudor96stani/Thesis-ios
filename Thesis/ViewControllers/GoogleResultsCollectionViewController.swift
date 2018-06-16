@@ -28,10 +28,10 @@ class GoogleResultsCollectionViewController: UICollectionViewController {
         self.tabBarController?.title="Search for " + self.viewModel.query
         self.collectionView?.contentInset = UIEdgeInsetsMake(-40, 0, 0, 0)
         //self.collectionView?.contentInsetAdjustmentBehavior = .never
-        collectionView?.infiniteScrollIndicatorView = CustomInfiniteIndicator(frame: CGRect(x: 0, y: 90, width: 24, height: 24))
+        collectionView?.infiniteScrollIndicatorView = CustomInfiniteIndicator(frame: CGRect(x: 90, y: 190, width: 24, height: 24))
         
         // Set custom indicator margin
-        //collectionView?.infiniteScrollIndicatorMargin = 80
+        collectionView?.infiniteScrollIndicatorMargin = 80
         
         // Add infinite scroll handler
         collectionView?.addInfiniteScroll { [weak self] (scrollView) -> Void in

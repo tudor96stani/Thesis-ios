@@ -145,7 +145,7 @@ class ApiClientUsers:NSObject{
         }
     }
     
-    func GetFriendRequests(completion:@escaping ([User]?)->Void){
+    func GetFriendRequests(completion:@escaping ([User]?,[Int]?)->Void){
         let token = self.keychain.get(KeychainSwift.Keys.Token)!
         let headers : HTTPHeaders = [
             "Authorization" : "Bearer \(token)"
@@ -157,10 +157,17 @@ class ApiClientUsers:NSObject{
                 switch response.result{
                 case .success(let value):
                     let json = JSON(value)
-                    let users = json.handleUserArray()
-                    completion(users)
+                    var users = [User]()
+                    var count = [Int]()
+                    for(_,subJson) in json{
+                        users.append(User(json: subJson["user"]))
+                        count.append(subJson["commonFriendsCount"].intValue)
+                    }
+                    
+                    completion(users,count)
+                    
                 case .failure( _):
-                    completion(nil)
+                    completion(nil,nil)
                 }
         }
     }
@@ -241,6 +248,26 @@ class ApiClientUsers:NSObject{
                 }
         }
         
+    }
+    
+    func GetNumberOfCommonFriends(userId:String, completion: @escaping (Int) -> Void){
+        let token = self.keychain.get(KeychainSwift.Keys.Token)!
+        let headers : HTTPHeaders = [
+            "Authorization" : "Bearer \(token)"
+        ]
+        let url = Urls.NumberOfCommonFriends + userId
+        Alamofire.request(url, headers:headers)
+            .validate()
+            .responseJSON { (response) in
+                switch response.result{
+                case .success(let value):
+                    let json = JSON(value)
+                    let result = json["Count"].intValue
+                    completion(result)
+                case .failure( _):
+                    completion(-1)
+                }
+        }
     }
     
 }

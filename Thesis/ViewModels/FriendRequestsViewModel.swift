@@ -11,6 +11,7 @@ class FriendRequestsViewModel:NSObject{
     
     @IBOutlet var apiClient : ApiClientUsers!
     var requests : [User]?
+    var count : [Int]?
     
     func GetFriendName(for indexPath:IndexPath) -> String{
         return (requests?[indexPath.row].Username) ?? ""
@@ -24,6 +25,18 @@ class FriendRequestsViewModel:NSObject{
         return requests?.count ?? 0
     }
     
+    func GetNumberOfCommonFriends(for indexPath:IndexPath) -> String {
+        if let c = count?[indexPath.row]{
+            if c == 1 {
+                return "\(String(c)) common friend"
+            }else {
+                return "\(String(c)) common friends"
+            }
+        
+        }
+        else { return "No common friends" }
+    }
+    
     func AcceptRequest(for indexPath:IndexPath,completion:@escaping (Bool) -> Void){
         if let userId = self.requests?[indexPath.row].Id{
             self.apiClient.AcceptRequest(userId: userId) { (ok) in
@@ -35,9 +48,10 @@ class FriendRequestsViewModel:NSObject{
     }
     
     func GetFriendRequests(completion:@escaping ()->Void){
-        apiClient.GetFriendRequests{ (users) in
+        apiClient.GetFriendRequests{ (users,count) in
             DispatchQueue.main.async {
                 self.requests = users
+                self.count = count
                 completion()
             }
         }

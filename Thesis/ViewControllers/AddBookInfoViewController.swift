@@ -18,6 +18,8 @@ class AddBookInfoViewController: UIViewController,UITableViewDelegate,UITableVie
     @IBOutlet weak var authorsLabel: UILabel!
     @IBOutlet weak var checkMarkImageViwe: UIImageView!
     @IBOutlet weak var alreadyInLibraryLabel: UILabel!
+    @IBOutlet weak var publishYearLabel: UILabel!
+    @IBOutlet weak var publisherLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,8 @@ class AddBookInfoViewController: UIViewController,UITableViewDelegate,UITableVie
         
         self.titleLabel.text = viewModel.GetTitle()
         self.authorsLabel.text = viewModel.GetAuthors()
+        self.publishYearLabel.text = viewModel.GetPublishYear()
+        self.publisherLabel.text = viewModel.GetPublisher()
         //let image = ImageResizeHelper.resizeImage(image: viewModel.GetBookCover(), newWidth: self.imageView.bounds.size.width)
         let image = ImageResizeHelper.imageWithImage(sourceImage: viewModel.GetBookCover(), scaledToWidth: self.imageView.bounds.size.width*2)
         self.imageView.image = image
@@ -34,6 +38,7 @@ class AddBookInfoViewController: UIViewController,UITableViewDelegate,UITableVie
         self.alreadyInLibraryLabel.text = ""
         self.tableView.delegate=self
         self.tableView.dataSource=self
+        
         self.reloadData()
         self.tableView?.tableFooterView = UIView()
     }
@@ -60,9 +65,6 @@ class AddBookInfoViewController: UIViewController,UITableViewDelegate,UITableVie
                 self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(customView:addBtn)
                 
                 self.tabBarController?.navigationItem.rightBarButtonItem?.isEnabled = false;
-                //self.tabBarController?.navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedStringKey.foregroundColor : UIColor.gray], for: .disabled)
-                //self.tabBarController?.navigationItem.rightBarButtonItem?.tintColor = .gray
-                
             }
         }
     }

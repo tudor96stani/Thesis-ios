@@ -21,6 +21,7 @@ enum Urls{
     static let Register = BaseUrl + "user/register"
     static let FindUsers = BaseUrl + "user/find?query="
     static let AddFriend = BaseUrl + "user/requests/add?userid="
+    static let NumberOfCommonFriends = BaseUrl + "user/friends/common?userId="
     
     //MARK: Books
     static let GetLibrary = BaseUrl + "books/"

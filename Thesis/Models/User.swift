@@ -8,13 +8,20 @@
 
 import Foundation
 import SwiftyJSON
-public class User {
+public class User:Hashable {
+    public var hashValue: Int
+    
+    public static func == (lhs: User, rhs: User) -> Bool {
+        return lhs.Id==rhs.Id
+    }
+    
     var Id:String
     var Username:String
     
     init(id:String,username:String){
         Id=id
         Username=username
+        hashValue=Id.hashValue
     }
     
     init(json: JSON)
@@ -29,6 +36,6 @@ public class User {
         }else{
             Username = json["name"].stringValue
         }
-        
+        hashValue=Id.hashValue
     }
 }

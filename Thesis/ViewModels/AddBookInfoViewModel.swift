@@ -32,6 +32,14 @@ class AddBookInfoViewModel:NSObject{
         return ""
     }
     
+    func GetPublishYear() -> String {
+        return "Published in \(String(book.Year))"
+    }
+    
+    func GetPublisher() -> String {
+        return "by \(book.Publisher)"
+    }
+    
     func GetBookCover() -> UIImage{
         if let cover = self.book.Cover{
             return UIImage(data:cover as Data)!

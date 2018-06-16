@@ -22,6 +22,7 @@ class FriendRequestsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.tableView.contentInset = UIEdgeInsetsMake(-40, 0, 0, 0)
         self.tableView.tableFooterView = UIView()
+        self.tabBarController?.title="Friend requests"
         self.reloadData()
     }
     
@@ -61,7 +62,7 @@ class FriendRequestsTableViewController: UITableViewController {
         cell.acceptBtn.clipsToBounds = true
         cell.declineBtn.layer.cornerRadius = 10
         cell.declineBtn.clipsToBounds = true
-        
+        cell.commonFriendsLabel.text = viewModel.GetNumberOfCommonFriends(for: indexPath)
         cell.acceptAction = {
             self.viewModel.AcceptRequest(for: indexPath, completion: { (success) in
                 if !success {
