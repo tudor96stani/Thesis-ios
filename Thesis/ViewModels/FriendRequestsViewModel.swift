@@ -47,6 +47,16 @@ class FriendRequestsViewModel:NSObject{
         }
     }
     
+    func RejectRequest(for indexPath:IndexPath,completion:@escaping (Bool) -> Void){
+        if let userId = self.requests?[indexPath.row].Id{
+            self.apiClient.RejectRequest(userId: userId) { (ok) in
+                DispatchQueue.main.async {
+                    completion(ok)
+                }
+            }
+        }
+    }
+    
     func GetFriendRequests(completion:@escaping ()->Void){
         apiClient.GetFriendRequests{ (users,count) in
             DispatchQueue.main.async {

@@ -43,4 +43,16 @@ class BorrowRequestsViewModel : NSObject {
         }
         
     }
+    
+    func RejectRequest(at indexPath:IndexPath,completion:@escaping (Bool)->Void){
+        if let userid = requests?[indexPath.row].borrower.Id,
+            let bookid = requests?[indexPath.row].book.Id {
+            self.apiClient.RejectBorrowRequest(userId: userid, bookId: bookid) { (ok) in
+                DispatchQueue.main.async {
+                    completion(ok)
+                }
+            }
+        }
+        
+    }
 }

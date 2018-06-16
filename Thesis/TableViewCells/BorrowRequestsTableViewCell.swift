@@ -13,7 +13,7 @@ class BorrowRequestsTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     var acceptAction: (()->Void)?
-    
+    var rejectAction: (()->Void)?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,6 +28,10 @@ class BorrowRequestsTableViewCell: UITableViewCell {
     
     @IBAction func acceptBtnPress(_ sender: Any) {
         acceptAction?()
+    }
+    
+    @IBAction func rejectBtnPress(_ sender: Any) {
+        rejectAction?()
     }
     
 }

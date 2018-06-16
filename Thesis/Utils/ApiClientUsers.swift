@@ -211,6 +211,25 @@ class ApiClientUsers:NSObject{
         
     }
     
+    func RejectRequest(userId:String,completion:@escaping (Bool)->Void){
+        let token = self.keychain.get(KeychainSwift.Keys.Token)!
+        let headers : HTTPHeaders = [
+            "Authorization" : "Bearer \(token)"
+        ]
+        let url = Urls.RejectFriendRequest + userId
+        Alamofire.request(url,method:.post,headers:headers)
+            .validate()
+            .response { (response) in
+                switch response.response?.statusCode{
+                case 200?:
+                    completion(true)
+                default:
+                    completion(false)
+                }
+        }
+        
+    }
+    
     func FindFriends(query:String, completion:@escaping ([User]?)->Void){
         let token = self.keychain.get(KeychainSwift.Keys.Token)!
         let headers : HTTPHeaders = [
@@ -250,24 +269,6 @@ class ApiClientUsers:NSObject{
         
     }
     
-    func GetNumberOfCommonFriends(userId:String, completion: @escaping (Int) -> Void){
-        let token = self.keychain.get(KeychainSwift.Keys.Token)!
-        let headers : HTTPHeaders = [
-            "Authorization" : "Bearer \(token)"
-        ]
-        let url = Urls.NumberOfCommonFriends + userId
-        Alamofire.request(url, headers:headers)
-            .validate()
-            .responseJSON { (response) in
-                switch response.result{
-                case .success(let value):
-                    let json = JSON(value)
-                    let result = json["Count"].intValue
-                    completion(result)
-                case .failure( _):
-                    completion(-1)
-                }
-        }
-    }
+    
     
 }

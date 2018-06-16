@@ -75,6 +75,19 @@ class FriendRequestsTableViewController: UITableViewController {
                 }
             })
         }
+        
+        cell.rejectAction = {
+            self.viewModel.RejectRequest(for: indexPath, completion: { (success) in
+                if !success {
+                    AlertMessageHelper.displayMessage(message: "Something went wrong", title: "Reject request", controller: self)
+                }
+                else{
+                    AlertMessageHelper.displayMessage(message: "Request successfully rejected!", title: "Reject request", controller: self)
+                    self.viewModel.RemoveFromArray(at: indexPath)
+                    self.tableView.reloadData()
+                }
+            })
+        }
         return cell
     }
  

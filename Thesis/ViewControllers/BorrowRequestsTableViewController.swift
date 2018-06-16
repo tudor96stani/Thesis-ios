@@ -68,6 +68,18 @@ class BorrowRequestsTableViewController: UITableViewController {
                 }
             })
         }
+        cell.rejectAction = {
+            self.viewModel.RejectRequest(at: indexPath, completion: { (success) in
+                if success {
+                    AlertMessageHelper.displayMessage(message: "Request rejected", title: "Borrow request", controller: self)
+                    self.reloadData()
+                }
+                else{
+                    AlertMessageHelper.displayMessage(message: "Could not reject request", title: "Borrow request", controller: self)
+                }
+            })
+        }
+
         return cell
     }
     

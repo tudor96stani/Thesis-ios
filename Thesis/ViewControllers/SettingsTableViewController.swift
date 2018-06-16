@@ -25,15 +25,17 @@ class SettingsTableViewController: UITableViewController {
         self.tableView.tableFooterView = UIView()
         self.tableView.contentInset = UIEdgeInsetsMake(-50, 0, 0, 0)
         
-        self.viewModel.GetFriendRequestsNumber {
-            let cell = self.tableView.cellForRow(at: IndexPath(item: 1, section: 0))
-            cell?.addBadge(number: self.viewModel.friendRequests)
-        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         if let selectedRow = self.tableView.indexPathForSelectedRow{
             self.tableView.deselectRow(at: selectedRow, animated: true)
+        }
+        
+        self.viewModel.GetFriendRequestsNumber {
+            let cell = self.tableView.cellForRow(at: IndexPath(item: 1, section: 0))
+            cell?.addBadge(number: self.viewModel.friendRequests)
         }
     }
 

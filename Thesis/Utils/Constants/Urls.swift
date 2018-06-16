@@ -21,7 +21,7 @@ enum Urls{
     static let Register = BaseUrl + "user/register"
     static let FindUsers = BaseUrl + "user/find?query="
     static let AddFriend = BaseUrl + "user/requests/add?userid="
-    static let NumberOfCommonFriends = BaseUrl + "user/friends/common?userId="
+    static let RejectFriendRequest = BaseUrl + "user/requests/reject?userId="
     
     //MARK: Books
     static let GetLibrary = BaseUrl + "books/"
@@ -34,6 +34,7 @@ enum Urls{
     static let GetNumberOfBorrowRequests = BaseUrl + "books/borrow/request/count"
     static let GetBorrowRequests = BaseUrl + "books/borrow/requests"
     static let AcceptBorrowRequest = BaseUrl + "books/borrow/accept"
+    static let RejectBorrowRequest = BaseUrl + "books/borrow/reject"
     static let SendBorrowRequest = BaseUrl + "books/borrow/request"
     static let ReturnBook = BaseUrl + "books/borrow/return"
     static let OCR = "http://api.ocr.space/parse/image"

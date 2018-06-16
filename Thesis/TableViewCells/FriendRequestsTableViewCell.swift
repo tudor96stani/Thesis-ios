@@ -19,6 +19,7 @@ class FriendRequestsTableViewCell: UITableViewCell {
     @IBOutlet weak var declineBtn: UIButton!
     
     var acceptAction: (()->Void)? = nil
+    var rejectAction: (()->Void)? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,5 +37,8 @@ class FriendRequestsTableViewCell: UITableViewCell {
     }
     
     
-
+    @IBAction func declineBtnPress(_ sender: Any) {
+        rejectAction?()
+    }
+    
 }

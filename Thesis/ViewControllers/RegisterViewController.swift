@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController,UITextFieldDelegate {
 
     @IBOutlet var viewModel : RegisterViewModel!
     
@@ -21,6 +21,13 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        usernameField.delegate=self
+        passwordField.delegate=self
+        confirmPasswordField.delegate=self
+        usernameField.tag=0
+        passwordField.tag=1
+        confirmPasswordField.tag=2
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,6 +59,19 @@ class RegisterViewController: UIViewController {
         }
     }
     
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        // Try to find next responder
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        } else {
+            // Not found, so remove keyboard.
+            textField.resignFirstResponder()
+        }
+        // Do not add a line break
+        return false
+    }
     
     /*
     // MARK: - Navigation
