@@ -84,6 +84,7 @@ class MyLibraryViewController: UIViewController,UITableViewDelegate, UITableView
         cell.CoverView?.addShadow()
         cell.sourceLabel.text = viewModel.GetSource(for: indexPath)
         cell.selectionStyle = .none
+        
         return cell
     }
     

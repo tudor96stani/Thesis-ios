@@ -28,6 +28,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         
         let backButton = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: navigationController, action: nil)
         navigationItem.leftBarButtonItem = backButton
+        self.title = "Log in"
     }
 
     override func didReceiveMemoryWarning() {

@@ -26,6 +26,7 @@ class SearchForFriendsTableViewController: UITableViewController,UISearchBarDele
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.title="Find friends"
         self.tabBarController?.navigationItem.leftBarButtonItem=UIBarButtonItem(customView: BackButtonHelper.GetBackButton(controller: self, selector: #selector(backAction(_:))))
     }
 
